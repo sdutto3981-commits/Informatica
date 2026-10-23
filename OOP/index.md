@@ -1,3 +1,3 @@
 # Index OOP
 
-* [Classj astrate](./classi astratte.md)
+* [Classj astrate](./Classi astratte.md)
