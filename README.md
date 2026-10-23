@@ -1,1 +1,3 @@
-ECHO attivo.
+# Informatica
+
+Esericizzi e appunti 
