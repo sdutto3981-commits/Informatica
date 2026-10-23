@@ -1,7 +1,3 @@
----
-date: 2025-09-16
-time: 10:16
----
 # SCF Schemi di Composizione Fondamentale
 
 >[!tip] SCF
@@ -28,5 +24,3 @@ Sono una sequenza di comandi che presentano una condizione prima o dopo un azion
 Le peculiarità sono per il *precondizionale* potrebbe capitare che l'azione non venga mai eseguita mentre per il *post condizionale* l'azione viene eseguita almeno una volta
 
 Quando sappiamo anche quante volte questo ciclo viene eseguito possiamo usare **for** ovvero è un ciclo che viene eseguito n volte dal programma 
-## Riferimenti
-1. 

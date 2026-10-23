@@ -1,7 +1,3 @@
----
-date: 2025-11-18
-time: 10:06
----
 # Algoritmi ricerca
 
 ## Caso 1

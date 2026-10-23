@@ -1,7 +1,3 @@
----
-date: 2025-12-03
-time: 12:45
----
 # ricerca dicotomica
 
 Funziona solo nel caso ordinato 
@@ -27,5 +23,3 @@ Se v[meta] == x
 		output: non trovato
 Fine
 ```
-## Riferimenti
-1. 

@@ -1,7 +1,3 @@
----
-date: 2025-09-18
-time: 08:23
----
 # Regole di Morgan
 
 
@@ -20,5 +16,3 @@ Le leggi di De Morgan nelle operazioni logiche e insiemistiche:
     - **In logica:** `NON (A OR B)` è equivalente a `(NON A) AND (NON B)`.
     - **In insiemistica:** Il complemento di un'intersezione (A ∩ B)' è l'unione dei complementi A' ∪ B'.
     - **Spiegazione:** Per trovare il complemento dell'intersezione di due insiemi, devi trovare l'unione dei loro complementi.
-## Riferimenti
-1. 

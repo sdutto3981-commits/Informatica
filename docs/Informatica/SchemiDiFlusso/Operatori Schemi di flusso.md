@@ -1,7 +1,3 @@
----
-date: 2025-09-16
-time: 10:08
----
 # Operatori Schemi di flusso
 
 Gli operatori che si presentano all'interno delgli scemi dio flusso sono diversi inizaimo con:
@@ -25,7 +21,7 @@ Sono questi `Not And Or` quindi:
 
 #### Gli operatori matematici
 
-
-
-## Riferimenti
-1. 
+- Addizione e sottrazio + -
+- Moltiplicazione *
+- Divisione /
+- Modulo %
