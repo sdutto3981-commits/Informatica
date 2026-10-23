@@ -33,8 +33,7 @@ jobs:
             mkdocs-material-
             
       - name: Install dependencies
-        # Inserisci qui tutti i plugin che hai definito nel mkdocs.yml
-        run: pip install mkdocs-material mkdocs-awesome-pages-plugin mkdocs-roamlinks-plugin mkdocs-git-revision-date-localized-plugin mkdocs-minify-plugin mkdocs-print-site-plugin
+        run: pip install mkdocs-material mkdocs-awesome-pages-plugin mkdocs-roamlinks-plugin mkdocs-git-revision-date-localized-plugin mkdocs-minify-plugin mkdocs-print-site-plugin mkdocs-glightbox
         
       - name: Deploy
         run: mkdocs gh-deploy --force
