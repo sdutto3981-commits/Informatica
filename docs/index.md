@@ -1,2 +1,6 @@
 ## I miei appunti
-* [Introduzione alla OOP](OOP/index.md)
+
+* [Informatica](Informatica/index.md)
+* [Sistemi](Sistemi/index.md)
+* [TPSIT](TPSIT/index.md)
+* [Telecomunicazioni](Telecomunicazioni/index.md)
