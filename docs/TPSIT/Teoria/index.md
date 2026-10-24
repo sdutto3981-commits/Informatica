@@ -15,4 +15,4 @@ Questa sezione raccoglie i fondamenti di multimedialità, immagini, audio, video
 
 RGB è un modello additivo usato negli schermi; CMYK è sottrattivo e usato nella stampa. Una bitmap è composta da pixel, mentre un'immagine vettoriale è descritta tramite forme. Lossless conserva tutte le informazioni originali; lossy ne scarta una parte per ridurre la dimensione.
 
-Per il quadro del corso consulta il [programma TPSIT](../../Programmi/tpsit.md).
+

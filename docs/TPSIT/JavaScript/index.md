@@ -1,16 +1,26 @@
-# JavaScript
+# JavaScript — programmazione lato client
 
-JavaScript permette di aggiungere comportamento alle pagine web. Nel programma di terza si studiano sintassi, variabili, controllo del flusso, DOM, eventi e timer.
+JavaScript permette di manipolare il DOM, rispondere agli eventi e creare interazioni nel browser. Il percorso scolastico va dalla sintassi di base a piccoli programmi e giochi.
 
-## Percorso
+## Percorso di studio
 
-- [Introduzione a JavaScript](Introduzione%20JavaScript.md)
-- [Variabili](Variabili%20js.md)
-- [Dichiarazione delle variabili](Dichiarazioni%20variabili%20js.md)
-- [Strutture e tipi di dati](Strutture%20e%20tipi%20di%20dati.md)
-- [Operatori e controllo](Operatori%20di%20controllo%20js.md)
+- [Introduzione](Introduzione%20JavaScript.md)
+- [Variabili](Variabili%20js.md) e [dichiarazioni](Dichiarazioni%20variabili%20js.md)
+- [Tipi e conversioni](Strutture%20e%20tipi%20di%20dati.md)
+- [Operatori, condizioni e cicli](Operatori%20di%20controllo%20js.md)
+- [Funzioni](Funzioni%20JavaScript.md)
+- [Array e oggetti](Array%20e%20oggetti%20JavaScript.md)
 - [DOM ed eventi](DOM%20ed%20eventi.md)
+- [Form e validazione](Form%20e%20validazione%20JavaScript.md)
+- [Timer](Timer%20JavaScript.md)
+- [Realizzare un piccolo gioco](Piccolo%20gioco%20JavaScript.md)
+- [Debugging](Debug%20JavaScript.md)
 
-Gli argomenti da verificare includono funzioni, eventi, validazione degli input, `setInterval`/`clearInterval` e piccoli giochi interattivi.
+## Regole pratiche
 
-Consulta il [programma TPSIT](../../Programmi/tpsit.md).
+- Usa `const` quando la variabile non deve essere riassegnata e `let` quando deve cambiare; evita `var` nei nuovi esercizi salvo richiesta didattica specifica.
+- Separa struttura HTML, stile CSS e comportamento JavaScript.
+- Preferisci `addEventListener()` agli attributi evento scritti direttamente nell'HTML.
+- Usa `textContent` per mostrare testo non fidato.
+- Prova input vuoti, limiti e dati non validi.
+

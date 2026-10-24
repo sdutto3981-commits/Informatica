@@ -1,26 +1,24 @@
-# CSS
+# CSS — selettori, layout e responsive design
 
-CSS (*Cascading Style Sheets*) descrive la presentazione degli elementi HTML: colori, spaziature, tipografia e layout responsive.
+CSS (*Cascading Style Sheets*) definisce la presentazione di HTML: colori, spaziature, tipografia, dimensionamento e disposizione degli elementi.
 
 ## Percorso
 
 - [Selettori](Selettori.md)
+- [Cascata, specificità ed ereditarietà](Cascata%20specificit%C3%A0%20ereditariet%C3%A0%20CSS.md)
 - [Box model](Box-Model.md)
+- [Unità, colori e tipografia](Unit%C3%A0%20colori%20e%20tipografia%20CSS.md)
+- [Flexbox](Flexbox%20CSS.md)
+- [Posizionamento](Posizionamento%20CSS.md)
+- [Responsive design e media query](Responsive%20design%20e%20media%20query%20CSS.md)
+- [Transizioni e animazioni](Transizioni%20e%20animazioni%20CSS.md)
 - [CSS in HTML](CSS%20in%20HTML.md)
 
-## Competenze del programma
-
-1. Selettori per elemento, classe, ID, attributo, discendenti e pseudoclassi.
-2. Cascata, specificità, ereditarietà e ordine delle dichiarazioni.
-3. Box model, unità CSS, dimensionamento e overflow.
-4. Flexbox e proprietà di posizionamento.
-5. Transizioni e animazioni.
-6. Media query e approccio responsive mobile-first.
-7. Integrazione con Bootstrap.
+## Esempio di base
 
 ```css
 * { box-sizing: border-box; }
-.contenitore {
+.container {
   width: min(100% - 2rem, 70rem);
   margin-inline: auto;
 }
@@ -32,6 +30,5 @@ CSS (*Cascading Style Sheets*) descrive la presentazione degli elementi HTML: co
 .card { flex: 1 1 15rem; }
 ```
 
-`flex-wrap: wrap` permette agli elementi di andare a capo quando lo spazio non basta. Le media query permettono di modificare il layout a determinati intervalli di larghezza. Verifica il risultato su desktop e smartphone.
+`flex-wrap: wrap` permette agli elementi di andare a capo quando lo spazio non basta. Le media query modificano il layout in base alle caratteristiche del dispositivo o della finestra. Verifica il risultato su desktop e smartphone.
 
-Per il collegamento con griglia e componenti, consulta [Bootstrap](../Bootstrap/index.md) e il [programma TPSIT](../../Programmi/tpsit.md).

@@ -1,48 +1,38 @@
----
-date: 2025-11-30
-time: 14:33
----
-# Selettori
+# Selettori CSS
 
-Possiamo applicare caratteristiche specifiche a dei determinati elementi per esempio:
+Un selettore individua gli elementi HTML a cui applicare le dichiarazioni.
 
-```html
-<article>
-  <p>I want to be red and larger than the other text.</p>
-  <p>I want to be normal sized and the default color.</p>
-</article>
-```
+## Tipi principali
 
 ```css
-article p:first-of-type {
-  color: red;
-  font-size: 1.5em;
-}
+p { color: #222; }                 /* tutti i paragrafi */
+.avviso { color: darkred; }        /* classe */
+#intestazione { font-weight: bold; } /* id */
+input[type="email"] { width: 100%; } /* attributo */
+nav a { text-decoration: none; }   /* discendente */
+.lista > li { margin-block: .5rem; } /* figlio diretto */
 ```
 
-così la prima riga sarà rossa
+- `A B`: seleziona un discendente `B` dentro `A`.
+- `A > B`: seleziona un figlio diretto.
+- `A + B`: seleziona il fratello immediatamente successivo.
+- `A ~ B`: seleziona i fratelli successivi che corrispondono a `B`.
 
-## Parti della regola CSS
+## Pseudoclassi e pseudoelementi
 
-![[an-image-a-css-rule-the-ced38545b4bec.svg]]
-
-IN questo caso il selettore è `.my-css-rule` che trova tutti gli elementi con quella classe nella pagina al suo interno ci sono 3 dichiarazioni che si compongono di una proprietà e del valore di essa
-
-## Selettori semplici
-
-Il gruppo di selettori più semplice composto dagli elementi di HTML non che classi  ID che possono essere aggiunti un tag HTML
-
-### Selettore universale
-
-Il selettore universale chiamato anche carattere jolly fa riferimento a qualsiasi elemento
 ```css
-* {
-  color: hotpink;
-}
+button:hover { filter: brightness(0.9); }
+input:focus { outline: 2px solid royalblue; }
+li:first-child { font-weight: bold; }
+p::first-letter { font-size: 1.5em; }
 ```
 
-### Selettore di tipo
+Una pseudoclasse descrive uno stato o una posizione dell'elemento, come `:hover`, `:focus`, `:checked`, `:first-child`. Uno pseudoelemento seleziona una parte o un elemento virtuale, come `::before`, `::after` e `::first-letter`.
 
-Corrisponde direttamente  a un elemento HTML  
-## Riferimenti
-1. 
+## Gruppi di selettori
+
+```css
+h1, h2, h3 { line-height: 1.2; }
+```
+
+La virgola separa selettori indipendenti. Evita selettori troppo lunghi e dipendenti dalla struttura interna della pagina: rendono gli stili difficili da riutilizzare.

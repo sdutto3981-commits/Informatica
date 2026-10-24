@@ -12,4 +12,3 @@ Appunti di multimedialità e sviluppo web lato client.
 
 Percorso consigliato: HTML semantico → CSS responsive → componenti Bootstrap → DOM ed eventi JavaScript.
 
-Per il quadro completo consulta il [programma TPSIT](../Programmi/tpsit.md).

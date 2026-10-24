@@ -1,65 +1,52 @@
-# DOM ed eventi in JavaScript
+# DOM ed eventi JavaScript
 
-Il **DOM** (Document Object Model) rappresenta il documento HTML come una struttura di nodi accessibile tramite JavaScript. Si può selezionare un elemento, leggerne o modificarne il contenuto e reagire alle azioni dell'utente.
+Il DOM (*Document Object Model*) rappresenta la pagina come una struttura di nodi accessibili e modificabili tramite JavaScript.
 
-## Selezionare e modificare elementi
-
-```javascript
-const titolo = document.querySelector("h1");
-if (titolo !== null) {
-  titolo.textContent = "Titolo aggiornato";
-  titolo.classList.add("evidenziato");
-}
-```
-
-- `querySelector()` restituisce il primo elemento che corrisponde al selettore, oppure `null`.
-- `textContent` modifica il testo; `classList` gestisce le classi CSS.
-- Per testo digitato dall'utente preferisci `textContent` a `innerHTML`, che interpreta markup HTML.
-
-## Event listener
+## Selezionare e aggiornare elementi
 
 ```html
-<button id="conta" type="button">Incrementa</button>
-<p id="valore" aria-live="polite">0</p>
-<script src="app.js" defer></script>
+<p id="stato">Pronto</p>
+<button id="azione" type="button">Avvia</button>
 ```
 
 ```javascript
-let conteggio = 0;
-const pulsante = document.querySelector("#conta");
-const valore = document.querySelector("#valore");
+const stato = document.querySelector("#stato");
+const azione = document.querySelector("#azione");
 
-if (pulsante !== null) {
-  pulsante.addEventListener("click", () => {
-    conteggio += 1;
-    if (valore !== null) valore.textContent = String(conteggio);
-  });
-}
-```
-
-`addEventListener()` collega una funzione a un evento, per esempio `click`, `input` o `submit`. Il punto interrogativo `?.` evita la chiamata se il riferimento è `null`; usarlo non elimina la necessità di capire perché un elemento potrebbe mancare.
-
-## Form e validazione
-
-```javascript
-const form = document.querySelector("#form-contatto");
-form?.addEventListener("submit", (evento) => {
-  evento.preventDefault();
-  // Leggi i campi, verifica i dati e mostra un esito comprensibile.
+azione.addEventListener("click", () => {
+  stato.textContent = "Pulsante premuto";
+  stato.classList.add("attivo");
 });
 ```
 
-`preventDefault()` impedisce l'azione predefinita solo quando il programma la gestisce intenzionalmente. I campi devono avere etichette accessibili e gli errori vanno descritti anche in testo.
+- `querySelector()` restituisce il primo elemento che corrisponde al selettore oppure `null`.
+- `textContent` aggiorna il testo senza interpretarlo come HTML.
+- `classList.add()`, `remove()` e `toggle()` gestiscono le classi CSS.
 
-## Timer
+## Eventi
+
+Un evento è una notifica di un'azione, per esempio `click`, `input`, `change`, `submit` o `keydown`.
 
 ```javascript
-const idTimer = setInterval(() => {
-  console.log("Un secondo");
-}, 1000);
-
-// Quando il timer non serve più:
-clearInterval(idTimer);
+const campo = document.querySelector("#nome");
+campo.addEventListener("input", event => {
+  console.log(event.target.value);
+});
 ```
 
-`setInterval` ripete una funzione approssimativamente ogni intervallo specificato; non è una garanzia di precisione assoluta. Conserva l'identificatore per poter fermare il timer.
+`event.target` indica l'elemento che ha originato l'evento; `event.currentTarget` indica l'elemento a cui è collegato il gestore.
+
+## Prevenire il comportamento predefinito
+
+```javascript
+form.addEventListener("submit", event => {
+  event.preventDefault();
+  // Controlli prima di elaborare i dati
+});
+```
+
+Usa `preventDefault()` solo quando l'applicazione deve sostituire il comportamento standard. Se si inserisce JavaScript in una pagina con elementi generati dinamicamente, verifica che i selettori vengano eseguiti quando gli elementi sono già presenti, per esempio usando uno script con `defer`.
+
+## Sicurezza e robustezza
+
+Preferisci `textContent` quando visualizzi testo inserito dall'utente. `innerHTML` interpreta markup e può introdurre vulnerabilità se usato con dati non fidati. Controlla che un selettore non restituisca `null` prima di accedere alle proprietà dell'elemento.

@@ -9,10 +9,6 @@ Raccolta di appunti organizzata per materia e argomento, con spiegazioni, esempi
 - [TPSIT](TPSIT/index.md): multimedialità, HTML, CSS, Bootstrap e JavaScript.
 - [Telecomunicazioni](Telecomunicazioni/index.md): logica digitale, circuiti e automi.
 
-## Programmi e copertura
-
-Consulta la [mappa dei programmi di 3INF](Programmi/index.md) per confrontare gli argomenti previsti con gli appunti e individuare ciò che va integrato.
-
 ## Metodo consigliato
 
 1. Studia una sezione per volta e verifica di conoscere i prerequisiti.

@@ -11,4 +11,3 @@ Appunti di logica digitale, sistemi combinatori e sequenziali, automi e comunica
 
 Percorso: algebra booleana → tabelle di verità e minimizzazione → circuiti combinatori → latch/flip-flop → automi e contatori → trasmissione seriale e protocolli.
 
-Consulta il [programma di Telecomunicazioni](../Programmi/telecomunicazioni.md) per il confronto con le competenze richieste.

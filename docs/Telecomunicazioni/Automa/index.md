@@ -26,4 +26,3 @@ Un automa a stati finiti modella un sistema con un numero limitato di stati. Lo 
 
 Un cancello automatico potrebbe avere stati `Chiuso`, `Apertura`, `Aperto` e `Chiusura`. Finecorsa, sensore di sicurezza e timer determinano le transizioni; il comportamento preciso va definito dalle specifiche.
 
-Consulta il [diagramma degli automi](Diagramma.md) e il [programma di Telecomunicazioni](../../Programmi/telecomunicazioni.md).

@@ -10,4 +10,3 @@ Appunti di architettura del calcolatore, hardware, memoria, sistemi operativi, L
 - [Macchine virtuali](VirtualMachine/index.md)
 - [Linguaggio C](C/index.md)
 
-Per il quadro degli argomenti previsti, consulta il [programma di Sistemi e laboratorio](../Programmi/sistemi.md).
