@@ -25,7 +25,3 @@ La schermata della mia cartella presenza diverse diapositive come per esempio:
 - Setting: Dove possiamo aggiungere eventuali collaboratori al  nostro progetto
 
 E possivie aumentare le proprie conoscenza su GitHub Foundations
-
-## Riferimenti
-
-1.

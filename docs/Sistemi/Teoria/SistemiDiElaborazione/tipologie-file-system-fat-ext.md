@@ -1,50 +1,70 @@
 ---
-tags: [studio, materia/sistemi, stato/bozza]
-data_creazione: 2026-05-24
-argomento: Tipologie di File System, Architetture FAT e Ext
-priorità: alta
-collegamenti: [introduzione-file-system]
+tags: [studio, materia/sistemi, stato/approfondimento]
+data_creazione: 2026-10-25
+argomento: Tipologie di file system FAT ed Ext
 ---
+# Tipologie di file system: FAT, ext e journaling
 
-# Tipologie di File System, Architetture FAT e Ext
+Un **file system** definisce come file e directory sono rappresentati, nominati, localizzati e protetti su un volume. Le implementazioni differiscono per compatibilità, limiti di dimensione, gestione dei metadati, permessi, resilienza agli arresti improvvisi e strumenti di manutenzione.
 
-## Concetti Chiave
+## FAT: File Allocation Table
 
-- **FAT (File Allocation Table)**: architettura basata su una tabella globale strutturata come lista concatenata di blocchi.
-- **Inode (Index Node)**: struttura dati dei sistemi Unix/Linux che raccoglie i metadati e i puntatori di un singolo file.
-- **Journaling**: tecnica transazionale di tracciamento delle modifiche per prevenire la corruzione del File System a seguito di crash.
+La famiglia **FAT** usa una tabella di allocazione che descrive come sono collegati i cluster assegnati ai file. I cluster sono gruppi di settori gestiti come unità di allocazione del file system; la loro dimensione dipende dalla formattazione del volume.
 
-## Spiegazione Approfondita
+- **FAT12** è stata usata principalmente su supporti piccoli e storici.
+- **FAT16** usa una tabella con voci a 16 bit ed è stata impiegata su volumi di dimensioni limitate rispetto ai sistemi moderni.
+- **FAT32** aumenta il numero di cluster indirizzabili rispetto a FAT16, ma mantiene limiti noti, tra cui la dimensione massima teorica di un singolo file di 4 GiB meno 1 byte.
+- **exFAT** è stata progettata per memorie flash e supporti rimovibili di capacità maggiori, riducendo alcuni limiti di FAT32.
 
-Esistono diverse implementazioni di File System ottimizzate per specifici Sistemi Operativi. Tra le più rilevanti figurano la famiglia **FAT** di Microsoft e la famiglia **Ext** di Linux.
+Una rappresentazione didattica di un volume FAT comprende area di avvio/parametri, copie della FAT secondo il formato, directory e area dati. I dettagli esatti variano tra FAT12, FAT16, FAT32 ed exFAT. Le voci di directory memorizzano il nome e attributi; la catena di cluster permette di trovare i blocchi successivi del file. Se la tabella viene danneggiata, un percorso può interrompersi oppure collegare cluster errati.
 
-Il File System **FAT** deve il suo nome alla tabella posizionata all'inizio del volume. Si è evoluto in tre versioni principali in base ai bit usati per l'indirizzamento dei blocchi: FAT12, FAT16 (con limite strutturale di dimensione massima della partizione definito a 2 GB) e FAT32 (che supera tale limite). La struttura fisica sequenziale di una partizione FAT prevede: il settore di boot della partizione, la File Allocation Table primaria, un duplicato della FAT (per motivi di ridondanza e sicurezza), la Directory Root e infine l'area dati per file e sottodirectory.
+FAT non offre nativamente lo stesso modello di permessi Unix e ACL avanzate tipiche di file system moderni. È comunque utile quando si cerca ampia compatibilità fra sistemi e dispositivi.
 
-> **Definizione**: L'Inode (Index Node) è la struttura dati fondamentale dei file system Ext che identifica univocamente un file o una directory sulla memoria di massa, contenendo tutti i metadati e l'albero dei puntatori ai blocchi di dati fisici, escludendo il nome del file.
+## File system ext in Linux
 
-Nei sistemi Linux (**Ext2/Ext3/Ext4**), la gestione dello spazio e l'indirizzamento dei blocchi si basano sulla struttura interna dell'**Inode**, che contiene campi critici quali *Mode* (tipo di oggetto e diritti d'accesso), *Owner Information*, *Size* (dimensione in byte) e i *Timestamps*. Per puntare ai blocchi dati fisici (**Data Blocks**), l'Inode implementa un sistema di puntatori ad albero:
-- **12 Puntatori Diretti**: puntano direttamente ai primi 12 blocchi fisici del file (garantiscono un accesso immediato per file di piccole dimensioni).
-- **1 Puntatore Indiretto Semplice**: realizza una redirezione, puntando a un intero blocco di memoria che contiene un elenco di puntatori diretti.
-- **1 Puntatore Indiretto Doppio**: introduce due livelli di redirezione intermedi.
-- **1 Puntatore Indiretto Triplo**: introduce tre livelli di redirezione gerarchici, permettendo al File System di mappare e gestire file di dimensioni enormi.
+La famiglia **ext** è usata su Linux:
 
-A partire dalla versione **Ext3**, è stata introdotta la tecnica del **journaling**: prima di effettuare qualsiasi modifica fisica nell'area dati, il File System annota le operazioni pianificate in un registro delle transazioni chiamato giornale. In caso di interruzione improvvisa della corrente o malfunzionamento hardware, al riavvio il sistema operativo esamina il giornale per completare o annullare le transazioni interrotte, ripristinando la coerenza del File System in pochi secondi senza dover scansionare l'intero disco.
+- **ext2:** non dispone del journaling tipico delle versioni successive; un arresto improvviso può richiedere controlli più lunghi;
+- **ext3:** aggiunge il journaling a una base compatibile con ext2;
+- **ext4:** introduce miglioramenti di capacità, prestazioni e affidabilità, tra cui extents, allocazione ritardata e altre ottimizzazioni.
 
-## Schema Riassuntivo
+### Inode e directory
 
-| Caratteristica Architetturale | FAT32 | Ext3 / Ext4 |
-|------------------------------|-------|-------------|
-| **Struttura di Allocazione** | Tabella concatenata globale all'inizio del disco | Indici e puntatori distribuiti tramite Inode individuali |
-| **Posizione del Nome File** | All'interno della directory insieme ai metadati | All'interno della directory (l'inode contiene solo i metadati fisici) |
-| **Accesso a File Grandi** | Scansione sequenziale dei cluster della catena | Accesso quasi diretto tramite indici semplici, doppi e tripli |
-| **Resistenza ai Crash** | Bassa (alto rischio di cluster persi o catene corrotte) | Alta (presenza del modulo di **Journaling** per il ripristino coerente) |
+In ext, l'**inode** conserva metadati come tipo del file, permessi, proprietario, dimensione e timestamp, oltre alle informazioni necessarie a localizzare i dati. Il nome del file è conservato nella directory, che associa un nome a un numero di inode. Perciò il nome non è normalmente un campo dell'inode stesso.
 
-## Domande di Autovalutazione
+Gli inode non sono “il file” in senso esclusivamente testuale: sono strutture del file system che descrivono un oggetto e i suoi metadati. Più nomi (*hard link*) possono riferirsi allo stesso inode, nei limiti del file system e dei permessi.
 
-1. Perché l'architettura a Inode con puntatori gerarchici è intrinsecamente più efficiente rispetto alla tabella FAT nell'accesso casuale (random access) a un byte posizionato a metà di un file di grandi dimensioni?
-2. Descrivi la sequenza logica di eventi che si verifica grazie al Journaling se il computer si spegne improvvisamente a causa di un blackout mentre il sistema operativo sta salvando un file su un File System Ext3.
+### Puntatori classici ed extents
 
-## Collegamenti
+Nei file system ext2/ext3 è comune descrivere l'organizzazione dei dati tramite puntatori diretti e indiretti (semplice, doppio e triplo) negli inode. Questa è una descrizione classica utile per comprendere la crescita dei file.
 
-- Indice-sistemi
-- [struttura-attributi-operazioni-file](struttura-attributi-operazioni-file.md)
+**Non va generalizzata all'implementazione tipica di ext4:** ext4 utilizza normalmente una struttura a **extents**, che descrive intervalli contigui di blocchi logici e fisici. Un extent può ridurre il numero di metadati necessari per grandi file contigui. La struttura esatta dipende dalle funzionalità del file system e dalle opzioni con cui è stato creato.
+
+## Journaling: che cosa protegge
+
+Il journaling registra in un giornale determinate modifiche ai metadati (e, in base alla modalità, parte o tutti i dati) in modo che il file system possa recuperare più rapidamente uno stato strutturalmente coerente dopo un arresto anomalo.
+
+Non significa che ogni contenuto del file venga sempre copiato integralmente nel journal prima di essere scritto. Per ext3/ext4 esistono modalità diverse, tra cui `ordered`, `writeback` e `journal`; le garanzie e le prestazioni non sono uguali. Il journal migliora il recupero della **coerenza strutturale**, ma non sostituisce backup e non garantisce il ripristino di ogni scrittura applicativa immediatamente precedente al crash.
+
+## Confronto sintetico
+
+| Aspetto | FAT32/exFAT | ext2 | ext3 | ext4 |
+|---|---|---|---|---|
+| Contesto tipico | Rimovibili e compatibilità | Linux, uso specifico | Linux | Linux moderno |
+| Organizzazione | FAT e cluster | Inode e blocchi | Inode e blocchi | Inode ed extents in uso tipico |
+| Journaling | No journaling classico FAT | No | Sì | Sì |
+| Permessi Unix | Non nativi come in ext | Sì | Sì | Sì |
+| Caso d'uso | Scambio dati e supporti | Ambienti compatibili | Sistemi legacy | Sistemi Linux generali |
+
+Il confronto non sostituisce le specifiche del sistema operativo e della versione: opzioni di mount, strumenti e funzionalità possono cambiare il comportamento effettivo.
+
+## Scelta e manutenzione
+
+1. Verifica il sistema operativo e i dispositivi che devono accedere al volume.
+2. Controlla i limiti di dimensione per file e volume.
+3. Valuta permessi, journaling, prestazioni, compatibilità e strumenti di recupero.
+4. Prima di riformattare o riparare un volume, crea un backup e identifica con certezza il dispositivo.
+
+- [Kernel.org — ext4 overview](https://docs.kernel.org/filesystems/ext4/)
+- [Microsoft — exFAT specification](https://learn.microsoft.com/en-us/windows/win32/fileio/exfat-specification)
+- [The Linux man-pages project](https://man7.org/linux/man-pages/)

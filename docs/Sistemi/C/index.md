@@ -1,5 +1,13 @@
 # Linguaggio C
 
+## Distinzione tra le note
+
+- [Tipi e variabili in C](Tipi%20e%20variabili%20C.md): panoramica di dichiarazioni, operatori e conversioni.
+- [Tipi di dati in C](Data%20types%20C.md): categorie dei tipi, intervalli dipendenti dall'implementazione e specificatori di formato.
+- [File in C](File%20in%20C.md): apertura, lettura, scrittura e chiusura dei file.
+- [Memoria dinamica in C](Memoria%20dinamica%20C.md): ownership, allocazione, `realloc` e `free`.
+
+
 C è un linguaggio compilato e procedurale molto usato in sistemi, applicazioni a basso livello e programmi che richiedono controllo diretto della memoria. Il percorso segue i fondamenti proposti dal tutorial W3Schools e approfondisce gli argomenti utili per il laboratorio.
 
 ## Percorso di studio

@@ -63,7 +63,3 @@ La somma avviene dopo aver moltiplicato per 16 shift di 4 posizioni in avanti il
 1.  CS: 14B10h
 2. PC: 1234h
 3. Indirizzo Assoluto: 14B10h + 01234h = 15D44h
-
-## Riferimenti
-
-1.

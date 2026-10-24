@@ -74,7 +74,3 @@ v = malloc(5 * sizeof(int));
 ```
 
 In questo caso `v` è **un puntatore** e la memoria viene riservata **durante l’esecuzione (runtime)**.
-
-## Riferimenti
-
-1.

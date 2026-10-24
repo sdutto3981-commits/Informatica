@@ -39,7 +39,3 @@ Inserisci output comando Ctrl + R, poi Ctrl + T
 | Giustifica paragrafo           | Ctrl + J        |
 | Mostra/nascondi numeri di riga | Alt + Shift + 3 |
 | Annulla ultima azione          | Alt + U         |
-
-## Riferimenti
-
-1.

@@ -16,7 +16,3 @@ int x,y,z;
 x=y=z=50;
 
 ```
-
-## Riferimenti
-
-1.

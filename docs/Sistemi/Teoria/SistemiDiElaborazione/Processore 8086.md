@@ -19,7 +19,3 @@ Ha un parallelismo di 16bit cioè usa registri e bus su 16 bit  Un registro è u
 - [Ciclo Macchina](Ciclo%20Macchina.md)
 - [Gestione memoria 8086](Gestione%20memoria%208086.md)
 - [Gestione stack 8086](Gestione%20stack%208086.md)
-
-## Riferimenti
-
-1.

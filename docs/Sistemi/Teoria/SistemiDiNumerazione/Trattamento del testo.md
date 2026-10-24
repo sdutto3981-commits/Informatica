@@ -13,7 +13,3 @@ Alcuni vantaggi vantaggi evidenti sono più veloci e precise:
 - Le ricerche effettuate sono più veloci e precise
 - La conservazione di esse è più sicura e facile
 - L'invio è veloce è più facile
-
-## Riferimenti
-
-1.

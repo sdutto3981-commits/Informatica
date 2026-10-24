@@ -46,7 +46,3 @@ per esempio:
 - `hsl(9, 100%, 64%)`
 
 Questi tre sono tutti lo stesso colore mentre invece con RGBA e HSLA ce un canale Alpha che gestisce la trasparenza
-
-## Riferimenti
-
-1.

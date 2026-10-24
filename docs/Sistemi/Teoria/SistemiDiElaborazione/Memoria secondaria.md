@@ -2,17 +2,17 @@
 
 ## Indice
 
-- [[#Memorie di Massa e Dispositivi di IO|Memorie di Massa e I/O]]
-- [[#File System e Memoria di Massa|File System]]
-- [[#Struttura dei Dischi Magnetici|Dischi Magnetici (HDD)]]
-- [[#Dischi a Stato Solido SSD|SSD e NVM]]
-- [[#Scheduling del Disco|Algoritmi di Scheduling]]
-- [[#Scheduling su NVM|Scheduling NVM]]
-- [[#Rilevamento e Correzione di Errori|Errori e Correzione]]
+- [Memorie di Massa e I/O](#wiki-memorie-di-massa-e-dispositivi-di-i-o)
+- [File System](#wiki-file-system-e-memoria-di-massa)
+- [Dischi Magnetici (HDD)](#wiki-struttura-dei-dischi-magnetici)
+- [SSD e NVM](#wiki-dischi-a-stato-solido-ssd)
+- [Algoritmi di Scheduling](#wiki-scheduling-del-disco)
+- [Scheduling NVM](#wiki-scheduling-su-nvm)
+- [Errori e Correzione](#wiki-rilevamento-e-correzione-di-errori)
 
 ---
 
-## Memorie di Massa e Dispositivi di I/O
+## Memorie di Massa e Dispositivi di I/O {#wiki-memorie-di-massa-e-dispositivi-di-i-o}
 
 I dispositivi collegati ad un calcolatore possono avere **caratteristiche altamente variabili** e rappresentano, nel loro insieme, la componente più **lenta, voluminosa e variegata** dell'elaboratore.
 
@@ -23,7 +23,7 @@ Il sistema operativo deve:
 
 ---
 
-## File System e Memoria di Massa
+## File System e Memoria di Massa {#wiki-file-system-e-memoria-di-massa}
 
 ### Struttura logica del File System
 
@@ -56,7 +56,7 @@ Device (HDD/SSD)
 
 ---
 
-## Struttura dei Dischi Magnetici
+## Struttura dei Dischi Magnetici {#wiki-struttura-dei-dischi-magnetici}
 
 ### Composizione fisica
 
@@ -69,7 +69,7 @@ I dischi magnetici sono composti da:
 - **Spindle (asse)**: asse di rotazione dei piatti
 - **Attuatore** + **braccio** + **testina** (read-write head): meccanismo di posizionamento
 
-> [!info] Geometria del disco Cilindri + Tracce + Settori = **Geometria del disco**
+!!! info "Geometria del disco Cilindri + Tracce + Settori = **Geometria del disco**"
 
 ### Organizzazione della superficie
 
@@ -99,7 +99,7 @@ La memorizzazione avviene tramite **testina** (bobina conduttiva):
 - **Scrittura**: corrente nella bobina → campo magnetico → orientamento particelle ossido di ferro (0/1)
 - **Lettura**: campo magnetico sul disco muove le particelle → induce corrente nella bobina
 
-> [!warning] Head crash Le testine "planano" sulla superficie a ~10⁻⁴ mm. Il crollo della testina causa impatto fisico → necessità di sostituzione dell'unità.
+!!! warning "Head crash Le testine \"planano\" sulla superficie a ~10⁻⁴ mm. Il crollo della testina causa impatto fisico → necessità di sostituzione dell'unità."
 
 Le fasi di accesso sono:
 
@@ -144,10 +144,10 @@ $$T_{accesso} = T_{seek} + T_{latency} + T_{transfer}$$
 
 **Tempo medio di I/O** = tempo medio accesso + (dati / velocità trasf.) + overhead
 
-> [!example] Esempio calcolo I/O Blocco 4 KB, disco 7200 RPM, seek 5 ms, transfer 1 Gb/s, overhead 0,1 ms:
->
-> - Transfer = 4 KB / 1 Gb/s = 0,031 ms
-> - I/O totale = 5 + 4,16 + 0,1 + 0,031 ≅ **9,3 ms**
+!!! example "Esempio calcolo I/O Blocco 4 KB, disco 7200 RPM, seek 5 ms, transfer 1 Gb/s, overhead 0,1 ms:"
+
+    - Transfer = 4 KB / 1 Gb/s = 0,031 ms
+    - I/O totale = 5 + 4,16 + 0,1 + 0,031 ≅ **9,3 ms**
 
 ### Formula Tempo di Lettura File
 
@@ -155,7 +155,7 @@ $$T_{lettura} = N_{blocchi} \times \left[ (N_{cilindri} \times T_{spostamento}) 
 
 ---
 
-## Dischi a Stato Solido (SSD)
+## Dischi a Stato Solido (SSD) {#wiki-dischi-a-stato-solido-ssd}
 
 ### Caratteristiche generali
 
@@ -191,11 +191,11 @@ Le memorie flash sono **EEPROM** basate su **Floating Gate MOSFET**:
 
 ### Problematiche NAND
 
-> [!warning] Impossibile sovrascrivere direttamente
->
-> - Scrittura a granularità di **pagina** (analogo del settore)
-> - Cancellazione solo per **blocchi** interi (più pagine)
-> - Le celle si **deteriorano** ad ogni ciclo di cancellazione
+!!! warning "Impossibile sovrascrivere direttamente"
+
+    - Scrittura a granularità di **pagina** (analogo del settore)
+    - Cancellazione solo per **blocchi** interi (più pagine)
+    - Le celle si **deteriorano** ad ogni ciclo di cancellazione
 
 **FTL (Flash Translation Layer)**: tabella mantenuta dal controller per tracciare i blocchi logici validi.
 
@@ -236,7 +236,7 @@ L'unità disco è connessa al calcolatore tramite **bus di I/O**:
 |FC (Fiber Channel)|Alta velocità, enterprise|
 |**NVMe**|SSD ad alte prestazioni via PCIe|
 
-> [!info] NVMe I bus standard (SATA) possono essere troppo lenti per gli SSD ad alte prestazioni → collegamento diretto al **bus PCI** tramite tecnologia **NVMe (NVM express)**
+!!! info "NVMe I bus standard (SATA) possono essere troppo lenti per gli SSD ad alte prestazioni → collegamento diretto al **bus PCI** tramite tecnologia **NVMe (NVM express)**"
 
 **Controllori**: unità di elaborazione sul bus
 
@@ -245,7 +245,7 @@ L'unità disco è connessa al calcolatore tramite **bus di I/O**:
 
 ---
 
-## Scheduling del Disco
+## Scheduling del Disco {#wiki-scheduling-del-disco}
 
 ### Obiettivi
 
@@ -331,15 +331,15 @@ Range dischi: 0–199
 |**C-SCAN**|Attese uniformi|Movimento extra (ritorno)|
 |**C-LOOK**|Attese uniformi, efficiente|Leggermente complesso|
 
-> [!tip] Algoritmo consigliato
->
-> - **SSTF**: comune, semplice, abbastanza efficiente
-> - **SCAN / C-SCAN**: migliori per sistemi con elevato carico I/O (evitano starvation)
-> - **SSTF / LOOK** (e varianti circolari): scelte ragionevoli come algoritmi default
+!!! tip "Algoritmo consigliato"
+
+    - **SSTF**: comune, semplice, abbastanza efficiente
+    - **SCAN / C-SCAN**: migliori per sistemi con elevato carico I/O (evitano starvation)
+    - **SSTF / LOOK** (e varianti circolari): scelte ragionevoli come algoritmi default
 
 ---
 
-## Scheduling su NVM
+## Scheduling su NVM {#wiki-scheduling-su-nvm}
 
 ### Differenze rispetto agli HDD
 
@@ -363,11 +363,11 @@ Quando si riscrive una pagina:
 
 ### Istruzione TRIM
 
-> [!info] TRIM Permette al SO di **notificare al controller SSD** quali pagine non sono più utilizzate dal filesystem. Senza TRIM, il controller non sa quali blocchi eliminare e le performance calano nel tempo.
+!!! info "TRIM Permette al SO di **notificare al controller SSD** quali pagine non sono più utilizzate dal filesystem. Senza TRIM, il controller non sa quali blocchi eliminare e le performance calano nel tempo."
 
 ---
 
-## Rilevamento e Correzione di Errori
+## Rilevamento e Correzione di Errori {#wiki-rilevamento-e-correzione-di-errori}
 
 ### Tecniche di rilevamento
 
@@ -389,7 +389,7 @@ Quando si riscrive una pagina:
 
 ## 📌 Note e Riferimenti
 
-> [!note] Primo hard disk commerciale **1956** – IBM 305 RAMAC: occupava una stanza 9×15m, includeva 50 dischi da 24", capacità 5 milioni caratteri, tempo di accesso ~600 ms.
+!!! note "Primo hard disk commerciale **1956** – IBM 305 RAMAC: occupava una stanza 9×15m, includeva 50 dischi da 24\", capacità 5 milioni caratteri, tempo di accesso ~600 ms."
 
 ### Tag
 
@@ -397,4 +397,4 @@ Quando si riscrive una pagina:
 
 ---
 
-_Ultima modifica: {{date}}_
+_Data di aggiornamento gestita dalla cronologia Git._

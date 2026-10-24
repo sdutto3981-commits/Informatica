@@ -104,7 +104,3 @@ num_v =math.Round(num_v, 2) -5;
 
 Console.readKey;
 ```
-
-## Riferimenti
-
-1.

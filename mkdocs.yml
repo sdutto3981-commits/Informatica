@@ -1,4 +1,4 @@
-site_name: Appunti scuola
+site_name: Appunti di informatica
 site_url: https://sdutto3981-commits.github.io/Informatica/
 repo_url: https://github.com/sdutto3981-commits/Informatica
 repo_name: sdutto3981-commits/Informatica
@@ -9,33 +9,26 @@ theme:
   custom_dir: overrides
   language: it
   features:
-    # Navigazione
-    - navigation.tabs # Aggiunge le tab in alto
-    - navigation.tabs.sticky # Mantiene le tab visibili durante lo scroll
-    - navigation.sections # Sezioni espandibili nella barra laterale
-    - navigation.expand # Espande automaticamente tutte le sezioni
-    - navigation.path # Breadcrumb (percorso) in cima alla pagina
-    - navigation.indexes # Rende cliccabili i titoli delle sezioni
-    - navigation.top # Pulsante per tornare in cima
-    - navigation.footer # Pulsanti "Precedente" e "Successivo" a fine pagina
-    - navigation.tracking # Aggiorna l'URL scorrendo le sezioni
-    - navigation.prune # Ottimizza la build per siti di grandi dimensioni
-    # Ricerca
-    - search.highlight # Evidenzia i termini cercati
-    - search.suggest # Autocompletamento della ricerca
-    - search.share # Pulsante per condividere i risultati di ricerca
-    # Contenuto
-    - content.code.copy # Copia il blocco di codice
-    - content.code.annotate # Permette di aggiungere note (+) nel codice
-    - content.code.select # Facilita la selezione del testo nel codice
-    - content.tabs.link # Sincronizza lo switch dei tab con lo stesso nome
-    - content.tooltips # Mostra tooltip al passaggio del mouse sui link
-    - content.action.edit # Pulsante per modificare la pagina su GitHub
-    - content.action.view # Pulsante per visualizzare il markdown sorgente
-    # Header
-    - header.autohide # Nasconde l'header quando si scorre verso il basso
-
-  # Switch Tema Chiaro / Scuro
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.path
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - navigation.tracking
+    - navigation.prune
+    - search.highlight
+    - search.suggest
+    - search.share
+    - content.code.copy
+    - content.code.annotate
+    - content.code.select
+    - content.tabs.link
+    - content.tooltips
+    - content.action.edit
+    - content.action.view
+    - header.autohide
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -66,52 +59,47 @@ plugins:
   - print-site
 
 markdown_extensions:
-  # Estensioni Markdown Standard
-  - abbr # Abbreviazioni
-  - admonition # Avvisi e Callout
-  - attr_list # Aggiunta di classi CSS agli elementi
-  - def_list # Liste di definizioni
-  - footnotes # Note a piè di pagina
-  - md_in_html # Markdown all'interno di tag HTML
-  - tables # Supporto per le tabelle
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
   - toc:
       permalink: true
       toc_depth: 3
-  
-  # Estensioni PyMdown
-  - pymdownx.arithmatex: # Formule matematiche (LaTeX)
+  - pymdownx.arithmatex:
       generic: true
   - pymdownx.betterem:
       smart_enable: all
-  - pymdownx.caret # Testo ^apice^
-  - pymdownx.details # Admonition espandibili/collassabili (??? e ???+)
-  - pymdownx.emoji: # Supporto :emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.keys # Tasti della tastiera (es: ++ctrl+alt+canc++)
-  - pymdownx.magiclink # Rende automaticamente cliccabili gli URL
-  - pymdownx.mark # Testo evidenziato ==così==
-  - pymdownx.smartsymbols # Frecce e simboli tipografici automatici
-  - pymdownx.snippets # Inclusione di file esterni
-  - pymdownx.tabbed: # Tab di contenuto
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.tabbed:
       alternate_style: true
       combine_header_slug: true
-  - pymdownx.tasklist: # Checkbox [ ] e [x]
+  - pymdownx.tasklist:
       custom_checkbox: true
-  - pymdownx.tilde # Testo ~barrato~ o ~pedice~
+  - pymdownx.tilde
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
-# Script necessari per il rendering delle formule matematiche (Arithmatex/MathJax)
 extra_javascript:
   - javascripts/mathjax.js
-  - https://polyfill.io/v3/polyfill.min.js?features=es6
-  - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+  - https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js

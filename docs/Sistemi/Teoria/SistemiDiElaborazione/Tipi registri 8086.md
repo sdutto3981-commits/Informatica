@@ -55,7 +55,3 @@ I principali sono:
 - **IR (Istruction Register):** all'interno viene memorizzato il codice binario dell'istruzione che deve essere eseguita dalla CPU
 - **MDR (Memory Data Register):** all'interno vengono memorizzati i dati letti dal bus dati o che devono essere inviati al bus dati
 - **MAR (Memory Address Register):** All'interno viene memorizzato l'ultimo indirizzo di memoria a cui la CPU ha fatto riferimento. Si tratta dell'unico registro a 20 bit
-
-## Riferimenti
-
-1.

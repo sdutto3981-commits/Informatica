@@ -31,7 +31,3 @@ La conversine di questi numeri ci porta o a passare tra multipli e sottomultipli
 - Multipli o in base 1000 o in base 1024  divido per questi numeri
 - Sottomultipli o in base 100 o in base 1024 moltiplico per questi numeri
 - Per passare da una conversione ad un altra devo retrocedere sino ai byte e poi dividere  per 1000 o 1024 per passare agli eventuali multipli posso esprimere la divisione sotto stante come una potenza
-
-## Riferimenti
-
-1.

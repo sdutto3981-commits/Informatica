@@ -14,7 +14,3 @@ Possiamo sempre e solo avere due operandi vengono forniti alla ALU sui suoi regi
 La ALU realizza con un insieme di porte logiche opportunamente collegate che provvedono a eseguire tutte le operazioni
 
 Quindi gli input sono due che ci permettono di eseguire le varie operazioni.
-
-## Riferimenti
-
-1.

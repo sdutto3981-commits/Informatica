@@ -10,7 +10,3 @@ Un circuito integrato IC è composto da:
 - package
 - Pin
 Un singolo IC può oggi contenere svariati milioni di transistor dispositivi elettronici che permettono di controllare la corrente di un circuito.
-
-## Riferimenti
-
-1.

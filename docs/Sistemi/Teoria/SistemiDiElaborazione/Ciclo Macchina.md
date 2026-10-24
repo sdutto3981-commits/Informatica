@@ -36,7 +36,3 @@ E poi si continua il ciclo con il caricamento dell'istruzione successiva riesegu
 3. Preleva il risultato dal registro di output della ALU e lo carica nel registro di destinazione o eventualmente nel MDR se il risultato deve essere salvato in memoria
 4. Se il risultato deve essere salvato in memoria esegue un ultimo ciclo di scrittura in memoria.
 5. Terminata l'istruzione in corso la CU riprende il cilco caricando la prossima istruzione fino al termine del programa.
-
-## Riferimenti
-
-1.

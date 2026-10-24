@@ -10,7 +10,3 @@ I commenti posso essere utilizzati per rendere il codice piu leggibile e facile 
 Commenti a una soma riga `//` tutto il testo dopo sarà considerato commento
 
 Commenti multi linea sono racchiusi tra `/*....*/` consiste semplicemente in un blocco di commenti su più righe
-
-## Riferimenti
-
-1.

@@ -24,7 +24,3 @@ Definisce  le informazioni di contatto del proprietario del documento o dell'art
 #### Elemento `<cite>`
 
 Definisce l'autore di un opera creativa
-
-## Riferimenti
-
-1.

@@ -34,7 +34,3 @@ BUS dati permette il trasferimento nelle quattro direzioni:
 - CPU -> porta di uscita quindi l'output questa operazione è bidirezionale a seconda del operazione che dobbiamo effettuare
 
 Maggiore il bus dati maggiore il parallelismo delle operazioni tra i vari dati per trasferire un informazione con un BUS dati a 8 bit e trasferire un informazione ci servono 8 colpi di clock
-
-## Riferimenti
-
-1.

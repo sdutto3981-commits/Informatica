@@ -16,7 +16,3 @@ Può avere i seguenti valori:
 ##### forms
 
 `<form action="/action_page.php" target="_blank">`
-
-## Riferimenti
-
-1.

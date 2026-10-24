@@ -15,7 +15,3 @@ L'architettura x86 può essere talvolta suddivisa in 3 tipologie:
 - x86-16: architettura a 16 bit (propria dell'8086)
 - x86-32: architettura a 32 bit
 - x86-64: architettura a 64bit
-
-## Riferimenti
-
-1.

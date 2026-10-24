@@ -55,7 +55,3 @@ Decodifica le istruzioni prelevate dalla coda e invia segnali elettrici a tutti 
 
 - **Adress/Data (20pin):** L'8086 ha un bus di indirizzi a 20bit che permette di indirizzare 1MB di memoria $2^{20}$
 - **Control (16pin):** Segnali per controllare la memoria e le periferiche lettura scrittura interrupt
-
-## Riferimenti
-
-1.

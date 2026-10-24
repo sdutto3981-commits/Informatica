@@ -11,7 +11,3 @@ time: 12:21
 - [Dimensione immagine HTML](Dimensione%20immagine%20HTML.md)
 - [Immagine come link HTML](Immagine%20come%20link%20HTML.md)
 - [Caricamento immagine HTML](Caricamento%20immagine%20HTML.md)
-
-## Riferimenti
-
-1.

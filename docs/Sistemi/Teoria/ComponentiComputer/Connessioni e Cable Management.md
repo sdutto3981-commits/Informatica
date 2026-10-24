@@ -16,7 +16,3 @@ Per i usb esterni sono normalmente a 8 pin bisogna andare a cercare i connettori
 Per collegare i cavi di accensione led e audio principalmente cercando sul libretto delle istruzioni e poi collegarli come detto li.
 
 Subito dopo bisogna cercare anche di mettere in ordine i cavi al suo interno facendo cable manegment e buono far passare i cavi sulla parte posteriore del case in modo che l'aria posa passare liberamente ed infine fascettare i cavi nel modo più ordinato possibile
-
-## Riferimenti
-
-1.

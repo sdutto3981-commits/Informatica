@@ -10,7 +10,3 @@ Il **Tempo di accesso della memoria** è il tempo che intercorre tra la richiest
 In genere rappresentata dalla disponibilità del dato richiesto.
 
 Si tratta di un valore espresso in nanosecondi che attualmente viene anche chiamato latenza.
-
-## Riferimenti
-
-1.

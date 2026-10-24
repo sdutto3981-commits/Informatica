@@ -8,7 +8,3 @@ time: 09:19
 L'insieme dei caratteri scelto dipende dalla particolare cultura delle persone che utilizzano il computer
 
 In generale oltre alle lettere ritroviamo punteggiatura numeri ecc...
-
-## Riferimenti
-
-1.

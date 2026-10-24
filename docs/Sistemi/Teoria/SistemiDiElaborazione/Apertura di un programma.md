@@ -27,7 +27,3 @@ Una volta completata l'operazione il registro accumulatore avra il risultato del
 ```
 
 ```
-
-## Riferimenti
-
-1.

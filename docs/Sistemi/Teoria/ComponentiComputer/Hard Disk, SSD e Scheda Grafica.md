@@ -10,7 +10,3 @@ Per l'installazione della scheda grafica trovare lo slot pci express e togliere 
 Per l'installazione degli Hard Disk o sulle slitte pre installate oppure su quelle date in dotazione assicurarsi che le porte siano rivolte verso la scheda madre.
 
 Installare gli sdd o con degli adattatori che fan si che raggiungano la forma di hard disk oppure su quelli appositi del case.
-
-## Riferimenti
-
-1.

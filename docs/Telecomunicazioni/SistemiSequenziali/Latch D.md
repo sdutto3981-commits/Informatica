@@ -5,7 +5,7 @@ time: 11:29
 
 # Latch D
 
-![Latch d](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQex6DsuKHatmUj4ltXWoUS2Bj-ZuiR2u2G5g&s)
+![Simbolo funzionale del latch D](../../assets/logic/latch-d.svg)
 
 | d   | e   | Q(i)   |
 | --- | --- | ------ |
@@ -18,7 +18,3 @@ e = enable
 d = data
 
 Risolve il problema del latch str siccome quando avevamo 0  0 dava errore qui lascia il memoria il resto
-
-## Riferimenti
-
-1.

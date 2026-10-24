@@ -8,4 +8,3 @@ Appunti tecnici in italiano, organizzati per materia e argomento. Le pagine incl
 - [Sistemi e laboratorio](Sistemi/index.md): architettura del calcolatore, memorie, sistemi operativi, Linux, macchine virtuali e C.
 - [TPSIT](TPSIT/index.md): multimedialità, HTML, CSS, Bootstrap e JavaScript.
 - [Telecomunicazioni](Telecomunicazioni/index.md): algebra booleana, circuiti combinatori/sequenziali, automi e comunicazioni.
-

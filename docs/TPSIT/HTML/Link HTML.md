@@ -13,7 +13,3 @@ time: 12:58
 - [Link a email HTML](Link%20a%20email%20HTML.md)
 - [Pulsante come link HTML](Pulsante%20come%20link%20HTML.md)
 - [Titoli dei link HTML](Titoli%20dei%20link%20HTML.md)
-
-## Riferimenti
-
-1.

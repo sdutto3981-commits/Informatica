@@ -10,7 +10,3 @@ Git serve per creare e gestire le versione del codice come inizializzare una car
 - Entrare nella cartella con il comando `cd nome_cartella`
 - Inizializzare Git `git init`
 - Per guardare lo status della cartela collegata a git usiamo `git status` se i nomi dei file sono in rosso vuol dire che non sono ancora stati salvati allora bisogna eseguire il comando `git add .`
-
-## Riferimenti
-
-1.

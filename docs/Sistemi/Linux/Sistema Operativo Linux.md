@@ -34,7 +34,3 @@ cartella//posizione: dove ci troviamo
 $: tipo di utenza. $ = utente normale, #=utente amministrazione
 
 pwd  mostra cartella corrente
-
-## Riferimenti
-
-1.

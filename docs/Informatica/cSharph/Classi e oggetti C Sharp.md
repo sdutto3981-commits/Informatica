@@ -1,5 +1,8 @@
 # Classi e oggetti C#
 
+> **Approfondimento OOP:** per incapsulamento, costruttori, ereditarietà, polimorfismo, interfacce e composizione, prosegui con [Programmazione orientata agli oggetti](../OOP/index.md).
+
+
 Una **classe** definisce un tipo che raggruppa dati e comportamenti. Un **oggetto** è un'istanza concreta di una classe. Le classi consentono di modellare entità e separare responsabilità.
 
 ```csharp

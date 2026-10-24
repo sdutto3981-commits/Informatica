@@ -14,6 +14,4 @@ Montare i supporti per la scheda madre :
 2. Allineare le porte posteriori con la placca metallica appena installata
 3. Individuare i fori sulla scheda madre in modo che combaciano con il case
 
-## Riferimenti
-
 1. https://www.youtubeeducation.com/watch?v=2OwiNTgzHh8

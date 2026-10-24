@@ -20,7 +20,3 @@ $$
 $$
 
 Poi possiamo usare la codifica 754 per convertirlo in un numero binario a 32 bit
-
-## Riferimenti
-
-1.

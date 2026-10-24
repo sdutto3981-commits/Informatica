@@ -12,7 +12,3 @@ Lo scambio di dati e istruzioni la loro elaborazione e memorizzazione avviene ut
 Una sequenza di 8 bit costruisce un byte ed è l'unità minima della memoria.
 
 La capacità di memori è la quantità di byte che la memoria può contenere si misura in byte on in multipli.
-
-## Riferimenti
-
-1.

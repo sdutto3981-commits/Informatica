@@ -16,7 +16,3 @@ Ci sono diversi software per esso il piu famoso è:
 - Virtual Box
 - Iper-V
 - Parallel OS
-
-## Riferimenti
-
-1.

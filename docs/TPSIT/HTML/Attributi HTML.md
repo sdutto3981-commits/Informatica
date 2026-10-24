@@ -63,7 +63,3 @@ Aggiunge informazioni aggiuntive all' tag in cui inserito quando il contenuto di
 - l'attributi sempre in minuscolo
 - Sempre bene usare le virgolette anche se non è sempre obbligatorio
 - Si possono usare entrambe ma se all'interno del testo dobbiamo usare virgolette doppie o singole usiamo gli opposti
-
-## Riferimenti
-
-1.

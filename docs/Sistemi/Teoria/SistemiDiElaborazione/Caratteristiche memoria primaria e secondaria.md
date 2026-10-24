@@ -23,7 +23,3 @@ Modalità di accesso:
 - Diretta
 - Sequenziale
 - Mista
-
-## Riferimenti
-
-1.

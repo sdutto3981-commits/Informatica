@@ -16,7 +16,3 @@ PASSI:
 - compilare il file con il comando: `gcc file.c -o file`
 - eseguire il file ./file
 Primo file
-
-## Riferimenti
-
-1.

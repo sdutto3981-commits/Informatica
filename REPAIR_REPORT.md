@@ -1,0 +1,235 @@
+# Report interventi repository
+
+Esecuzione: 2026-10-25 01:05:56
+
+## Principio di conservazione
+
+La profondità non viene ridotta: tutte le riscritture integrali vengono controllate e rifiutate se il nuovo testo è più corto della nota esistente. Le note specialistiche lunghe sono conservate o riscritte in versioni più estese, mantenendo formule, vincoli, casi limite e sottosezioni. Per le altre note lunghe sono applicate solo correzioni puntuali e migrazioni di link/ancore. Gli originali modificati sono salvati nella cartella `.repair-backup/`.
+
+## Riepilogo
+
+- Link Obsidian convertiti: 28
+- Callout Obsidian convertiti in admonition MkDocs: 21
+- Link Obsidian rimasti da risolvere: 0
+- Sezioni Riferimenti realmente vuote rimosse: 13
+- File modificati/creati/archiviati: 205
+
+## File modificati o creati
+
+- `.github/workflows/jekyll-gh-pages.yml` — archive competing Jekyll Pages workflow
+- `README.md` — update
+- `REPAIR_PLAN.md` — create
+- `audit_repo.py` — create
+- `docs/Informatica/ArrayMatrici/Array C Sharph.md` — update
+- `docs/Informatica/ArrayMatrici/Array nella RAM.md` — migrate internal wiki links / anchors
+- `docs/Informatica/ArrayMatrici/Matrici.md` — migrate internal wiki links / anchors
+- `docs/Informatica/ArrayMatrici/Vettori.md` — migrate internal wiki links / anchors
+- `docs/Informatica/SchemiDiFlusso/SCF Schemi di Composizione Fondamentale.md` — migrate internal wiki links / anchors
+- `docs/Informatica/cSharph/Classi e oggetti C Sharp.md` — update
+- `docs/Informatica/cSharph/Commenti C Sharp.md` — migrate internal wiki links / anchors
+- `docs/Informatica/cSharph/Costanti C Sharp.md` — migrate internal wiki links / anchors
+- `docs/Informatica/cSharph/Dichiarazione multipla di variabili in C Sharp.md` — migrate internal wiki links / anchors
+- `docs/Informatica/cSharph/Generazione numeri Random C Sharp.md` — migrate internal wiki links / anchors
+- `docs/Informatica/cSharph/Output C Sharp.md` — migrate internal wiki links / anchors
+- `docs/Informatica/cSharph/Output variabili C Sharp.md` — migrate internal wiki links / anchors
+- `docs/Informatica/cSharph/Variabili locali e globali C Sharp.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/C/Costanti C.md` — update
+- `docs/Sistemi/C/Data types C.md` — update
+- `docs/Sistemi/C/index.md` — update
+- `docs/Sistemi/Linux/Compilatori Linux.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Linux/Editor NANO Linux.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Linux/Permessi in Linux.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Linux/Sistema Operativo Linux.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Linux/Utenti.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Linux/Versione portable.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Linux/index.md` — update
+- `docs/Sistemi/Teoria/ComponentiComputer/Alimentatore.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/ComponentiComputer/CPU e Dissipatore.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/ComponentiComputer/Connessioni e Cable Management.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/ComponentiComputer/Hard Disk, SSD e Scheda Grafica.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/ComponentiComputer/Il case.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/ComponentiComputer/Scheda Madre e Ram.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/ComponentiComputer/index.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/ALU.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Apertura di un programma.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Architettura Pipeline.md` — update
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Architettura dei sistemi di elaborazione.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Architettura di Von Neuman.md` — update
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/BUS.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Cache.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Capacita della memoria.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Caratteristiche della memoria secondaria.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Caratteristiche memoria primaria e secondaria.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Ciclo Macchina.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Clock.md` — update
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Comunicazione CPU memoria.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Densità di integrazione.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Famiglia x86.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Filesystem manager.md` — update
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Filesystem manager.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Gestione memoria 8086.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Gestione stack 8086.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/I circuiti Integrati.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Indirizzi delle celle di memoria.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Introduzione sistemi di elaborazione.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Istruction Set Architetture ISA.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Legge di Moore.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Mappa delle note di storage.md` — create
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Memoria RAM.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Memoria ROM.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Memoria centrale von Neuman.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Memoria centrale.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Memoria secondaria.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Memorie a semiconduttore.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Memorie di massa.md` — update
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Memorie di massa.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Micro controllori MCU.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Micro processori.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/PSW 8086.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Processore 8086.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Processori CISC.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Processori RISC.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Processori multi core.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Processori superscalari.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Registri del 8086.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Registri.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Sistema 8086.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Sistemi a processore.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Suddivisione in ere.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Tempo di accesso.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Tipi registri 8086.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/Unità di controllo.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/index.md` — update
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/index.md` — update
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/index.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/partizionamento-disco-mbr-gpt.md` — update
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/partizionamento-disco-mbr-gpt.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/tipologie-file-system-fat-ext.md` — update
+- `docs/Sistemi/Teoria/SistemiDiElaborazione/tipologie-file-system-fat-ext.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Alfanumerico.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Codice ASCII.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Codifica dei caratteri.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Complemento  a due.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Conversione Tra esatta e approssimata.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Conversione da base 10 a una base diversa.md` — update
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Conversione decimale-binario di numeri non interi.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Conversione semplificata IEEEE 754.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Esercizi ripasso sistemi numerazione.md` — update
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Esponente biasato.md` — update
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Interi con segno.md` — update
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/L'unita fondamentale del computer.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Modulo e segno.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Numeri.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Reale con segno.md` — update
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Sistema di numerazione decimale.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Sistema esadecimale.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Trattamento del testo.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/UCS.md` — update
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/UNICODE.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/Virgola Mobile.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/Teoria/SistemiDiNumerazione/index.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/VirtualMachine/Che cos'è una Virtual Machine.md` — migrate internal wiki links / anchors
+- `docs/Sistemi/VirtualMachine/Creazione Macchina Virtuale.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/GIT/Aggiungere codice alle cartelle GitHub.md` — create
+- `docs/TPSIT/GIT/Comandi base GitHub.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/GIT/Consigli Profilo GitHub.md` — create
+- `docs/TPSIT/GIT/Introduzione Git.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/GIT/Introduzione GitHub.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/GIT/Merge pull request GitHub.md` — create
+- `docs/TPSIT/GIT/Pull request GitHub.md` — create
+- `docs/TPSIT/GIT/Repository GitHub.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/GIT/Upload file e cartelle GitHub.md` — create
+- `docs/TPSIT/GIT/index.md` — update
+- `docs/TPSIT/HTML/Attributi HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Attributo Auto complete.md` — update
+- `docs/TPSIT/HTML/Attributo target HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Caricamento immagine HTML.md` — update
+- `docs/TPSIT/HTML/Checkboxes button.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Collegamenti ipertestuali HTML.md` — update
+- `docs/TPSIT/HTML/Colore dei Link HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Colori HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Commenti HTML.md` — update
+- `docs/TPSIT/HTML/Dimensione immagine HTML.md` — update
+- `docs/TPSIT/HTML/Elementi di citazione e citazione HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Elementi fielset e legend.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Formattazione testo HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/HEX  HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/HSL HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/HTML Forms.md` — update
+- `docs/TPSIT/HTML/Immagine come link HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Immagini HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Intestazioni HTML.md` — update
+- `docs/TPSIT/HTML/Link HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Link a email HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Link per creare segnalibri HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Mappe immagini HTML.md` — update
+- `docs/TPSIT/HTML/Paragrafi HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Pulsante come link HTML.md` — update
+- `docs/TPSIT/HTML/RGB e RGBA in HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Radio button.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Sintassi link HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Sintassi per immagini HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Submit button.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/Titoli dei link HTML.md` — update
+- `docs/TPSIT/HTML/Tutti colori HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/HTML/URL assoluti vs URL relativi HTML.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/JavaScript/Dichiarazioni variabili js.md` — update
+- `docs/TPSIT/JavaScript/Variabili js.md` — update
+- `docs/TPSIT/Teoria/Che cos'è il suono.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Che cos'è un URL.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Conversione RGB to CMYK.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Cos'è la multimedialità.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Cos'è un Video.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Cos'è un media.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Dolby Stereo.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Immagini.md` — update
+- `docs/TPSIT/Teoria/Immagini.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Lossless.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Lossy.md` — update
+- `docs/TPSIT/Teoria/Lossy.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Streaming.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Struttura di un URL.md` — migrate internal wiki links / anchors
+- `docs/TPSIT/Teoria/Suono.md` — update
+- `docs/TPSIT/Teoria/URL e URI.md` — update
+- `docs/TPSIT/Teoria/URL.md` — update
+- `docs/TPSIT/Teoria/Video.md` — update
+- `docs/TPSIT/Teoria/W3C.md` — update
+- `docs/TPSIT/Teoria/W3C.md` — migrate internal wiki links / anchors
+- `docs/Telecomunicazioni/AlgebraLogica/AND.md` — update
+- `docs/Telecomunicazioni/AlgebraLogica/NOT.md` — update
+- `docs/Telecomunicazioni/AlgebraLogica/OR.md` — update
+- `docs/Telecomunicazioni/AlgebraLogica/index.md` — update
+- `docs/Telecomunicazioni/Automa/Diagramma.md` — migrate internal wiki links / anchors
+- `docs/Telecomunicazioni/SistemiCombinatori/Proprietà e teoremi dell'algebra di Boole.md` — update
+- `docs/Telecomunicazioni/SistemiCombinatori/Variabili logiche e assiomi booleani.md` — update
+- `docs/Telecomunicazioni/SistemiSequenziali/Circuito sequenziale.md` — migrate internal wiki links / anchors
+- `docs/Telecomunicazioni/SistemiSequenziali/Flip Flop D.md` — update
+- `docs/Telecomunicazioni/SistemiSequenziali/Flip Flop T.md` — update
+- `docs/Telecomunicazioni/SistemiSequenziali/Flip Flop jk.md` — update
+- `docs/Telecomunicazioni/SistemiSequenziali/Flip Flop sr.md` — update
+- `docs/Telecomunicazioni/SistemiSequenziali/Latch D.md` — update
+- `docs/Telecomunicazioni/SistemiSequenziali/Latch D.md` — migrate internal wiki links / anchors
+- `docs/Telecomunicazioni/SistemiSequenziali/Latch sr NAND.md` — update
+- `docs/Telecomunicazioni/SistemiSequenziali/Latch sr NOR.md` — update
+- `docs/Telecomunicazioni/SistemiSequenziali/Latch sr NOR.md` — migrate internal wiki links / anchors
+- `docs/assets/logic/and.svg` — create
+- `docs/assets/logic/latch-d.svg` — create
+- `docs/assets/logic/latch-sr-nor.svg` — create
+- `docs/assets/logic/not.svg` — create
+- `docs/assets/logic/or.svg` — create
+- `docs/index.md` — migrate internal wiki links / anchors
+- `docs/javascripts/mathjax.js` — create
+- `mkdocs.yml` — update
+- `requirements.txt` — create
+
+## Link Obsidian rimasti da risolvere
+
+Nessuno rilevato nel contenuto elaborato fuori dai blocchi di codice.
+
+## Test ancora da eseguire
+
+- `python audit_repo.py --repo .`
+- `git diff --check`
+- `mkdocs build`
+- Verificare la sorgente GitHub Pages in Settings → Pages → Build and deployment → GitHub Actions.
+- Controllare manualmente i link e le tabelle risultanti, specialmente nei capitoli di sistemi di elaborazione e telecomunicazioni.

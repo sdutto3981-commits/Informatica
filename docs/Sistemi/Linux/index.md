@@ -1,19 +1,17 @@
----
-date: 2025-10-03
-time: 08:19
----
+# Linux e shell
 
-# 00 Linux
+Questa sezione raccoglie le operazioni di base sulla shell, la gestione dei permessi e degli utenti e gli strumenti di sviluppo.
 
-- [Sistema Operativo Linux](Sistema%20Operativo%20Linux.md)
+## Percorso
+
+- [Sistema operativo Linux](Sistema%20Operativo%20Linux.md)
 - [Comandi Linux](Comandi%20Linux.md)
-- [Permessi in Linux](Permessi%20in%20Linux.md)
-- [Editor NANO Linux](Editor%20NANO%20Linux.md)
+- [Permessi](Permessi%20in%20Linux.md)
+- [Utenti e gruppi](Utenti.md)
+- [Editor Nano](Editor%20NANO%20Linux.md)
+- [Compilatori](Compilatori%20Linux.md)
 - [Versione portable](Versione%20portable.md)
-- [Compilatori Linux](Compilatori%20Linux.md)
-- [Utenti](Utenti.md)
 
-## Riferimenti
+## Metodo di studio
 
-1. #SistemiReti #HardWare
-2.
+Per ogni comando annota sintassi, scopo, esempio e possibili rischi. Prova i comandi distruttivi solo in una directory di test. Consulta `man nome_comando` per le opzioni documentate nella tua distribuzione.

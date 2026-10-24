@@ -23,7 +23,3 @@ Il radio button è <input type="radio"> `<input type="radio">`
 Questo codice ci da una lista di linguaggi di programmazione con il pulsante tondo la zona cliccabile è sia il pulsante che il label grazie all id come detto prima che li rende collegati.
 
 Possiamo sceglierne solo una a differenza delle Checkboxes
-
-## Riferimenti
-
-1.

@@ -22,7 +22,3 @@ Console.WriteLine(fullName);
 ```
 
 Mentre per  valori numeri il segno + funziona come operatore matematico
-
-## Riferimenti
-
-1.

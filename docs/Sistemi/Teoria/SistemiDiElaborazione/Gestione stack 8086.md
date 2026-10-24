@@ -156,7 +156,3 @@ Durante l'esecuzione, lo SP ha oscillato tra **16** e **20**.
 >
 > - **Overflow/Underflow:** Nessuno.
 >
-
-## Riferimenti
-
-1.

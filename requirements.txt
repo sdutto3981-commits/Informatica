@@ -1,0 +1,10 @@
+# Direct dependencies for the MkDocs site. Versions are pinned so CI does not
+# silently change behavior when a new direct dependency release is published.
+mkdocs==1.6.1
+mkdocs-material==9.7.7
+mkdocs-awesome-pages-plugin==2.10.1
+mkdocs-roamlinks-plugin==0.3.2
+mkdocs-git-revision-date-localized-plugin==1.5.3
+mkdocs-minify-plugin==0.8.0
+mkdocs-print-site-plugin==2.9
+mkdocs-glightbox==0.5.2

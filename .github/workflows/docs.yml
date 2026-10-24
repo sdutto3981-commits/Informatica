@@ -1,39 +1,80 @@
-name: Deploy MkDocs
+name: Build and deploy MkDocs
+
 on:
   push:
     branches:
-      - main # Cambia in 'master' se il tuo branch principale si chiama così
+      - main
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Configure Git Credentials
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install MkDocs and plugins
         run: |
-          git config user.name github-actions[bot]
-          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
-          
-      - name: Setup Python
-        uses: actions/setup-python@v5
+          python -m pip install --upgrade pip
+          python -m pip install \
+            mkdocs-material \
+            mkdocs-awesome-pages-plugin \
+            mkdocs-roamlinks-plugin \
+            mkdocs-git-revision-date-localized-plugin \
+            mkdocs-minify-plugin \
+            mkdocs-print-site-plugin \
+            mkdocs-glightbox
+
+      - name: Synchronize sidebar from index.md files
+        run: python scripts/sync_mkdocs_navigation.py --docs docs
+
+      - name: Commit generated sidebar configuration when changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs
+          if git diff --cached --quiet; then
+            echo "La sidebar è già sincronizzata."
+          else
+            git commit -m "chore(docs): synchronize sidebar order"
+            git push origin HEAD:main
+          fi
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Build documentation
+        run: mkdocs build --clean
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          python-version: 3.x
-          
-      - run: echo "cache_id=$(date --utc '+%V')" >> $GITHUB_ENV 
-      
-      - uses: actions/cache@v4
-        with:
-          key: mkdocs-material-${{ env.cache_id }}
-          path: .cache
-          restore-keys: |
-            mkdocs-material-
-            
-      - name: Install dependencies
-        run: pip install mkdocs-material mkdocs-awesome-pages-plugin mkdocs-roamlinks-plugin mkdocs-git-revision-date-localized-plugin mkdocs-minify-plugin mkdocs-print-site-plugin mkdocs-glightbox
-        
-      - name: Deploy
-        run: mkdocs gh-deploy --force
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

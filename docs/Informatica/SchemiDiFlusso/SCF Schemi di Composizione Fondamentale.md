@@ -1,7 +1,7 @@
 # SCF Schemi di Composizione Fondamentale
 
->[!tip] SCF
->*Sono gli schemi fondamentali che si ottengono con i simboli visti prima  sono utili per scrivere qualsiasi programma*
+!!! tip "SCF"
+    *Sono gli schemi fondamentali che si ottengono con i simboli visti prima  sono utili per scrivere qualsiasi programma*
 
 **Sequenza, Selezione, Iterazione**
 

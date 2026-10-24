@@ -27,7 +27,3 @@ Un generico ciclo di scrittura in memoria è svolto nel modo seguent.
 - Il segnale MREQ diventa attivo basso quando il bus di indirizzi è stabile il chip di memoria viene abilitato
 - La linea di WR diventa attiva bassa quando i dati sul data bus sono stabili il segnale RD rimane inattivo per tuto il tempo dell'operazione di scrittura
 -
-
-## Riferimenti
-
-1.

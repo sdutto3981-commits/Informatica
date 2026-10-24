@@ -19,11 +19,24 @@ time: 09:06
 - [Processori multi core](Processori%20multi%20core.md)
 - [Micro controllori MCU](Micro%20controllori%20MCU.md)
 - [Architettura dei sistemi di elaborazione](Architettura%20dei%20sistemi%20di%20elaborazione.md)
-- [Architettura di Von Neumann](Architettura%20di%20Von%20Neumann.md)
+- [Architettura di Von Neumann](Architettura%20di%20Von%20Neuman.md)
 - [Apertura di un programma](Apertura%20di%20un%20programma.md)
 - [Processore 8086](Processore%208086.md)
 
-## Riferimenti
+
+## Memoria, dischi e file system
+
+- [Cache](Cache.md)
+- [Memorie di massa](Memorie%20di%20massa.md)
+- [Memoria secondaria](Memoria%20secondaria.md)
+- [Caratteristiche della memoria secondaria](Caratteristiche%20della%20memoria%20secondaria.md)
+- [Filesystem manager](Filesystem%20manager.md)
+- [Introduzione al file system](introduzione-file-system.md)
+- [Struttura, attributi e operazioni dei file](struttura-attributi-operazioni-file.md)
+- [Tipologie FAT ed ext](tipologie-file-system-fat-ext.md)
+- [Partizionamento MBR e GPT](partizionamento-disco-mbr-gpt.md)
+- [Creazione e gestione delle partizioni](creazione-gestione-partizioni.md)
+- [Mappa delle note di storage](Mappa%20delle%20note%20di%20storage.md)
 
 1. #SistemiReti #HardWare
 2. introArch.pdf

@@ -21,7 +21,3 @@ Il Checkboxes `<input type="checkbox">` è molto simile al radio ma ha un aspett
 Ci presenta una lista formata da caselle cliccabili e label collegate di nuovo con l'id.
 
 L'unica differenza dai radio ci permette di avere più scelte rispetto  a una singola
-
-## Riferimenti
-
-1.

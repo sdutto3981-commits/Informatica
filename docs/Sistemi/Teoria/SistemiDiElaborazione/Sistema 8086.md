@@ -62,7 +62,3 @@ $f = N \ istruzioni \ al \ sec = 2,5*10^9Hz=2,5GHz$
 $f=5*10^3Hz$
 $N\ istruzioni = 5000$
 $t\ istruzione = \frac{1}{5000Hz}=0,0002s$
-
-## Riferimenti
-
-1.

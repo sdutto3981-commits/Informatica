@@ -13,7 +13,3 @@ Quindi trasformiamo una frequenza analogica ad una frequenza digitale questo ci 
 quindi si ha la seguente quindi possiamo definire la grandezza di un file audio come $Simple \ Rate * bit \ depht * canali$
 
 Immaginate che ogni canzone che ogni canzoni sia 32 MB
-
-## Riferimenti
-
-1.

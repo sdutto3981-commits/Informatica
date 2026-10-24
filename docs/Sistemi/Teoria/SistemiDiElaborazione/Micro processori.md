@@ -10,7 +10,3 @@ Microcomputer = calcolatore basato su microprocessore
 Il primo microprocessore messi in commercio da Intel 4004 1971
 
 Un processore esegue istruzioni
-
-## Riferimenti
-
-1.

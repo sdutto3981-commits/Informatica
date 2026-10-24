@@ -10,7 +10,3 @@ Utilizzando la proprietà `mailto:` all'interno dell'attributo `href` per creare
 ```html
 <a href="mailto:someone@example.com">Send email</a>
 ```
-
-## Riferimenti
-
-1.

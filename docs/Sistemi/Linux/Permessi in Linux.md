@@ -42,7 +42,3 @@ per togliere al utente il permesso di scrittura
 per aggiungere al gruppo il permesso di scrittura
 
 `chmod g+w file.txt`
-
-## Riferimenti
-
-1.

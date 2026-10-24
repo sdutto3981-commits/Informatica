@@ -20,7 +20,3 @@ L'elemento `<legend>` è usato per definire il nome del `<fieldset>`
   </fieldset>
 </form>
 ```
-
-## Riferimenti
-
-1.

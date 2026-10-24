@@ -1,51 +1,62 @@
 ---
-tags: [studio, materia/sistemi, stato/bozza]
-data_creazione: 2026-05-24
-argomento: Partizionamento del Disco, MBR e GPT
-priorità: alta
-collegamenti: [indice-sistemi]
+tags: [studio, materia/sistemi, stato/approfondimento]
+data_creazione: 2026-10-25
+argomento: Partizionamento del disco, MBR e GPT
 ---
+# Partizionamento del disco: MBR e GPT
 
-# Partizionamento del Disco, MBR e GPT
+Il **partizionamento** divide lo spazio indirizzabile di un dispositivo in aree logiche chiamate partizioni. Ogni partizione può contenere un file system, dati di avvio o altri contenuti richiesti dal sistema operativo. Il partizionamento è distinto dalla formattazione: prima si definisce la struttura delle partizioni, poi si crea un file system all'interno della partizione quando necessario.
 
-## Concetti Chiave
+## MBR — Master Boot Record
 
-- **Partizione**: porzione logica indipendente di un disco fisico.
-- **MBR (Master Boot Record)**: standard classico di partizionamento legato all'ambiente BIOS.
-- **GPT (GUID Partition Table)**: standard moderno di partizionamento legato all'ambiente UEFI.
-- **LBA (Logical Block Addressing)**: metodo di indirizzamento dei blocchi del disco che sostituisce il vecchio sistema CHS.
+Il **MBR** è lo schema di partizionamento classico associato storicamente all'avvio BIOS. Le informazioni di partizionamento sono conservate nel primo settore logico tradizionale, insieme al codice di avvio secondo la struttura MBR.
 
-## Spiegazione Approfondita
+Caratteristiche principali:
 
-Il partizionamento consente di suddividere un disco fisicamente unitario in più entità logiche separate. Questa operazione risponde a diverse necessità ingegneristiche: separare i file del Sistema Operativo dai dati utente, permettere l'installazione di sistemi multi-boot, impiegare File System differenti sullo stesso supporto e isolare aree di backup o di ibernazione per i dispositivi portatili.
+- la tabella tradizionale ha quattro voci di partizione;
+- per superare il limite delle quattro voci si può utilizzare una partizione estesa contenente unità logiche;
+- con settori logici da 512 byte e l'indirizzamento a 32 bit delle voci MBR, il limite classico è circa 2 TiB (2^32 × 512 byte);
+- la struttura primaria è concentrata in un punto del disco e non offre la ridondanza della tabella GPT.
 
-> **Definizione**: Una partizione di un disco è una parte di disco separata da un punto di vista logico, considerata dal sistema operativo come un'unità di memorizzazione indipendente.
+Il limite di circa 2 TiB è riferito alla combinazione tradizionale di MBR e settori logici da 512 byte; non va presentato come una legge indipendente da ogni dettaglio del formato.
 
-Storicamente, l'organizzazione logica in ambiente BIOS (utilizzato fino al 2010 circa) si è basata sul **MBR (Master Boot Record)**, posizionato nel primo settore del disco. Il MBR presenta forti limitazioni strutturali: supporta al massimo 4 partizioni primarie e ha un limite massimo di indirizzamento della memoria pari a 2 TB.
+## GPT — GUID Partition Table
 
-I sistemi moderni utilizzano l'architettura **GPT (GUID Partition Table)** basata su **LBA (Logical Block Addressing)**. GPT supera i vincoli di spazio del predecessore e introduce ridondanza per la tolleranza ai guasti. La sua struttura fisica sul disco prevede:
-- **LBA 0 (Protective MBR)**: un blocco di retro-compatibilità in sola lettura che mostra ai vecchi software di partizionamento il disco come un'unica grande partizione occupata. Questo evita che applicativi obsoleti interpretino erroneamente il disco GPT come vuoto, azzerando il rischio di formattazioni accidentali.
-- **LBA 1 (Header GPT Primario)**: contiene la firma del disco, la dimensione dei blocchi e la posizione della tabella.
-- **LBA 2-33 (Tabella delle Partizioni)**: contiene i record delle partizioni. Ogni record usa 16 byte per il Type Partition GUID, 16 byte per l'Unique Partition GUID, 8 byte per l'LBA iniziale, 8 byte per l'LBA finale, più il nome testuale e gli attributi.
-- **Data Partition**: l'area effettiva in cui risiedono i file.
-- **Backup Partition Table**: una copia speculare di sicurezza dell'header e della tabella dei record posizionata negli ultimi settori del disco, utilizzata per il ripristino automatico in caso di corruzione dei dati primari.
+**GPT** fa parte dello standard UEFI ed è lo schema generalmente raccomandato per i dischi moderni. Utilizza indirizzi LBA e identificatori GUID per descrivere il tipo e l'identità delle partizioni.
 
-## Schema Riassuntivo
+Una struttura GPT tipica include:
 
-| Aspetto | MBR (Master Boot Record) | GPT (GUID Partition Table) |
-|---------|---------------------------|----------------------------|
-| **Ambiente Nativo** | BIOS | UEFI |
-| **Limite Dimensione** | Max 2 TB | Supera i 2 TB (fino a 9.4 Zettabyte) |
-| **Numero Partizioni** | Max 4 primarie (o 3 primarie + 1 estesa) | Praticamente illimitate (es. 128 in ambiente Windows) |
-| **Sicurezza** | Nessuna copia di backup (Single Point of Failure) | Backup Partition Table alla fine del disco rigido |
-| **Indirizzamento** | Sistema CHS (Cylinder-Head-Sector) / LBA limitato | Logical Block Addressing (LBA) nativo a 64 bit |
+1. **LBA 0 — Protective MBR:** una voce MBR protettiva segnala ai vecchi strumenti che il disco contiene una struttura non-MBR. È una protezione di compatibilità, non un blocco che impedisce ogni possibile sovrascrittura.
+2. **LBA 1 — Header GPT primario:** include firma, versione, dimensione dell'header, CRC, posizione della copia di backup, intervallo LBA utilizzabile e informazioni sulla tabella delle partizioni.
+3. **Array delle voci:** descrive le partizioni. Una voce standard GPT da 128 byte include GUID del tipo, GUID univoco, LBA iniziale e finale, attributi e nome in UTF-16LE. Sistemi e strumenti possono supportare dimensioni differenti delle voci.
+4. **Area dati:** intervallo utilizzabile assegnato alle partizioni.
+5. **Tabella e header di backup:** si trovano tipicamente alla fine del disco e permettono agli strumenti di rilevare o riparare alcune forme di corruzione.
 
-## Domande di Autovalutazione
+Gli header e gli array GPT utilizzano CRC per rilevare corruzioni dei metadati. La presenza della copia di backup non garantisce però un ripristino automatico in ogni sistema: in caso di danni servono strumenti compatibili e, se i dati sono importanti, una copia di sicurezza esterna.
 
-1. Spiega per quale motivo un software di partizionamento obsoleto non distrugge la tabella GPT di un disco moderno quando esegue la lettura dell'LBA 0.
-2. Un utente possiede un hard disk da 4 TB e desidera configurare 6 partizioni distinte per scopi di sviluppo. Quale schema di partizionamento è obbligatorio scegliere e per quali ragioni tecniche?
+## Confronto
 
-## Collegamenti
+| Caratteristica | MBR tradizionale | GPT |
+|---|---|---|
+| Uso tipico | Sistemi legacy BIOS | Sistemi moderni UEFI; supportato anche in altri contesti |
+| Numero di partizioni | Quattro voci primarie; possibile partizione estesa | Molte partizioni; il limite pratico dipende da OS e strumenti |
+| Capacità con settore logico da 512 B | Limite classico circa 2 TiB | Superiore a 2 TiB e molto più ampio |
+| Identificatori | Tipi di partizione a codice numerico | GUID per tipo e identità |
+| Ridondanza della tabella | Limitata | Header/array primario e copia di backup |
+| Controllo di integrità | Limitato | CRC di header e voci |
 
-- Indice-sistemi
-- [creazione-gestione-partizioni](creazione-gestione-partizioni.md)
+GPT è in genere preferibile per un nuovo sistema, ma la scelta dipende da firmware, sistema operativo e requisiti di avvio. BIOS non è semplicemente “un ambiente usato fino a un determinato anno”: sistemi e schede madri legacy possono ancora usare BIOS, mentre UEFI è lo standard moderno.
+
+## Esempio di ragionamento
+
+Un disco da 4 TB con settore logico da 512 byte non può essere sfruttato integralmente con lo schema MBR tradizionale. GPT supera questo limite e consente di creare più partizioni senza ricorrere alla partizione estesa.
+
+## Precauzioni
+
+- Identifica con precisione il disco prima di modificare la tabella delle partizioni.
+- Effettua un backup verificato prima di ridimensionare, ricreare o convertire partizioni.
+- Non confondere tabella delle partizioni, partizione, volume e file system.
+- Una conversione MBR↔GPT può richiedere modifiche alle partizioni e alla configurazione di avvio; non è una semplice rinomina del formato.
+
+- [UEFI Forum — Specifications](https://uefi.org/specifications)
+- [Microsoft Learn — Disks and partitions](https://learn.microsoft.com/en-us/windows-hardware/manufacture/desktop/configure-uefigpt-based-hard-drive-partitions)

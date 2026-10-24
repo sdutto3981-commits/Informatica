@@ -14,7 +14,3 @@ Il registri è individuato da un nome  è un organo fisico bi stabile che contie
 ##### flip flop
 
 è il circuito rappresentato da un latch [Latch sr NAND](../../../Telecomunicazioni/SistemiSequenziali/Latch%20sr%20NAND.md)  e questo circuito permette di andare ad effettuare l'operazione di salvataggio di un dato all'interno di una cella del registro per esempio un registro ad 8 bit ci sono 8 circuiti che salvano i dati
-
-## Riferimenti
-
-1.

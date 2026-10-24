@@ -10,7 +10,3 @@ time: 09:10
 - [Codice ASCII](Codice%20ASCII.md)
 - [UNICODE](UNICODE.md)
 - [UCS](UCS.md)
-
-## Riferimenti
-
-1.

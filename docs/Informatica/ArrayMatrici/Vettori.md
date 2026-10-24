@@ -8,7 +8,3 @@ time: 12:17
 Il vettore è una variabile strutturata o struttura formativa astratta costituita da un insieme di valori omogenei (Tutti dello stesso tipo).
 
 I valori sono identificati dal nome del vettore e dalla posizione o indice di essi
-
-## Riferimenti
-
-1.

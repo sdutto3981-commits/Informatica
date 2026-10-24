@@ -11,7 +11,3 @@ Volendo crear4 una variabile che ha un valore fisso possiamo usare la funzione `
 const int myNum = 15;
 myNUm = 20; //error
 ```
-
-## Riferimenti
-
-1.

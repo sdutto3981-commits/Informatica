@@ -22,7 +22,3 @@ Per esempio le gif animate sono sequenze di immagini chiamate frame pe
 ##### PNG
 
 Algoritmo di compressione nato per non pagare  GIF è lossless supporta la trasparenza e anche l'interllaciamento ed anche più veloce di gif circa 1/64 di secondo
-
-## Riferimenti
-
-1.

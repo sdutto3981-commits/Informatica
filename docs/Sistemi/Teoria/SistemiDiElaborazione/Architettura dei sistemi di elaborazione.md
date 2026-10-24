@@ -33,7 +33,3 @@ Processore RAM
 # Architettura harware
 
 - Con il termine architettura si intende l'organizzazione dell'elaborazione in parti o componenti o unità e l'interconnessione tra di esse
-
-## Riferimenti
-
-1.

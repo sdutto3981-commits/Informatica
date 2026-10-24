@@ -23,7 +23,3 @@ for i in range(righe):
 	for j in range(colonne):
 		m[i,j] = input("Inserire il valore:")
 ```
-
-## Riferimenti
-
-1.

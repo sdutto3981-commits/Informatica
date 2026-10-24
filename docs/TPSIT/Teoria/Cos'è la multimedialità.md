@@ -17,7 +17,3 @@ Combinazione di più media diversi per un unico sistema Multi=molti, Media= mezz
 	- Condivisione temporanea tra media
 - Digitalizzazione
 	- Tutti i media convertiti in formato digitale
-
-## Riferimenti
-
-1.

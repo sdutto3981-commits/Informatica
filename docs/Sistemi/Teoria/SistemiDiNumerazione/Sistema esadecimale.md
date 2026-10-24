@@ -42,7 +42,3 @@ $$
 #### Da esadecimale a binario
 
 Raggruppo i bi t di 4 in 4 poi conversi questi piccoli numeri in esadecimale e poi fatto
-
-## Riferimenti
-
-1.

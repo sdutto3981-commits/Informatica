@@ -19,7 +19,3 @@ a:link, a:visited {  background-color: #f44336;
 a:hover, a:active {  background-color: red;}
 </style>
 ```
-
-## Riferimenti
-
-1.

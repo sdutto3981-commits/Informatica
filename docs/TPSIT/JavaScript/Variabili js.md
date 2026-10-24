@@ -1,5 +1,8 @@
 # Variabili JavaScript
 
+> Questa pagina si concentra su `let`, `const` e scope. Per dichiarazione senza inizializzazione, assegnazione, conversioni esplicite e blocchi, consulta anche [Dichiarazioni variabili](Dichiarazioni%20variabili%20js.md).
+
+
 Una variabile associa un nome a un valore. JavaScript usa `let` e `const` nella maggior parte del codice moderno.
 
 ```javascript

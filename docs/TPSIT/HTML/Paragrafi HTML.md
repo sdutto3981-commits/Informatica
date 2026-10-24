@@ -47,7 +47,3 @@ Utilizzando il tag `<pre>`  il testo all'interno visualizzato in un font a largh
 ```
 
 Verrà visualizzato uguale
-
-## Riferimenti
-
-1.

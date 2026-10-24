@@ -1,24 +1,18 @@
----
-date: 2025-09-12
-time: 12:15
----
+# Git e GitHub
 
-# Git
+**Git** è un sistema di controllo versione distribuito; **GitHub** ospita repository Git e aggiunge strumenti di collaborazione, issue e pull request.
 
-- [Introduzione Git](Introduzione%20Git.md)
+## Fondamenti Git
 
-# GitHub
-
-- [Introduzione GitHub](Introduzione%20GitHub.md)
-- [Comandi base GitHub](Comandi%20base%20GitHub.md)
+- [Introduzione a Git](Introduzione%20Git.md)
 - [Repository GitHub](Repository%20GitHub.md)
-- Upload file e cartelle GitHub
-- Aggiungere codice alle cartelle GitHub
-- Pull request GitHub
-- Merge pull request GitHub
-- Consigli Profilo GitHub
+- [Introduzione a GitHub](Introduzione%20GitHub.md)
+- [Comandi Git di base](Comandi%20base%20GitHub.md)
 
-## Riferimenti
+## Collaborazione su GitHub
 
-1. https://www.youtube.com/watch?v=r8jQ9hVA2qs&list=PL0lo9MOBetEFcp4SCWinBdpml9B2U25-f&index=1
-2.  #TPSI #Git
+- [Caricare file e cartelle](Upload%20file%20e%20cartelle%20GitHub.md)
+- [Aggiungere codice alle cartelle](Aggiungere%20codice%20alle%20cartelle%20GitHub.md)
+- [Pull request](Pull%20request%20GitHub.md)
+- [Merge di una pull request](Merge%20pull%20request%20GitHub.md)
+- [Consigli per il profilo GitHub](Consigli%20Profilo%20GitHub.md)

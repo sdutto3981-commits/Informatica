@@ -39,7 +39,3 @@ Generalmente vengono utilizzate per realizzare memoria cache.
 
 - La memoria centrale è detta RM Random Access Memory cioè memoria ad accesso casuale. Non significa che i dati sono sparpagliati a caso. Vuol dire che al processore occorre sempre lo stesso tempo per accedere a una qualsiasi casuale parte della memoria
 - La RAM è un memoria veloce e dati rimangono finché il computer è in funzione. Quando si spegne la RAM si svuota
-
-## Riferimenti
-
-1.

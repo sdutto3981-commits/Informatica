@@ -10,7 +10,3 @@ time: 15:33
 - [HEX  HTML](HEX%20%20HTML.md)
 - [HSL HTML](HSL%20HTML.md)
 -
-
-## Riferimenti
-
-1.

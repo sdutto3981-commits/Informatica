@@ -2,83 +2,95 @@
 date: 2025-10-02
 time: 10:03
 ---
+# Immagini digitali
 
-# Immagini
+Le immagini digitali rappresentano informazioni visive. Le due famiglie principali sono le **immagini raster/bitmap**, formate da una griglia di pixel, e le **immagini vettoriali**, descritte attraverso forme geometriche, tracciati e attributi grafici.
 
-Le immagini sono delle matrici di pixel oppure strutture dati bidimensionali in cui ogni elemento è un pixel le funzioni delle immagini sono:
-- Informatica
-	- Trasmette informazioni
-- Decorativa
-	- Abbellire e rendere attraente
-- Emotiva
-	- Suscitare emozioni
-- Comunicativa
-	- Può comunicare qualcosa
+## Bitmap e immagini vettoriali
 
-Quindi abbiamo colore contrasto linee ecc..
+### Raster o bitmap
 
-#### Metadato delle immagini
+Una bitmap contiene un numero definito di pixel in larghezza e altezza. Ogni pixel memorizza un valore di colore o un indice a una palette. Fotografie e immagini acquisite da fotocamera sono normalmente raster.
 
-Che cosa sono i metadati sono delle informazioni nascoste associate all'immagine non salvati nell'immagine ma memorizzati nel file
+- Aumentare l'ingrandimento oltre i pixel disponibili può rendere visibili blocchi o sfocatura.
+- Il peso dipende da dimensioni in pixel, profondità colore, eventuale canale alfa, metadati e compressione.
+- Formati comuni sono JPEG, PNG, GIF, TIFF e WebP.
 
-1. **Metadati tecnici**
-	- Dimensione
-	- Risoluzione
-	- Formato file
-	- Estensione e formato
-2. **Caption (didascalie)**
-	- Breve descrizione dell'immagine
-	- Spiega cosa ce nel immagine
-	- Utile per accessibilità
+### Vettoriale
 
-#### Metadati html
+Un'immagine vettoriale descrive elementi come linee, curve, rettangoli, testo e riempimenti usando coordinate e parametri. Può essere ridimensionata senza la tipica pixelizzazione di una bitmap, ma può contenere effetti o immagini raster incorporate.
 
-Si inseriscono in head
+SVG è un formato vettoriale usato sul Web. È adatto a loghi, icone, diagrammi e grafici; non è sempre la scelta più efficiente per fotografie complesse.
 
-- Charset (codifica caratteri)
-	- Definisce il set di caratteri utilizzati nel documenti
-- Decriptin (descrizione della pagina)
-	- Fornisce una breve riassunto del contenuto della pagina
-- author (autore)
-	- Specifica l'autore
-- keyword
-	- Utili per alcuni sistemi
-- viewport
-	- Crea pagine responsive
+## Colore e profondità
 
-Secondo rgb
+Il modello **RGB** è additivo: combina rosso, verde e blu per generare colori sullo schermo. Con 8 bit per canale si hanno 256 livelli per canale e, senza considerare l'alfa, 24 bit per pixel (oltre 16 milioni di combinazioni teoriche).
 
-(255,0,0)(0,255,0)(0,0,255)
-(255,255,0)(0,255,255)(255,255,255)
-(0,0,0)(128,128,128)(255,0,255)
+| Esempio RGB | Significato |
+|---|---|
+| `(255, 0, 0)` | rosso massimo |
+| `(0, 255, 0)` | verde massimo |
+| `(0, 0, 255)` | blu massimo |
+| `(255, 255, 255)` | bianco |
+| `(0, 0, 0)` | nero |
+| `(128, 128, 128)` | grigio intermedio |
 
-Esistono anche altri formati per i colori le stampanti per esempio usano CMYK l'ultimo è black ovvero nero perché con gli altri tre non posso creare il nero
+Un'immagine RGBA include anche un canale alfa, spesso usato per la trasparenza. Il modello **CMYK** è sottrattivo ed è usato nei processi di stampa; la resa finale dipende da stampante, inchiostri, carta e profilo colore. RGB e CMYK non sono modelli intercambiabili senza conversione e possibili differenze cromatiche.
 
-[Conversione RGB to CMYK](Conversione%20RGB%20to%20CMYK.md)
+Approfondimento: [conversione concettuale RGB e CMYK](Conversione%20RGB%20to%20CMYK.md).
 
-Calcolo delle dimensioni  larghezza + altezza + bytes per pixel
+## Risoluzione e dimensione del file
 
-La risoluzione dell'immagine è data da larghezza e altezza maggiore la definizione $1920*1080$ pixel Full HD  possiamo anche calcolare quanto tempo ci i impiega per scaricare un immagine questo è  dato da $$\Delta t = \frac{dimensione}{velocità}$$
-Per questo usiamo delle compressioni delle immagini per permette uno scaricamento più veloci
+La risoluzione in pixel si esprime come larghezza × altezza, per esempio `1920 × 1080` (Full HD). Il numero totale dei pixel è:
 
-#### PPI
+\[
+N = larghezza_{px} \times altezza_{px}
+\]
 
-Pixel per pollice è un qualcosa che non possiamo modificare  un pollice e 2,46 cm la scelta del PPi dev'essere scelta per quello che dovremo andare a  fare con l'immagine maggiore è il PPi più dettagli vengono catturati e di conseguenza la dimensione del file sul monitore la densità di pixel per determinare il numero di pixel di un lato la formula è $$L=Dimensione \ in \ pollici * PPI$$
-Nella stampa di immagini serve un PPI sulle riviste troviamo una PPI di circa 300 mentre su monitor e schermi del telefono possono arrivare sino a 530 PPI perché andando oltre è inutile
+Per una bitmap non compressa con profondità costante, una stima grezza del contenuto è:
 
-#### DPI
+\[
+Dimensione_{byte} \approx \frac{larghezza_{px} \times altezza_{px} \times bitPerPixel}{8}
+\]
 
-Pixel per dot è modificabile da noi  è utile per comprendere la stampa di un immagine siccome la stampante non può riprodurre tutti i colori ma tramite il divisionismo va a creare una matrice che permetta di rappresentarli tutti.
+Ad esempio, un'immagine RGB da `1920 × 1080` a 24 bit per pixel richiede circa 6,22 MB decimali (circa 5,93 MiB) di dati pixel, senza contare intestazioni e metadati. Il file reale può essere molto più piccolo o più grande secondo formato, compressione, canali e contenuti. **La dimensione non si calcola sommando larghezza, altezza e byte per pixel.**
 
-Per andare a riprodurre un singolo pixel se si usa una matrice 3x3 $$DPI=PPI*l\_matrice^2$$
-Possiamo scegliere il DPI dalle impostazioni di stampa quando stampiamo il documento
+Il tempo ideale di trasferimento può essere stimato come `tempo = dimensione / velocità`, ma nella pratica intervengono overhead di protocollo, latenza, congestione e velocità effettiva del collegamento.
 
-#### Algoritmi di compressione
+## Metadati: immagine e pagina Web
 
-Possono essere:
-- [Lossless](Lossless.md): applicando una compressione e decomprimendola riottengo la stessa immagine
-- [Lossy](Lossy.md): applico la compressione e decomprimendo non riesco a riavere la stessa immagine
+I metadati sono informazioni che descrivono un contenuto. Possono essere salvati nel file immagine, per esempio EXIF, IPTC o XMP, e includere orientamento, data, modello di fotocamera, posizione geografica o informazioni sul copyright. Non tutte le immagini contengono tutti questi campi; alcune applicazioni rimuovono i metadati per privacy o ridurre il file.
 
-## Riferimenti2
+I metadati HTML sono un concetto diverso: sono elementi inseriti nella sezione `<head>` della pagina, ad esempio codifica caratteri, descrizione e viewport.
 
-1. [Immagini HTML](../HTML/Immagini%20HTML.md)
+```html
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Galleria fotografica del progetto">
+  <title>Galleria</title>
+</head>
+```
+
+`alt` non è un metadato tecnico del file: è un attributo HTML che fornisce un'alternativa testuale all'immagine per accessibilità e quando la risorsa non è disponibile.
+
+## PPI e DPI
+
+**PPI (pixels per inch)** indica quanti pixel dell'immagine sono collocati in un pollice della dimensione di stampa o visualizzazione. Un pollice misura **2,54 cm**. Se un'immagine è larga 2400 pixel e viene stampata a 300 PPI, la larghezza teorica è `2400 / 300 = 8` pollici, cioè circa 20,32 cm.
+
+Cambiare il valore PPI nei metadati senza ricampionare l'immagine non aggiunge né rimuove pixel: modifica la dimensione fisica di stampa suggerita. Se invece si ricampiona, il numero di pixel viene cambiato tramite interpolazione o riduzione.
+
+**DPI (dots per inch)** indica la densità di punti fisici che un dispositivo di stampa può depositare. I punti d'inchiostro non coincidono necessariamente uno a uno con i pixel dell'immagine: una stampante usa più punti e combinazioni di inchiostri per riprodurre un pixel e un colore. PPI riguarda i pixel dell'immagine rispetto alla dimensione fisica; DPI riguarda i punti del dispositivo.
+
+La qualità di stampa dipende inoltre da risoluzione originale, dimensione finale, algoritmo di ricampionamento, processo di stampa, supporto e distanza di osservazione. Valori come 300 PPI sono una convenzione frequente per stampe di qualità osservate da vicino, non una regola universale per ogni supporto.
+
+## Compressione
+
+- [Lossless](Lossless.md): dopo la decompressione ricostruisce esattamente i dati originali. Esempi: PNG e TIFF con compressione lossless.
+- [Lossy](Lossy.md): elimina parte dell'informazione per ottenere file generalmente più piccoli. Esempio: JPEG con compressione lossy.
+
+Scegli il formato in base all'immagine. Fotografie spesso si prestano a JPEG o WebP; grafici, schermate e immagini con testo richiedono attenzione agli artefatti, quindi può essere preferibile un formato lossless. Per icone e loghi, SVG è spesso efficiente se l'immagine è vettoriale.
+
+- [W3Schools — HTML Images](https://www.w3schools.com/html/html_images.asp)
+- [W3Schools — HTML Canvas](https://www.w3schools.com/html/html5_canvas.asp)
+- [MDN — Image file type and format guide](https://developer.mozilla.org/en-US/docs/Web/Media/Guides/Formats/Image_types)

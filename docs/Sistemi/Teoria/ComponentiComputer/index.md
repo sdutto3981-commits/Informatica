@@ -12,6 +12,4 @@ time: 08:49
 - [Alimentatore](Alimentatore.md)
 - [Connessioni e Cable Management](Connessioni%20e%20Cable%20Management.md)
 
-## Riferimenti
-
 1. #SistemiReti #HardWare

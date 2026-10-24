@@ -12,7 +12,3 @@ Per usare un immagine come un link dobbiamo mettere il tag `<img>` al interno de
 <img src="smiley.gif" alt="HTML tutorial" style="width:42px;height:42px;">
 </a>
 ```
-
-## Riferimenti
-
-1.

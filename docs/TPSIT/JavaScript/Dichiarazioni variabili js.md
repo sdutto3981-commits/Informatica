@@ -1,5 +1,8 @@
 # Dichiarazioni, assegnazioni e blocchi JavaScript
 
+> Questa pagina approfondisce dichiarazione, assegnazione, conversione dei valori e scope dei blocchi; per scegliere tra `let`, `const` e `var` consulta anche [Variabili JavaScript](Variabili%20js.md).
+
+
 Dichiarare una variabile significa introdurre un nome; assegnare significa darle un valore.
 
 ```javascript

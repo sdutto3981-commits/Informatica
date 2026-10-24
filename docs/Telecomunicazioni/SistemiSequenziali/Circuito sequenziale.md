@@ -23,7 +23,3 @@ A fianco di ogni transizione troviamo la funzione logica legata agli ingressi me
 Progettare un contatore che sia in grado di calcolare su 2 bit.
 
 Esso avrà 4 stati
-
-## Riferimenti
-
-1.

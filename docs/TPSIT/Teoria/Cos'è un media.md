@@ -14,7 +14,3 @@ Un media   un mezzo di comunicazione che trasporta informazioni dal latino="medi
 - Audio
 - VIdeo
 - Animazioni
-
-## Riferimenti
-
-1.

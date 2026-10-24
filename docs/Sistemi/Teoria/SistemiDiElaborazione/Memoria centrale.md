@@ -13,7 +13,3 @@ time: 18:22
 
 - [Memoria RAM](Memoria%20RAM.md)
 - [Memoria ROM](Memoria%20ROM.md)
-
-## Riferimenti
-
-1.

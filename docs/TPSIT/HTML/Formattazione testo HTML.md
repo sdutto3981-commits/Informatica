@@ -16,7 +16,3 @@ Esistono diversi elementi per la formattazione del testo in html
 - `<ins>` Testo sottolineato
 - `<sub>` Testo a pedice
 - `<sup>`  Testo superiore
-
-## Riferimenti
-
-1.

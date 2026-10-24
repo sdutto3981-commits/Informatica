@@ -7,25 +7,25 @@ time: 09:21
 
 ## Indice
 
-1. [[#Capitolo 1 — Il Problema del Gap CPU/Memoria]]
-2. [[#Capitolo 2 — La Gerarchia di Memoria]]
-3. [[#Capitolo 3 — La Memoria Cache: Cos'è e Perché Esiste]]
-4. [[#Capitolo 4 — Come Funziona la Cache: Hit, Miss, e Gestione]]
-5. [[#Capitolo 5 — Operazioni di Scrittura: Write-Through e Write-Back]]
-6. [[#Capitolo 6 — I Principi di Località]]
-7. [[#Capitolo 7 — Organizzazione Fisica della Cache: Blocchi, Linee e Indirizzi]]
-8. [[#Capitolo 8 — Le Tre Tipologie di Cache]]
-9. [[#Capitolo 9 — Cache a Mappatura Diretta (Direct Mapped)]]
-10. [[#Capitolo 10 — Cache Completamente Associativa (Fully Associative)]]
-11. [[#Capitolo 11 — Cache a K-Vie (Set Associative)]]
-12. [[#Capitolo 12 — Livelli di Cache: L1, L2, L3]]
-13. [[#Capitolo 13 — Cache Unica vs Cache Distinte]]
-14. [[#Capitolo 14 — La Gerarchia Multilivello Completa]]
-15. [[#Riepilogo e Schemi Riassuntivi]]
+1. [Capitolo 1 — Il Problema del Gap CPU/Memoria](#wiki-capitolo-1-il-problema-del-gap-cpu-memoria)
+2. [Capitolo 2 — La Gerarchia di Memoria](#wiki-capitolo-2-la-gerarchia-di-memoria)
+3. [Capitolo 3 — La Memoria Cache: Cos'è e Perché Esiste](#wiki-capitolo-3-la-memoria-cache-cos-e-e-perche-esiste)
+4. [Capitolo 4 — Come Funziona la Cache: Hit, Miss, e Gestione](#wiki-capitolo-4-come-funziona-la-cache-hit-miss-e-gestione)
+5. [Capitolo 5 — Operazioni di Scrittura: Write-Through e Write-Back](#wiki-capitolo-5-operazioni-di-scrittura-write-through-e-write-back)
+6. [Capitolo 6 — I Principi di Località](#wiki-capitolo-6-i-principi-di-localita)
+7. [Capitolo 7 — Organizzazione Fisica della Cache: Blocchi, Linee e Indirizzi](#wiki-capitolo-7-organizzazione-fisica-della-cache-blocchi-linee-e-indirizzi)
+8. [Capitolo 8 — Le Tre Tipologie di Cache](#wiki-capitolo-8-le-tre-tipologie-di-cache)
+9. [Capitolo 9 — Cache a Mappatura Diretta (Direct Mapped)](#wiki-capitolo-9-cache-a-mappatura-diretta-direct-mapped)
+10. [Capitolo 10 — Cache Completamente Associativa (Fully Associative)](#wiki-capitolo-10-cache-completamente-associativa-fully-associative)
+11. [Capitolo 11 — Cache a K-Vie (Set Associative)](#wiki-capitolo-11-cache-a-k-vie-set-associative)
+12. [Capitolo 12 — Livelli di Cache: L1, L2, L3](#wiki-capitolo-12-livelli-di-cache-l1-l2-l3)
+13. [Capitolo 13 — Cache Unica vs Cache Distinte](#wiki-capitolo-13-cache-unica-vs-cache-distinte)
+14. [Capitolo 14 — La Gerarchia Multilivello Completa](#wiki-capitolo-14-la-gerarchia-multilivello-completa)
+15. [Riepilogo e Schemi Riassuntivi](#wiki-riepilogo-e-schemi-riassuntivi)
 
 ---
 
-# Capitolo 1 — Il Problema del Gap CPU/Memoria
+# Capitolo 1 — Il Problema del Gap CPU/Memoria {#wiki-capitolo-1-il-problema-del-gap-cpu-memoria}
 
 ## 1.1 Il Divario Storico
 
@@ -78,7 +78,7 @@ Non si può avere tutto: un banco di SRAM grande come una DRAM costerebbe centin
 
 ---
 
-# Capitolo 2 — La Gerarchia di Memoria
+# Capitolo 2 — La Gerarchia di Memoria {#wiki-capitolo-2-la-gerarchia-di-memoria}
 
 ## 2.1 L'Idea Fondamentale
 
@@ -137,7 +137,7 @@ CPU richiede dato X
 
 ---
 
-# Capitolo 3 — La Memoria Cache: Cos'è e Perché Esiste
+# Capitolo 3 — La Memoria Cache: Cos'è e Perché Esiste {#wiki-capitolo-3-la-memoria-cache-cos-e-e-perche-esiste}
 
 ## 3.1 Definizione Precisa
 
@@ -208,7 +208,7 @@ La cache è quindi come un **dizionario**: dato un indirizzo (chiave), restituis
 
 ---
 
-# Capitolo 4 — Come Funziona la Cache: Hit, Miss, e Gestione
+# Capitolo 4 — Come Funziona la Cache: Hit, Miss, e Gestione {#wiki-capitolo-4-come-funziona-la-cache-hit-miss-e-gestione}
 
 ## 4.1 Cache Hit — Il Caso Fortunato
 
@@ -264,7 +264,7 @@ La differenza tra 95% e 99% di hit rate dimezza il tempo medio di accesso. Picco
 
 ---
 
-# Capitolo 5 — Operazioni di Scrittura: Write-Through e Write-Back
+# Capitolo 5 — Operazioni di Scrittura: Write-Through e Write-Back {#wiki-capitolo-5-operazioni-di-scrittura-write-through-e-write-back}
 
 ## 5.1 Il Problema della Scrittura
 
@@ -354,7 +354,7 @@ Questo è il costo nascosto del write-back: un singolo cache miss può generare 
 
 ---
 
-# Capitolo 6 — I Principi di Località
+# Capitolo 6 — I Principi di Località {#wiki-capitolo-6-i-principi-di-localita}
 
 ## 6.1 Perché la Cache Funziona?
 
@@ -445,7 +445,7 @@ I principi di località spiegano perché:
 
 ---
 
-# Capitolo 7 — Organizzazione Fisica della Cache: Blocchi, Linee e Indirizzi
+# Capitolo 7 — Organizzazione Fisica della Cache: Blocchi, Linee e Indirizzi {#wiki-capitolo-7-organizzazione-fisica-della-cache-blocchi-linee-e-indirizzi}
 
 ## 7.1 Perché si Trasferiscono Blocchi e non Singole Word
 
@@ -515,7 +515,7 @@ Le parti dipendono dalla tipologia di cache:
 
 ---
 
-# Capitolo 8 — Le Tre Tipologie di Cache
+# Capitolo 8 — Le Tre Tipologie di Cache {#wiki-capitolo-8-le-tre-tipologie-di-cache}
 
 ## 8.1 Il Problema del Mapping
 
@@ -547,7 +547,7 @@ Le tipologie di cache corrispondono a tre diversi regolamenti del parcheggio pic
 
 ---
 
-# Capitolo 9 — Cache a Mappatura Diretta (Direct Mapped)
+# Capitolo 9 — Cache a Mappatura Diretta (Direct Mapped) {#wiki-capitolo-9-cache-a-mappatura-diretta-direct-mapped}
 
 ## 9.1 Principio Fondamentale
 
@@ -637,7 +637,7 @@ Questo fenomeno si chiama **thrashing** (oscillazione) ed è il principale limit
 
 ---
 
-# Capitolo 10 — Cache Completamente Associativa (Fully Associative)
+# Capitolo 10 — Cache Completamente Associativa (Fully Associative) {#wiki-capitolo-10-cache-completamente-associativa-fully-associative}
 
 ## 10.1 Principio Fondamentale
 
@@ -746,7 +746,7 @@ CPU richiede dato all'indirizzo: 0000001100
 
 ---
 
-# Capitolo 11 — Cache a K-Vie (Set Associative)
+# Capitolo 11 — Cache a K-Vie (Set Associative) {#wiki-capitolo-11-cache-a-k-vie-set-associative}
 
 ## 11.1 L'Idea: il Compromesso Ottimale
 
@@ -850,7 +850,7 @@ Quando avviene un cache miss:
 
 ---
 
-# Capitolo 12 — Livelli di Cache: L1, L2, L3
+# Capitolo 12 — Livelli di Cache: L1, L2, L3 {#wiki-capitolo-12-livelli-di-cache-l1-l2-l3}
 
 ## 12.1 Perché Più Livelli?
 
@@ -907,7 +907,7 @@ La L3 condivisa permette ai core di **comunicare** tramite la cache: se Core 0 h
 
 ---
 
-# Capitolo 13 — Cache Unica vs Cache Distinte
+# Capitolo 13 — Cache Unica vs Cache Distinte {#wiki-capitolo-13-cache-unica-vs-cache-distinte}
 
 ## 13.1 Il Problema: Istruzioni e Dati Insieme?
 
@@ -969,7 +969,7 @@ Nella pratica moderna:
 
 ---
 
-# Capitolo 14 — La Gerarchia Multilivello Completa
+# Capitolo 14 — La Gerarchia Multilivello Completa {#wiki-capitolo-14-la-gerarchia-multilivello-completa}
 
 ## 14.1 Il Quadro Generale
 
@@ -1032,7 +1032,7 @@ Questo processo si chiama **eviction** e può propagarsi a cascata verso il bass
 
 ---
 
-# Riepilogo e Schemi Riassuntivi
+# Riepilogo e Schemi Riassuntivi {#wiki-riepilogo-e-schemi-riassuntivi}
 
 ## R.1 — Mappa Concettuale
 
@@ -1118,7 +1118,3 @@ Allora:
 15. **Cache unica vs distinte?** → Trade-off tra flessibilità e parallelismo di accesso
 
 ---
-
-## Riferimenti
-
-1.

@@ -19,6 +19,4 @@ URL relativi sono link a una pagina all'interno dello stesso sito  ed è senza h
 <p><a href="/css/default.asp">CSS Tutorial</a></p>
 ```
 
-## Riferimenti
-
 1. [URL](../Teoria/URL.md)

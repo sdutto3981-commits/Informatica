@@ -15,7 +15,3 @@ Un processore RISC è normalmente in grado di completare l'esecuzione di un'istr
 I primi processori RISC sono apparsi sul mercato negli anni '80.
 
 Sono più performanti siccome le operazioni vengono svolte in parallelo e grazie ai registri si tiene memoria delle operazioni precedenti essa viene utilizzata come memoria.
-
-## Riferimenti
-
-1.

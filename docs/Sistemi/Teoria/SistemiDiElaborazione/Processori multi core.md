@@ -13,7 +13,3 @@ Esempi:
 - Phenom AMD
 - Core i7 Intel
 - Tegra 3  Invidia
-
-## Riferimenti
-
-1.

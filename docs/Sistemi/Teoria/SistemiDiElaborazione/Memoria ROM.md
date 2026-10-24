@@ -26,7 +26,3 @@ Esistono diversi tipi di ROM.
 
 **EEPROM Eletrical Erasable Programmable ROM:**
 - Sono identiche alle EPROM per la cancellazione al posto che avvenire tramite raggi UV avviene tramite energia eletricca
-
-## Riferimenti
-
-1.

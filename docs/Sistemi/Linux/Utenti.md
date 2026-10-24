@@ -39,7 +39,3 @@ es.
 Per vedere invece i gruppi in `/etc/group`
 
 `sudo groupadd nomegruppo `
-
-## Riferimenti
-
-1.

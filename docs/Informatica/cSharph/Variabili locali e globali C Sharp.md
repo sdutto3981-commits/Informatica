@@ -8,7 +8,3 @@ time: 10:26
 Tutte le variabili definite nel programma principale visibili in tutto il programma quindi anche visibili nei sottoprogrammi vengono dette variabili globali.
 
 Le variabili definite all'interno del sottoprogrammi sono visibili solo all'interno del sottoprogramma  prendono il nome di locali.
-
-## Riferimenti
-
-1.

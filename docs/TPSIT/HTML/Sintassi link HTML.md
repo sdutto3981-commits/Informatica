@@ -12,7 +12,3 @@ Il tag `<a>` definisce un collegamento ipertestuale la sintassi è la seguente:
 ```
 
 L'attributo `href` che indica la destinazione del collegamento
-
-## Riferimenti
-
-1.

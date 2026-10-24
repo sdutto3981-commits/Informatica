@@ -28,7 +28,3 @@ $$
 &
 \end{align*}
 $$
-
-## Riferimenti
-
-1.

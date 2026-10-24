@@ -40,7 +40,3 @@ $$
 &11110100_{(2)}
 \end{flalign*}
 $$
-
-## Riferimenti
-
-1.

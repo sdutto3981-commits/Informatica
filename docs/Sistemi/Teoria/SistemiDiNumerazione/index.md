@@ -14,6 +14,4 @@ time: 09:02
 - [Numeri](Numeri.md)
 - [Alfanumerico](Alfanumerico.md)
 
-## Riferimenti
-
 1.  #SistemiReti #Logica

@@ -8,23 +8,23 @@ time: 09:10
 
 ## Indice
 
-1. [[#1. Formattazione]]
-2. [[#2. Blocco di BOOT]]
-3. [[#3. Gestione dei Blocchi Difettosi]]
-4. [[#4. Gestione dell'Area di Swap]]
-5. [[#5. RAID — Redundant Array of Independent Disks]]
-6. [[#6. Connessione dei Dispositivi di Memoria]]
+1. [1. Formattazione](#wiki-1-formattazione)
+2. [2. Blocco di BOOT](#wiki-2-blocco-di-boot)
+3. [3. Gestione dei Blocchi Difettosi](#wiki-3-gestione-dei-blocchi-difettosi)
+4. [4. Gestione dell'Area di Swap](#wiki-4-gestione-dell-area-di-swap)
+5. [5. RAID — Redundant Array of Independent Disks](#wiki-5-raid-redundant-array-of-independent-disks)
+6. [6. Connessione dei Dispositivi di Memoria](#wiki-6-connessione-dei-dispositivi-di-memoria)
 
 ---
 
-> [!abstract] Obiettivi della lezione Il SO deve occuparsi di quattro compiti fondamentali relativi alla memoria secondaria:
->
-> 1. **Inizializzare** i dispositivi tramite formattazione (fisica e logica)
-> 2. **Creare il blocco di boot** per l'avvio del sistema
-> 3. **Gestire i blocchi difettosi** del disco
-> 4. **Gestire in modo efficiente l'area di swap**
+!!! abstract "Obiettivi della lezione Il SO deve occuparsi di quattro compiti fondamentali relativi alla memoria secondaria:"
 
-## 1. Formattazione
+    1. **Inizializzare** i dispositivi tramite formattazione (fisica e logica)
+    2. **Creare il blocco di boot** per l'avvio del sistema
+    3. **Gestire i blocchi difettosi** del disco
+    4. **Gestire in modo efficiente l'area di swap**
+
+## 1. Formattazione {#wiki-1-formattazione}
 
 ### 1.1 Formattazione Fisica (o di basso livello)
 
@@ -34,19 +34,19 @@ Alla produzione, il disco magnetico **non è diviso in settori** e quindi non pu
 - Identifica ogni settore (header + area dati + coda)
 - Aggiunge spazio per la **correzione degli errori (ECC)**
 
-> [!info] Struttura di un settore (512 byte standard) Ogni settore è composto da:
->
-> - **Intestazione (Header)** — contiene numero di settore/pagina e codice ECC
-> - **Area dati** — tipicamente 512 byte (standard moderno: 4 KB)
-> - **Coda (ECC)** — 40 × 10 bit = 50 byte per la correzione degli errori
+!!! info "Struttura di un settore (512 byte standard) Ogni settore è composto da:"
 
-> [!note] Come funziona l'ECC Il controller calcola il codice ECC a **run-time** durante ogni lettura. Se il valore calcolato **differisce** da quello memorizzato nel settore → si è verificato un errore su quel settore.
+    - **Intestazione (Header)** — contiene numero di settore/pagina e codice ECC
+    - **Area dati** — tipicamente 512 byte (standard moderno: 4 KB)
+    - **Coda (ECC)** — 40 × 10 bit = 50 byte per la correzione degli errori
+
+!!! note "Come funziona l'ECC Il controller calcola il codice ECC a **run-time** durante ogni lettura. Se il valore calcolato **differisce** da quello memorizzato nel settore → si è verificato un errore su quel settore."
 
 **Nel caso di NVM (es. SSD):** devono essere inizializzate le **pagine** e creata la tabella **FTL (Flash Translation Layer)**.
 
 In entrambi i casi, la formattazione di basso livello inserisce per ogni blocco: **intestazione, dati, coda**.
 
-> [!warning] La formattazione fisica è eseguita dal costruttore dell'unità come parte del processo produttivo.
+!!! warning "La formattazione fisica è eseguita dal costruttore dell'unità come parte del processo produttivo."
 
 ---
 
@@ -60,11 +60,11 @@ Per poter memorizzare file, il SO deve mantenere le proprie strutture dati sul d
     - Creazione di una **directory radice vuota**
     - Lista spazio occupato (**FAT**) e libero (**Free List – FL**)
 
-> [!tip] Cluster Per migliorare le prestazioni, la maggior parte dei file system accorpa i blocchi in gruppi detti **cluster**:
->
-> - L'I/O su disco avviene per **blocchi**
-> - L'I/O via file system avviene per **cluster** (accesso sequenziale)
-> - File e metadati vicini su HDD → meno movimenti della testina
+!!! tip "Cluster Per migliorare le prestazioni, la maggior parte dei file system accorpa i blocchi in gruppi detti **cluster**:"
+
+    - L'I/O su disco avviene per **blocchi**
+    - L'I/O via file system avviene per **cluster** (accesso sequenziale)
+    - File e metadati vicini su HDD → meno movimenti della testina
 
 ```
 Disco vergine → [formattazione fisica] → H | ECC | H | ECC | H | ...
@@ -73,7 +73,7 @@ Disco vergine → [formattazione fisica] → H | ECC | H | ECC | H | ...
 
 ---
 
-## 2. Blocco di BOOT
+## 2. Blocco di BOOT {#wiki-2-blocco-di-boot}
 
 ### 2.1 Bootstrap
 
@@ -94,7 +94,7 @@ All'accensione (o riavvio), il computer esegue un programma iniziale molto sempl
 - Nella **ROM** → piccolo programma detto **bootstrap loader**
 - Sul **disco** → programma di avvio completo nell'**area di boot**
 
-> [!important] Nota bene Quando viene letta l'area di boot, il SO **non è ancora stato caricato**, non esistono driver né file system. L'accesso è quindi una lettura diretta di **settori fisici**, non una normale lettura di file.
+!!! note "Nota bene Quando viene letta l'area di boot, il SO **non è ancora stato caricato**, non esistono driver né file system. L'accesso è quindi una lettura diretta di **settori fisici**, non una normale lettura di file."
 
 ### 2.3 Struttura del disco di boot
 
@@ -114,11 +114,11 @@ Sequenza di avvio Windows:
 3. Caricamento del kernel dalla partizione di boot
 ```
 
-> [!note] Al montaggio di ogni partizione Si verifica la **coerenza del file system** (correttezza dei metadati) e si aggiorna la **tabella di montaggio**.
+!!! note "Al montaggio di ogni partizione Si verifica la **coerenza del file system** (correttezza dei metadati) e si aggiorna la **tabella di montaggio**."
 
 ---
 
-## 3. Gestione dei Blocchi Difettosi
+## 3. Gestione dei Blocchi Difettosi {#wiki-3-gestione-dei-blocchi-difettosi}
 
 I dischi magnetici sono strutturalmente soggetti a malfunzionamenti perché composti da **parti mobili con basse tolleranze**.
 
@@ -127,11 +127,11 @@ I dischi magnetici sono strutturalmente soggetti a malfunzionamenti perché comp
 - Durante la formattazione fisica si mantiene un **gruppo di settori di riserva** non visibili al SO
 - Il controller sostituisce logicamente un **settore difettoso** con uno dei settori di riserva inutilizzati
 
-> [!note] NVM (SSD) Anche i dispositivi NVM possono contenere **pagine difettose**, sostituite logicamente tramite pagine accantonate o appartenenti alla riserva dell'**over-provisioning**.
+!!! note "NVM (SSD) Anche i dispositivi NVM possono contenere **pagine difettose**, sostituite logicamente tramite pagine accantonate o appartenenti alla riserva dell'**over-provisioning**."
 
 ---
 
-## 4. Gestione dell'Area di Swap
+## 4. Gestione dell'Area di Swap {#wiki-4-gestione-dell-area-di-swap}
 
 ### 4.1 Cos'è
 
@@ -139,7 +139,7 @@ L'**area di swap** è una porzione di disco usata dal gestore della memoria come
 
 Essa viene utilizzata per caricare un programma in modo sequenziale e fa da estensione per la RAM
 
-> [!tip] Oggi meno comune grazie all'aumento delle capacità delle memorie RAM.
+!!! tip "Oggi meno comune grazie all'aumento delle capacità delle memorie RAM."
 
 ### 4.2 Dove si trova
 
@@ -180,7 +180,7 @@ Swap Area:
 
 ---
 
-## 5. RAID — Redundant Array of Independent Disks
+## 5. RAID — Redundant Array of Independent Disks {#wiki-5-raid-redundant-array-of-independent-disks}
 
 ### 5.1 Motivazione
 
@@ -291,7 +291,7 @@ Si raggruppano più unita fisiche reali in un unico disco logico esso viene chia
 
 ---
 
-## 6. Connessione dei Dispositivi di Memoria
+## 6. Connessione dei Dispositivi di Memoria {#wiki-6-connessione-dei-dispositivi-di-memoria}
 
 I calcolatori accedono alla memoria secondaria in **tre modi**:
 
@@ -313,7 +313,7 @@ SO → comando in porte I/O mappate in memoria
    → trasferimento verso host tramite DMA
 ```
 
-> [!info] DMA (Direct Memory Access) Meccanismo che permette alle periferiche di accedere **direttamente** alla memoria interna senza coinvolgere la CPU, per scambiare dati in lettura/scrittura ad alta velocità.
+!!! info "DMA (Direct Memory Access) Meccanismo che permette alle periferiche di accedere **direttamente** alla memoria interna senza coinvolgere la CPU, per scambiare dati in lettura/scrittura ad alta velocità."
 
 ### 6.2 Dispositivo connesso alla rete (NAS)
 

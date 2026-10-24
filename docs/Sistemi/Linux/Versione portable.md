@@ -13,7 +13,3 @@ pacman -S nano
 ```
 
 `pacman` manager di pacchetti e piìoi `-S` ed infine il nome del pacchetto `nano`
-
-## Riferimenti
-
-1.

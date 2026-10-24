@@ -36,7 +36,3 @@ Come facciamo a far si di aggiornare la cartella online che abbiamo appena modif
 Invece per ricevere eventuali aggiornamenti posso usare il comando `git pull ` in modo da aggiornare la nostra cartella sul pc
 
 Per eliminare un branch localmente possiamo usare il comando `git branch -d nome_branch` per eliminarlo su GitHub possiamo usare `git push --delete origin nome_branch`
-
-## Riferimenti
-
-1.

@@ -29,7 +29,3 @@ Lo standard di riferimento è l'ISO-8859-n dove n indica la tabella che dev'esse
 Tra la codifica di lettere maiuscole e minuscole cambia la codifica.
 
 I codici estesi delle varie pagine variano in base al numero di pagine.
-
-## Riferimenti
-
-1.

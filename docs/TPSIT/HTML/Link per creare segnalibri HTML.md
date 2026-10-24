@@ -18,7 +18,3 @@ Questo è il segnalibro con il suo id
 ```
 
 Questo è il link con l'id a segnalibro
-
-## Riferimenti
-
-1.

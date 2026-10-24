@@ -55,6 +55,4 @@ Il Proces Status World esso viene valorizzato dalla ALU che contiene una serie d
 - PARITY quando il risultato è pari. Viene usato principalmente negli algoritmi di comunicazione per  la gestione del rilevamento degli errori di comunicazione
 - SING contiene true quando il risultato dell'ultima operazione aritmetico logica è negativa  copiando nel flag il bit più significativo del risultato che riflette
 
-## Riferimenti
-
 1. [Registri](Registri.md)

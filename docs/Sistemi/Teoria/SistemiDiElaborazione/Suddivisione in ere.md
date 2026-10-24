@@ -63,7 +63,3 @@ L'era del VLSI la possibilità di integrare in un unico chip decine di migliaia 
 - costo
 - spazio
 - velocità
-
-## Riferimenti
-
-1.

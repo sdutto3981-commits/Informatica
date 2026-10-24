@@ -35,7 +35,3 @@ Non è possibile convertire 103 in base 3 siccome:
 - Base 4 = 0,1,2,3
 - ...
 Quindi 103 non può essere presente in base 3
-
-## Riferimenti
-
-1.

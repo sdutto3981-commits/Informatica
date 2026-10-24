@@ -12,7 +12,3 @@ I sistemi si elaborazione delle informazioni sono particolarmente vantaggi in te
 - Dimensione in termine di memoria
 - Affidabilità
 - Costo
-
-## Riferimenti
-
-1.

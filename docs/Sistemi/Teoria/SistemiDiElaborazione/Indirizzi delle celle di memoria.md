@@ -32,7 +32,3 @@ Le locazioni sono disposte in una matrice quadrata o rettangolare ogni locazione
 Per attivare la cella di memoria è  necessario un decodificatore un circuito logico il cui scopo e riconoscere l'indirizzo per potere accedere in lettura o scrittura.
 
 Un decodificatore è un circuito logico con n ingressi e $2^n$ uscite esso prendendo l'indirizzo va a definire colonna e riga
-
-## Riferimenti
-
-1.

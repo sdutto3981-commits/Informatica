@@ -22,7 +22,3 @@ Un URL è una sequenza di elementi che lavorano insieme pr locallizare una risor
 	- /blog/articoli
 4. **Query**
 	- sequenza di parametri per filtrare o personalizzare una risorsa
-
-## Riferimenti
-
-1.

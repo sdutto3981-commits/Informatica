@@ -11,7 +11,3 @@ Sono dispositivi simili ai microprocessori realizzati su un unici UC che integra
 - Porte integrate di Input e Output
 - contatori
 Nel campo dei microcontrollori le prestazioni sono importanti al pari di altri parametri ad esempio costo il consumo dimensione e affidabilità
-
-## Riferimenti
-
-1.
