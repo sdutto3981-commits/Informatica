@@ -1,44 +1,54 @@
 # Box model CSS
 
-Il box model descrive come il browser calcola lo spazio occupato da un elemento: **content**, **padding**, **border** e **margin**.
+Ogni elemento visualizzato come box è composto da quattro aree: **content**, **padding**, **border** e **margin**.
 
-- **Content:** area del contenuto; `width` e `height` si riferiscono a questa area con `box-sizing: content-box`.
-- **Padding:** spazio interno tra contenuto e bordo; lo sfondo dell'elemento si estende normalmente anche qui.
-- **Border:** bordo intorno al padding e al contenuto.
-- **Margin:** spazio esterno al bordo, che separa l'elemento dagli altri. Lo sfondo dell'elemento non dipinge il margine.
+- Content: area occupata dal contenuto.
+- Padding: spazio interno tra contenuto e bordo; lo sfondo dell'elemento si estende normalmente anche qui.
+- Border: bordo intorno a contenuto e padding.
+- Margin: spazio esterno che separa il box dagli altri elementi; lo sfondo dell'elemento non lo riempie.
 
 ## `content-box` e `border-box`
 
+Con `box-sizing: content-box`, `width` indica la larghezza del contenuto. Con `border-box`, la larghezza comprende contenuto, padding e bordo.
+
 ```css
-.content-box {
+.box-a {
   box-sizing: content-box;
   width: 200px;
   padding: 20px;
-  border: 10px solid;
+  border: 5px solid;
 }
+/* Larghezza esterna: 200 + 40 + 10 = 250px */
 
-.border-box {
+.box-b {
   box-sizing: border-box;
   width: 200px;
   padding: 20px;
-  border: 10px solid;
+  border: 5px solid;
 }
+/* Larghezza esterna totale: 200px */
+
+* { box-sizing: border-box; }
 ```
 
-Con `content-box`, la larghezza esterna di base è `200 + 20×2 + 10×2 = 260px`, senza contare il margine. Con `border-box`, la larghezza complessiva comprensiva di padding e bordo è `200px`.
+## Margini e overflow
 
-È comune applicare:
+I margini verticali di alcuni elementi block possono collassare: il margine risultante non è sempre la somma dei due. Flexbox e Grid trattano diversamente le spaziature tra elementi; `gap` è spesso più prevedibile per layout moderni.
+
+Se il contenuto supera lo spazio assegnato, si verifica overflow. `overflow: auto` consente lo scorrimento quando necessario, mentre `hidden` ritaglia il contenuto e può nascondere parti importanti.
+
+## Esempio pratico
 
 ```css
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+.card {
+  max-width: 30rem;
+  padding: 1.25rem;
+  border: 1px solid #bbb;
+  border-radius: .5rem;
+  margin-inline: auto;
 }
 ```
 
-## Overflow e dimensionamento
+## Riferimento
 
-Se il contenuto non entra nel box si verifica overflow. `overflow: auto` mostra le barre di scorrimento quando necessarie; `hidden` taglia l'eccesso; `visible` è il comportamento iniziale comune. `min-content` e `max-content` possono essere usati per il dimensionamento intrinseco.
-
-Il `outline` è disegnato fuori dal bordo ma non occupa spazio nel calcolo del box; anche `box-shadow` non modifica le dimensioni di layout. Il margine, invece, partecipa alla spaziatura esterna e i margini verticali di elementi a blocco possono collassare in determinate condizioni.
+[W3Schools — CSS Box Model](https://www.w3schools.com/css/css_boxmodel.asp)

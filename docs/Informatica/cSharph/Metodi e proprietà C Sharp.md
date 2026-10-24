@@ -1,31 +1,44 @@
 # Metodi e proprietà in C#
 
-**Metodi** e **proprietà** sono membri di un tipo, ma svolgono ruoli diversi.
-
-## Metodi
-
-Un metodo rappresenta un'operazione e normalmente si richiama con parentesi tonde. Può accettare parametri e restituire un valore.
+Un metodo esegue un'operazione; una proprietà espone un valore attraverso gli accessori `get` e/o `set`. Non è corretto definire una proprietà semplicemente come un'azione senza parentesi.
 
 ```csharp
-static int Raddoppia(int valore)
+class Prodotto
 {
-    return valore * 2;
-}
+    public string Nome { get; set; } = "Senza nome";
+    public decimal Prezzo { get; private set; }
 
-int risultato = Raddoppia(7);
+    public Prodotto(string nome, decimal prezzo)
+    {
+        Nome = nome;
+        Prezzo = prezzo;
+    }
+
+    public decimal PrezzoConIva(decimal aliquota)
+    {
+        return Prezzo * (1 + aliquota / 100m);
+    }
+}
 ```
 
-## Proprietà
+`Nome` è una proprietà auto-implementata. `Prezzo` può essere letto dall'esterno ma modificato soltanto dall'interno della classe. `PrezzoConIva` è un metodo perché rappresenta un calcolo e può ricevere un parametro.
 
-Una proprietà espone un dato attraverso gli accessor `get` e/o `set`. Non è semplicemente “un'azione”: rappresenta una caratteristica leggibile e/o modificabile dell'oggetto.
+## Proprietà calcolate
 
 ```csharp
-public string Nome { get; set; }
-public int AnnoNascita { get; private set; }
+public decimal PrezzoConSconto => Prezzo * 0.9m;
 ```
 
-Una proprietà può essere automatica oppure contenere una logica di validazione. Si accede normalmente senza parentesi: `studente.Nome`.
+Una proprietà calcolata può derivare il valore da altri dati senza memorizzarlo separatamente.
 
-## Metodo o proprietà?
+## Distinzione tra campi, proprietà e metodi
 
-Usa una proprietà per esporre uno stato o un valore calcolato senza effetti collaterali inattesi. Usa un metodo per un'azione, per elaborazioni con argomenti o quando l'operazione può avere effetti collaterali. Per il quadro completo consulta [campi, proprietà e metodi](../OOP/Campi%20proprietà%20e%20metodi.md).
+- Campo: conserva direttamente un dato.
+- Proprietà: controlla o espone l'accesso a un dato.
+- Metodo: esegue un comportamento.
+
+Le proprietà sono spesso preferibili ai campi pubblici perché consentono di cambiare l'implementazione interna senza cambiare l'interfaccia di uso.
+
+## Riferimento
+
+[W3Schools — C# Properties](https://www.w3schools.com/cs/cs_properties.php)

@@ -1,16 +1,14 @@
 # Introduzione a JavaScript
 
-JavaScript è un linguaggio che aggiunge comportamento alle pagine web. HTML definisce la struttura, CSS la presentazione e JavaScript la logica interattiva.
+JavaScript è un linguaggio di programmazione usato nello sviluppo web per aggiungere comportamento e interazione. HTML descrive la struttura, CSS l'aspetto e JavaScript la logica dinamica.
 
-## Inserimento nella pagina
-
-È consigliabile tenere il codice in un file esterno:
+## Collegare uno script
 
 ```html
 <script src="app.js" defer></script>
 ```
 
-`defer` fa eseguire lo script dopo il parsing del documento HTML.
+Un file esterno facilita la manutenzione e il riuso del codice. Con uno script classico esterno, `defer` permette di eseguirlo dopo il parsing del documento HTML.
 
 ## Primo esempio
 
@@ -19,32 +17,34 @@ const nome = "Ada";
 console.log(`Ciao, ${nome}!`);
 ```
 
-- `const` impedisce la riassegnazione del binding; l'oggetto eventualmente contenuto può comunque essere mutabile.
-- `let` si usa quando il binding deve essere riassegnato.
-- `console.log()` scrive nella console degli strumenti per sviluppatori.
-- JavaScript distingue maiuscole e minuscole.
+`console.log()` scrive nella console degli strumenti per sviluppatori; i template literal usano backtick e possono includere espressioni con `${...}`.
 
-## Interazione con il DOM
+## Modificare una pagina
 
 ```html
 <p id="messaggio">Testo iniziale</p>
-<button id="azione" type="button">Cambia testo</button>
+<button id="cambia" type="button">Cambia</button>
 <script src="app.js" defer></script>
 ```
 
 ```javascript
-const messaggio = document.querySelector("#messaggio");
-const azione = document.querySelector("#azione");
-azione.addEventListener("click", () => {
-  messaggio.textContent = "Pulsante premuto.";
+const testo = document.querySelector("#messaggio");
+const pulsante = document.querySelector("#cambia");
+pulsante.addEventListener("click", () => {
+  testo.textContent = "Il contenuto è cambiato.";
 });
 ```
 
-## Verifica del codice
+Il browser costruisce un DOM con cui lo script può accedere agli elementi. L'evento `click` esegue la callback quando l'utente attiva il pulsante.
 
-1. Apri la pagina nel browser.
-2. Consulta la console degli strumenti per sviluppatori.
-3. Controlla che gli elementi selezionati esistano.
-4. Prova anche input vuoti e casi limite.
+## Debugging di base
 
-Prosegui con [tipi e strutture dati](Strutture%20e%20tipi%20di%20dati.md) e [DOM ed eventi](DOM%20ed%20eventi.md).
+1. Apri gli strumenti per sviluppatori del browser.
+2. Leggi gli errori in Console.
+3. Verifica nomi e maiuscole/minuscole degli identificatori.
+4. Controlla che gli elementi esistano prima di usarli.
+5. Aggiungi breakpoint e osserva i valori durante l'esecuzione.
+
+## Riferimento
+
+[W3Schools — JavaScript Introduction](https://www.w3schools.com/js/js_intro.asp)

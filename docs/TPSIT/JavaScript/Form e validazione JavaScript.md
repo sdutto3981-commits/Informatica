@@ -1,40 +1,44 @@
 # Form e validazione con JavaScript
 
-La validazione lato client può mostrare errori chiari prima dell'invio. Non sostituisce la validazione server quando i dati vengono inviati a un servizio.
-
-## Esempio
+La validazione migliora l'esperienza utente fornendo feedback immediato, ma il server deve controllare nuovamente ogni dato ricevuto.
 
 ```html
-<form id="form-iscrizione">
+<form id="form-contatto">
   <label for="email">Email</label>
   <input id="email" name="email" type="email" required>
   <button type="submit">Invia</button>
-  <p id="esito" role="status"></p>
+  <p id="feedback" role="status"></p>
 </form>
 ```
 
 ```javascript
-const form = document.querySelector("#form-iscrizione");
+const form = document.querySelector("#form-contatto");
 const email = document.querySelector("#email");
-const esito = document.querySelector("#esito");
+const feedback = document.querySelector("#feedback");
 
 form.addEventListener("submit", event => {
   event.preventDefault();
-  if (!email.checkValidity()) {
-    esito.textContent = "Inserisci un indirizzo email valido.";
-    email.focus();
-    return;
-  }
-  esito.textContent = "Dati controllati: puoi proseguire.";
+  if (!form.reportValidity()) return;
+
+  feedback.textContent = `Indirizzo inserito: ${email.value.trim()}`;
 });
 ```
 
-Gli attributi HTML come `required`, `type="email"`, `min`, `max`, `minlength` e `pattern` possono offrire controlli nativi. JavaScript può usare `checkValidity()` e `reportValidity()`.
+## API di validazione
 
-## Linee guida
+- `required`: richiede un valore.
+- `type="email"`, `type="url"`, `min`, `max`, `minlength`, `maxlength` e `pattern` applicano vincoli nativi.
+- `checkValidity()` restituisce un booleano.
+- `reportValidity()` verifica i campi e può mostrare i messaggi del browser.
+- `setCustomValidity(messaggio)` imposta un messaggio personalizzato; per rimuoverlo usa `setCustomValidity("")`.
 
-- Leggi `.value` dai campi; per ripulire spazi iniziali/finali, usa `trim()`.
-- Mostra l'errore vicino al campo e con un messaggio testuale.
-- Non considerare regolari espressioni o controlli nel browser come una garanzia di sicurezza.
-- Non inserire i dati sensibili nei messaggi di errore o nei log senza necessità.
-- Sul server convalida nuovamente tutti i dati prima di salvarli o usarli.
+## Buone pratiche
+
+- Spiega il problema in modo specifico e vicino al campo.
+- Non usare colore rosso come unica indicazione di errore.
+- Non fidarti dei valori inviati dal browser: i client possono essere modificati o aggirati.
+- Non mostrare o registrare dati sensibili nelle console durante la produzione.
+
+## Riferimento
+
+[W3Schools — JavaScript Form Validation](https://www.w3schools.com/js/js_validation.asp)

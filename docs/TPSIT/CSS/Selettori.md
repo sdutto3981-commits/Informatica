@@ -1,38 +1,41 @@
 # Selettori CSS
 
-Un selettore individua gli elementi HTML a cui applicare le dichiarazioni.
-
-## Tipi principali
+Un selettore individua gli elementi HTML a cui applicare le dichiarazioni CSS.
 
 ```css
-p { color: #222; }                 /* tutti i paragrafi */
-.avviso { color: darkred; }        /* classe */
-#intestazione { font-weight: bold; } /* id */
-input[type="email"] { width: 100%; } /* attributo */
-nav a { text-decoration: none; }   /* discendente */
-.lista > li { margin-block: .5rem; } /* figlio diretto */
+p { color: #333; }                 /* tutti i paragrafi */
+.avviso { color: #a00; }           /* class="avviso" */
+#titolo-principale { font-size: 2rem; } /* id specifico */
+nav a { text-decoration: none; }   /* link discendenti di nav */
+.card > h2 { margin-top: 0; }      /* figli diretti */
+input[type="email"] { width: 100%; }
+a:hover { text-decoration: underline; }
+button:focus-visible { outline: 3px solid orange; }
 ```
 
-- `A B`: seleziona un discendente `B` dentro `A`.
-- `A > B`: seleziona un figlio diretto.
-- `A + B`: seleziona il fratello immediatamente successivo.
-- `A ~ B`: seleziona i fratelli successivi che corrispondono a `B`.
+## Famiglie principali
 
-## Pseudoclassi e pseudoelementi
+- Elemento: `p`, `h1`, `button`.
+- Classe: `.card`; può essere riutilizzata più volte.
+- ID: `#menu-principale`; deve essere univoco nel documento.
+- Attributo: `[required]`, `[type="email"]`.
+- Relazione: discendente `A B`, figlio diretto `A > B`, fratello adiacente `A + B`.
+- Pseudoclasse: `:hover`, `:focus`, `:focus-visible`, `:checked`, `:first-child`.
+- Pseudoelemento: `::before`, `::after`, `::first-letter`.
 
-```css
-button:hover { filter: brightness(0.9); }
-input:focus { outline: 2px solid royalblue; }
-li:first-child { font-weight: bold; }
-p::first-letter { font-size: 1.5em; }
-```
-
-Una pseudoclasse descrive uno stato o una posizione dell'elemento, come `:hover`, `:focus`, `:checked`, `:first-child`. Uno pseudoelemento seleziona una parte o un elemento virtuale, come `::before`, `::after` e `::first-letter`.
-
-## Gruppi di selettori
+## Gruppi e commenti
 
 ```css
 h1, h2, h3 { line-height: 1.2; }
+/* Commento: non viene mostrato nella pagina */
 ```
 
-La virgola separa selettori indipendenti. Evita selettori troppo lunghi e dipendenti dalla struttura interna della pagina: rendono gli stili difficili da riutilizzare.
+## Buone pratiche
+
+Preferisci classi descrittive per gli stili riutilizzabili. Usa selettori troppo specifici soltanto quando necessario: rendono più difficile sovrascrivere le regole in seguito.
+
+Approfondisci anche [cascata e specificità](Cascata%20specificit%C3%A0%20ereditariet%C3%A0%20CSS.md).
+
+## Riferimento
+
+[W3Schools — CSS Selectors](https://www.w3schools.com/css/css_selectors.asp)

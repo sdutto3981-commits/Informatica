@@ -1,47 +1,34 @@
 # Programmazione visuale con Windows Forms
 
-Windows Forms è un framework .NET per creare applicazioni desktop con finestre e controlli. Una `Form` rappresenta una finestra; i controlli includono `Button`, `Label`, `TextBox`, `CheckBox`, `ComboBox` e altri componenti.
+Windows Forms è una tecnologia .NET per creare applicazioni desktop a finestre. Una form contiene controlli come `Button`, `Label`, `TextBox`, `CheckBox` e `ListBox`.
 
 ## Proprietà, metodi ed eventi
 
-- **Proprietà:** descrivono lo stato o l'aspetto, per esempio `Text`, `Name`, `Enabled`, `Visible`, `Width`.
-- **Metodi:** eseguono operazioni, per esempio `Show()` o `Focus()`.
-- **Eventi:** notificano azioni, per esempio `Click`, `TextChanged`, `FormClosing`.
-
-Il programma resta in attesa di eventi e richiama il gestore associato quando l'evento si verifica.
-
-## Esempio: pulsante e contatore
-
-Supponendo che la form contenga `btnIncrementa` e `lblContatore`:
+- Proprietà: caratteristiche del controllo, per esempio `Text`, `Enabled`, `Visible` e `BackColor`.
+- Metodi: operazioni, per esempio `Show()`, `Hide()` o `Focus()`.
+- Eventi: notifiche a cui si collegano gestori, per esempio `Click`, `TextChanged` e `FormClosing`.
 
 ```csharp
-public partial class Form1 : Form
+private int contatore = 0;
+
+private void btnIncrementa_Click(object sender, EventArgs e)
 {
-    private int contatore = 0;
-
-    public Form1()
-    {
-        InitializeComponent();
-        lblContatore.Text = contatore.ToString();
-    }
-
-    private void btnIncrementa_Click(object sender, EventArgs e)
-    {
-        contatore++;
-        lblContatore.Text = contatore.ToString();
-    }
+    contatore++;
+    lblContatore.Text = contatore.ToString();
 }
 ```
 
-Il gestore deve essere collegato all'evento `Click`, tramite il designer o il codice. `sender` indica il controllo che ha generato l'evento; `EventArgs` contiene informazioni sull'evento, quando previste.
+Il gestore evento viene associato tramite il designer oppure nel codice. Il campo `contatore` deve appartenere alla form (o a un componente di stato) affinché il valore persista tra eventi.
 
-## Organizzare il codice
+## Principi di progettazione
 
-Mantieni distinti lo stato dell'applicazione, le regole e la presentazione. Sposta in metodi separati la logica riutilizzabile: evita di concentrare tutto in un singolo gestore click.
+- Mantieni breve il codice nei gestori evento e delega i calcoli a metodi separati.
+- Valida l'input dell'utente prima di usarlo.
+- Non bloccare il thread dell'interfaccia con operazioni lunghe.
+- Usa contenitori come `Panel`, `TableLayoutPanel` e `FlowLayoutPanel` quando aiutano la disposizione dei controlli.
 
-## Attenzioni
+Le API disponibili dipendono dal tipo di progetto, dal framework .NET e dal sistema operativo usato in laboratorio.
 
-- Non confondere il nome del controllo (`Name`) con il testo mostrato (`Text`).
-- Valida l'input prima di convertirlo.
-- Aggiorna l'interfaccia dopo aver aggiornato lo stato dell'applicazione.
-- Per operazioni lente, non bloccare il thread dell'interfaccia: la finestra potrebbe non rispondere.
+## Riferimento
+
+[W3Schools — C# Classes](https://www.w3schools.com/cs/cs_classes.php) · [Microsoft — Windows Forms](https://learn.microsoft.com/dotnet/desktop/winforms/)

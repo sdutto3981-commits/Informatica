@@ -1,26 +1,51 @@
----
-date: 2025-09-11
-time: 21:40
----
+# Sintassi di C#
 
-# Sintassi
+C# distingue maiuscole e minuscole: `nome`, `Nome` e `NOME` sono identificatori differenti.
 
 ```csharp
 using System;
 
-namespace HelloWorld
+class Program
 {
-  class Program
-  {
-    static void Main(string[] args)
+    static void Main()
     {
-      Console.WriteLine("Hello World!");
+        int contatore = 0;
+        contatore++;
+        Console.WriteLine($"Valore: {contatore}");
     }
-  }
 }
 ```
 
-1. `using System` usiamo il modulo `System`
-2. `namescape` serve per organizzare il codice ed è un futuro contenitore per classi e di altri namescapes
-3. `class` è un contenitore per dati e metodi per utilizzare funzionalità future  in C#
-4. `console` è una classe del modulo `System` namescape che ha come opzioni `WriteLine()` che è usato per l'output di testo `"Hello World"`
+## Regole essenziali
+
+- Termina le istruzioni con `;`.
+- Delimita blocchi con `{` e `}`.
+- I commenti su una riga iniziano con `//`; quelli su più righe con `/* ... */`.
+- Gli identificatori non possono iniziare con una cifra e non devono coincidere con parole riservate, salvo l'uso del prefisso `@` in casi specifici.
+- Usa parentesi per rendere chiara l'ordine delle operazioni quando la precedenza può creare dubbi.
+- Le stringhe sono tra doppi apici (`"testo"`), mentre un `char` usa apici singoli (`'A'`).
+
+## Interpolazione di stringhe
+
+```csharp
+string nome = "Ada";
+int eta = 20;
+Console.WriteLine($"{nome} ha {eta} anni.");
+```
+
+L'interpolazione inserisce espressioni tra `{}` dentro una stringa preceduta da `$`.
+
+## Commenti e documentazione
+
+```csharp
+// Commento breve
+/* Commento su più righe */
+/// <summary>Calcola la somma di due interi.</summary>
+static int Somma(int a, int b) => a + b;
+```
+
+I commenti XML `///` possono essere usati per generare documentazione dei membri.
+
+## Riferimento
+
+[W3Schools — C# Syntax](https://www.w3schools.com/cs/cs_syntax.php)

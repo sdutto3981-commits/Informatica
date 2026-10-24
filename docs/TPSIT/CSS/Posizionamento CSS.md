@@ -1,29 +1,32 @@
 # Posizionamento CSS
 
-La proprietà `position` determina come un elemento partecipa al layout e come può essere spostato.
+La proprietà `position` definisce come un elemento viene collocato e come interagisce con il flusso normale del documento.
 
-- `static`: valore normale predefinito; `top`, `right`, `bottom`, `left` non lo spostano.
-- `relative`: resta nel flusso e può essere spostato rispetto alla posizione originale; può diventare riferimento per figli `absolute`.
-- `absolute`: viene tolto dal flusso normale e posizionato rispetto al contenitore di riferimento più vicino idoneo.
-- `fixed`: posizionato rispetto alla viewport (con eccezioni dovute ad alcuni antenati); resta nella stessa posizione durante lo scorrimento.
-- `sticky`: si comporta in modo relativo fino a una soglia di scorrimento, poi resta agganciato entro i limiti del contenitore.
-
-## Esempio
+- `static`: valore predefinito; `top`, `right`, `bottom` e `left` non spostano l'elemento.
+- `relative`: resta nel flusso e può essere spostato rispetto alla posizione normale; spesso stabilisce il riferimento per discendenti `absolute`.
+- `absolute`: esce dal flusso normale e viene posizionato rispetto al suo contenitore di riferimento posizionato, oppure a un altro riferimento previsto dal browser.
+- `fixed`: si colloca rispetto alla viewport e resta nella stessa posizione durante lo scroll, con alcune eccezioni dovute al contesto di contenimento.
+- `sticky`: si comporta normalmente finché non raggiunge una soglia di scorrimento; richiede almeno una soglia come `top` e può essere limitato dal contenitore.
 
 ```css
 .card { position: relative; }
 .badge {
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: .5rem;
+  right: .5rem;
+}
+
+.intestazione-fissa {
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 ```
 
-La `.card` diventa il riferimento della `.badge`. Senza un antenato di riferimento, un elemento `absolute` può essere collocato rispetto a un contenitore più esterno.
+`z-index` regola l'ordine di sovrapposizione all'interno dei contesti di stacking; non sempre un numero più alto porta l'elemento sopra ogni altro elemento della pagina.
 
-## Attenzioni
+Prima di ricorrere a `position: absolute`, valuta Flexbox o Grid: spesso creano layout più robusti e adattabili.
 
-- Elementi `absolute` e `fixed` non riservano spazio normale nel flusso: possono sovrapporsi al contenuto.
-- `z-index` controlla l'ordine di sovrapposizione solo nel contesto di impilamento appropriato.
-- `sticky` richiede spesso una soglia come `top: 0` e può essere influenzato dai contenitori di scorrimento.
-- Per l'impaginazione principale, preferisci Flexbox/Grid anziché spostare tutto con coordinate assolute.
+## Riferimento
+
+[W3Schools — CSS Layout](https://www.w3schools.com/css/css_positioning.asp)

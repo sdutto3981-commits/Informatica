@@ -1,17 +1,37 @@
-# Variabili in JavaScript
+# Variabili JavaScript
 
-Una variabile associa un identificatore a un valore. In JavaScript si usano principalmente `const` e `let`.
+Una variabile associa un nome a un valore. JavaScript usa `let` e `const` nella maggior parte del codice moderno.
 
 ```javascript
-let punteggio = 0;
-punteggio = punteggio + 10;
+let punti = 0;
+punti = punti + 1;
 
 const nome = "Ada";
-console.log(`${nome}: ${punteggio}`);
+const studente = { nome: "Luca" };
+studente.nome = "Marta"; // l'oggetto può cambiare anche se il binding è const
 ```
 
-- `const`: il binding non può essere riassegnato; se contiene un oggetto o un array, le proprietà o gli elementi possono comunque essere modificati.
-- `let`: consente la riassegnazione e ha scope di blocco.
-- `var`: dichiarazione legacy con scope di funzione; nei nuovi esempi è generalmente preferibile evitarla.
+- `let`: permette la riassegnazione.
+- `const`: impedisce di assegnare un valore diverso allo stesso binding dopo l'inizializzazione.
+- `var`: dichiarazione storica con regole di scope differenti; nei nuovi esempi, preferisci `let` e `const`.
 
-JavaScript distingue maiuscole e minuscole. I nomi sono spesso scritti in `camelCase`. Una variabile locale dovrebbe essere dichiarata il più vicino possibile al punto in cui serve.
+## Scope
+
+`let` e `const` hanno scope di blocco. Una variabile dichiarata all'interno di una funzione non è accessibile direttamente dall'esterno, salvo che venga restituita o esposta in altro modo.
+
+```javascript
+const soglia = 10;
+if (soglia > 5) {
+  const messaggio = "Superata";
+  console.log(messaggio);
+}
+// messaggio non è definita fuori dal blocco
+```
+
+## Convenzioni
+
+Usa nomi descrittivi in `camelCase`, per esempio `numeroTentativi`. Le costanti che rappresentano configurazioni stabili possono usare nomi più evidenti, ma la maiuscola non è una regola obbligatoria del linguaggio.
+
+## Riferimento
+
+[W3Schools — JavaScript Variables](https://www.w3schools.com/js/js_variables.asp)

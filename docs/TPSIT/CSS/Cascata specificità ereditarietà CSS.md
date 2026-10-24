@@ -1,42 +1,37 @@
 # Cascata, specificità ed ereditarietà CSS
 
-Quando più regole possono applicarsi allo stesso elemento, il browser determina quale valore usare tramite la cascata.
+Quando più regole possono modificare la stessa proprietà, il browser deve determinare quale dichiarazione applicare. La cascata valuta, fra gli altri aspetti, origine/livello della dichiarazione, importanza, specificità e ordine.
 
-## Cascata
+## Specificità introduttiva
 
-Nel risultato influiscono origine e importanza della dichiarazione, livello di cascata, specificità e ordine delle regole. A parità degli altri fattori, una regola dichiarata dopo può prevalere su una precedente.
-
-```css
-p { color: navy; }
-p { color: darkgreen; } /* prevale, a parità di specificità */
-```
-
-## Specificità
-
-Come modello introduttivo si può confrontare il numero di selettori ID, classi/attributi/pseudoclassi e tipi/pseudoelementi:
+A parità di condizioni, un selettore con ID ha più specificità di uno con classe, che ne ha più di uno con elemento.
 
 ```css
-p { color: black; }          /* selettore di tipo */
-.avviso { color: orange; }   /* classe */
-#errore { color: red; }      /* ID */
+p { color: black; }           /* selettore elemento */
+.messaggio { color: blue; }   /* selettore classe */
+#avviso { color: red; }       /* selettore ID */
 ```
 
-Il selettore con ID ha specificità maggiore dei selettori di classe e di tipo in questo esempio. La specificità non è l'unico fattore della cascata: `!important`, origine, layer e altre regole possono cambiare il risultato.
+Non utilizzare ID o `!important` come soluzione abituale a ogni conflitto. Prima controlla il selettore, la cascata e l'ordine delle regole.
 
 ## Ereditarietà
 
-Alcune proprietà, come `color` e `font-family`, sono normalmente ereditate dai discendenti; altre, come `margin` e `border`, normalmente no.
+Alcune proprietà, come `color` e `font-family`, sono normalmente ereditate da discendenti. Proprietà come `margin`, `padding` e `border` normalmente non lo sono.
 
 ```css
-body { font-family: Arial, sans-serif; color: #222; }
-.card { border: 1px solid #ccc; }
+body { font-family: system-ui, sans-serif; color: #222; }
+button { font: inherit; }
 ```
 
-Gli elementi dentro `body` ereditano la famiglia di caratteri e il colore se non hanno un valore diverso; non ereditano automaticamente il bordo della `.card`.
+`inherit`, `initial`, `unset` e `revert` permettono di controllare come un valore viene risolto in casi specifici.
 
-## Buone pratiche
+## Regole di manutenzione
 
-- Preferisci classi descrittive e selettori leggibili.
-- Evita di usare ID come sistema generale di stile.
-- Non aggiungere `!important` per risolvere ogni conflitto.
-- Usa gli strumenti sviluppatore del browser per vedere le dichiarazioni applicate e quelle sovrascritte.
+- Preferisci classi riutilizzabili e selettori poco profondi.
+- Raggruppa le regole per componente o funzione.
+- Evita duplicazioni e conflitti risolti soltanto con `!important`.
+- Verifica il risultato negli strumenti per sviluppatori, dove si vedono le dichiarazioni attive e quelle sovrascritte.
+
+## Riferimento
+
+[W3Schools — CSS Specificity](https://www.w3schools.com/css/css_specificity.asp) · [CSS Inheritance](https://www.w3schools.com/css/css_inherit.asp)

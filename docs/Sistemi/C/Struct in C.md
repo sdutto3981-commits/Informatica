@@ -1,6 +1,6 @@
-# Strutture (`struct`) in C
+# `struct` in C
 
-Una `struct` aggrega campi di tipi differenti in un unico tipo composto.
+Una `struct` raggruppa campi di tipi differenti sotto un unico tipo composto.
 
 ```c
 #include <stdio.h>
@@ -8,24 +8,50 @@ Una `struct` aggrega campi di tipi differenti in un unico tipo composto.
 struct Persona {
     char nome[30];
     int eta;
-    float altezza;
+    double altezza;
 };
 
-int main(void)
-{
-    struct Persona p = {"Ada", 20, 1.68f};
-    printf("%s, %d anni, %.2f m\\n", p.nome, p.eta, p.altezza);
+int main(void) {
+    struct Persona p = {"Ada", 20, 1.70};
+    printf("%s, %d anni\n", p.nome, p.eta);
     return 0;
 }
 ```
 
-Il punto e virgola dopo la graffa che chiude la definizione della `struct` è obbligatorio. I membri si accedono con `.` quando si dispone di un oggetto e con `->` quando si dispone di un puntatore alla struttura.
-
-## Array di strutture
+Il punto e virgola dopo la parentesi graffa che conclude la definizione del tipo è obbligatorio. I membri si accedono con `.`; con un puntatore a struct si usa `->`.
 
 ```c
 struct Persona persone[5];
-persone[0].eta = 18;
+struct Persona *ptr = &persone[0];
+ptr->eta = 21;
 ```
 
-La dichiarazione riserva spazio per cinque strutture. Prima di usare i campi, inizializzarli in modo appropriato. Per leggere stringhe da input, preferire funzioni che limitano il numero di caratteri letti.
+## `typedef`
+
+`typedef` crea un alias per un tipo:
+
+```c
+typedef struct {
+    int x;
+    int y;
+} Punto;
+
+Punto origine = {0, 0};
+```
+
+Un array di struct contiene una struttura completa in ciascuna posizione. In una struct che contiene puntatori, la copia della struct copia i puntatori, non necessariamente i dati a cui puntano.
+
+## `enum`
+
+Un tipo enumerato rappresenta un insieme di costanti nominate:
+
+```c
+enum Stato { SPENTO, ACCESO, ERRORE };
+enum Stato stato = ACCESO;
+```
+
+I valori sono interi; se il programma dipende dalla rappresentazione numerica, definisci e documenta i valori intenzionalmente.
+
+## Riferimento
+
+[W3Schools — C Structures](https://www.w3schools.com/c/c_structs.php) · [C Enums](https://www.w3schools.com/c/c_enums.php)

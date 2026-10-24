@@ -1,50 +1,38 @@
-# Creazione dinamica di controlli in Windows Forms
+# Creazione dinamica dei controlli in Windows Forms
 
-Un controllo può essere creato dal designer oppure durante l'esecuzione. La creazione dinamica è utile per griglie, liste di pulsanti, tabelloni e giochi come Campo Minato o Forza 4.
-
-## Esempio: aggiungere pulsanti a runtime
+È possibile creare controlli durante l'esecuzione, configurarne proprietà e aggiungerli alla raccolta `Controls` di una form o di un contenitore.
 
 ```csharp
-private void CreaPulsanti(int quanti)
+private void AggiungiPulsante()
 {
-    for (int i = 0; i < quanti; i++)
+    Button pulsante = new Button
     {
-        Button pulsante = new Button();
-        pulsante.Name = "btn" + i;
-        pulsante.Text = i.ToString();
-        pulsante.Width = 50;
-        pulsante.Height = 35;
-        pulsante.Left = 10 + i * 55;
-        pulsante.Top = 20;
-        pulsante.Tag = i;
-        pulsante.Click += PulsanteDinamico_Click;
-        Controls.Add(pulsante);
-    }
-}
+        Text = "Nuovo",
+        Width = 100,
+        Height = 35,
+        Left = 20,
+        Top = 20
+    };
 
-private void PulsanteDinamico_Click(object sender, EventArgs e)
-{
-    Button pulsante = sender as Button;
-    if (pulsante != null)
-        MessageBox.Show("Indice: " + pulsante.Tag);
+    pulsante.Click += (sender, e) =>
+    {
+        MessageBox.Show("Pulsante creato a runtime");
+    };
+
+    flowLayoutPanel1.Controls.Add(pulsante);
 }
 ```
 
-`Controls.Add()` aggiunge il controllo al contenitore corrente. Se la form è già complessa, considera un `Panel`, un `FlowLayoutPanel` o un `TableLayoutPanel` per evitare di calcolare manualmente tutte le coordinate.
+L'esempio presume che `flowLayoutPanel1` esista già nella form. Un `FlowLayoutPanel` dispone i controlli in sequenza; in altri layout, proprietà come `Location` o `Dock` possono essere rilevanti.
 
-## Griglia di gioco
+## Rimozione e gestione della vita del controllo
 
-Per una griglia di righe e colonne si può usare un ciclo annidato e conservare i controlli in un array bidimensionale:
+Per rimuovere un controllo usa la raccolta `Controls` del contenitore che lo ospita. Quando crei controlli dinamicamente, assicurati di non aggiungerne duplicati a ogni evento involontariamente e di liberare le risorse quando il contesto lo richiede.
 
-```csharp
-Button[,] celle = new Button[righe, colonne];
-```
+## Separare logica e interfaccia
 
-Ogni gestore evento deve sapere quale cella è stata premuta. Si può usare una chiusura che cattura indici locali o la proprietà `Tag`, purché il dato venga gestito con un tipo coerente.
+Il gestore evento dovrebbe aggiornare lo stato o chiamare un metodo di dominio; evita di mettere tutta la logica del gioco in una singola lambda. Per giochi come Campo Minato o Forza 4, mantieni separati griglia, turno, regole di vittoria e rendering.
 
-## Pulizia e gestione
+## Riferimento
 
-- Rimuovi i controlli dal contenitore quando non servono più.
-- Non registrare ripetutamente lo stesso gestore evento a ogni aggiornamento.
-- Conserva lo stato del gioco in strutture dati distinte dalla grafica.
-- Controlla larghezza, altezza e comportamento con ridimensionamento della finestra.
+[Microsoft — Windows Forms Controls](https://learn.microsoft.com/dotnet/desktop/winforms/controls/)

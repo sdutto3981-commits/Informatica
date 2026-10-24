@@ -1,46 +1,53 @@
-# Audio, video e iframe in HTML
+# Immagini, audio, video e iframe
 
-HTML5 permette di inserire audio e video senza richiedere necessariamente un plugin esterno. L'elemento `iframe` incorpora un altro documento.
-
-## Audio
+## Immagini
 
 ```html
+<img src="immagini/prototipo.jpg" alt="Prototipo elettronico montato su una basetta" width="640" height="360">
+```
+
+`src` indica il percorso della risorsa; `alt` comunica il contenuto o la funzione dell'immagine. Se l'immagine è puramente decorativa e non aggiunge informazione, usa `alt=""`. Specificare larghezza e altezza intrinseche aiuta il browser a riservare lo spazio corretto.
+
+Per immagini responsive:
+
+```css
+img, video { max-width: 100%; height: auto; }
+```
+
+`picture` e `source` permettono di offrire varianti diverse in base a media query o formati supportati.
+
+## Audio e video
+
+```html
+<video controls width="640" poster="anteprima.jpg">
+  <source src="demo.mp4" type="video/mp4">
+  Il browser non supporta il video incorporato.
+</video>
+
 <audio controls>
-  <source src="audio/podcast.mp3" type="audio/mpeg">
-  Il browser non supporta l'audio HTML.
+  <source src="suono.mp3" type="audio/mpeg">
+  Il browser non supporta l'audio incorporato.
 </audio>
 ```
 
-## Video con didascalie
-
-```html
-<video controls width="640" poster="immagini/anteprima.jpg">
-  <source src="video/lezione.mp4" type="video/mp4">
-  <track src="sottotitoli/it.vtt" kind="subtitles" srclang="it" label="Italiano">
-  Il browser non supporta il video HTML.
-</video>
-```
-
-- `controls` mostra i comandi del browser.
-- `source` permette di proporre risorse e formati differenti.
-- `poster` è l'immagine mostrata prima della riproduzione.
-- `track` può fornire sottotitoli o altre tracce testuali.
-- Non avviare audio automaticamente senza una ragione valida; rispetta le preferenze dell'utente.
+`controls` mostra i controlli del browser. Fornisci, quando possibile, sottotitoli o trascrizioni per rendere il contenuto utilizzabile anche senza audio. Non avviare automaticamente media con suono senza una motivazione chiara.
 
 ## Iframe
+
+`iframe` incorpora un altro documento. Deve avere un titolo significativo; va limitato a contenuti attendibili e si possono usare attributi come `loading="lazy"` e `sandbox` quando appropriato.
 
 ```html
 <iframe
   src="https://example.com/embed"
-  title="Contenuto incorporato: dimostrazione"
+  title="Demo incorporata"
   loading="lazy"
   width="640"
   height="360">
 </iframe>
 ```
 
-Un `iframe` crea un contesto di navigazione separato. Fornisci un `title` descrittivo. Per contenuti di terze parti, valuta le opzioni di sicurezza e i permessi necessari; l'attributo `sandbox` può limitare alcune capacità, ma la configurazione va scelta in base all'uso previsto.
+Usa URL e servizio realmente disponibili: `example.com` è soltanto un segnaposto. Le restrizioni di incorporamento del sito remoto possono impedire il rendering.
 
-## Percorsi delle risorse
+## Riferimento
 
-I percorsi relativi sono risolti rispetto alla pagina o alla base URL del documento; controlla maiuscole/minuscole e cartelle reali del progetto. Evita link a file che non esistono.
+[W3Schools — HTML Images](https://www.w3schools.com/html/html_images.asp) · [HTML Media](https://www.w3schools.com/html/html_media.asp) · [HTML Iframes](https://www.w3schools.com/html/html_iframe.asp)

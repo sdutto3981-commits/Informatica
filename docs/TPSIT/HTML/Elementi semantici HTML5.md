@@ -1,43 +1,44 @@
 # Elementi semantici HTML5
 
-Gli elementi semantici comunicano il ruolo del contenuto sia alle persone sia agli strumenti che lo interpretano. Usarli correttamente migliora struttura, manutenzione e accessibilità.
+Un elemento semantico comunica il ruolo del contenuto sia a chi legge il codice sia alle tecnologie che ne interpretano la struttura. La semantica, da sola, non rende automaticamente una pagina accessibile: bisogna usare titoli, etichette e alternative testuali corrette.
 
-## Elementi principali
-
-- `header`: intestazione della pagina o di una sezione.
-- `nav`: gruppo significativo di collegamenti di navigazione.
-- `main`: contenuto principale della pagina; normalmente uno per pagina.
-- `section`: sezione tematica, di norma con un titolo.
-- `article`: contenuto autonomo, per esempio un articolo o una notizia.
-- `aside`: contenuto correlato ma secondario.
-- `footer`: informazioni finali della pagina o di una sezione.
-- `figure` e `figcaption`: figura e relativa didascalia.
-- `div`: contenitore generico senza significato semantico specifico.
+| Elemento | Uso tipico |
+|---|---|
+| `header` | intestazione di pagina o sezione |
+| `nav` | blocco con link di navigazione principali |
+| `main` | contenuto centrale e distintivo della pagina |
+| `section` | raggruppamento tematico, spesso con un titolo |
+| `article` | contenuto autonomo, come un articolo o una scheda indipendente |
+| `aside` | contenuto correlato o laterale |
+| `footer` | informazioni finali, autore o collegamenti secondari |
+| `figure` / `figcaption` | contenuto illustrativo e relativa didascalia |
+| `time` | data o ora leggibile dalla macchina tramite `datetime` |
 
 ## Esempio
 
 ```html
-<body>
-  <header>
-    <h1>Blog di tecnologia</h1>
-    <nav aria-label="Navigazione principale">
-      <a href="index.html">Home</a>
-      <a href="articoli.html">Articoli</a>
-    </nav>
-  </header>
-  <main>
-    <article>
-      <h2>Un articolo</h2>
-      <p>Contenuto principale.</p>
-    </article>
-    <aside>Approfondimenti correlati</aside>
-  </main>
-  <footer>Contatti e informazioni</footer>
-</body>
+<main>
+  <article>
+    <header>
+      <h2>Il mio progetto</h2>
+      <p>Pubblicato il <time datetime="2026-10-24">24 ottobre 2026</time></p>
+    </header>
+    <figure>
+      <img src="robot.jpg" alt="Prototipo di robot su un banco di lavoro">
+      <figcaption>Prototipo durante il test.</figcaption>
+    </figure>
+    <p>Descrizione del progetto.</p>
+  </article>
+</main>
 ```
 
-Non scegliere un tag solo in base allo stile predefinito: CSS può cambiare la resa grafica. Scegli l'elemento in base al suo significato.
+## Errori da evitare
 
-## Titoli e gerarchia
+- Usare `section` come sostituto universale di `div` anche quando non c'è una sezione tematica.
+- Usare `nav` per ogni singolo link: serve a raggruppare blocchi di navigazione.
+- Saltare i livelli dei titoli soltanto per ottenere una dimensione diversa; l'aspetto va modificato con CSS.
+- Inserire più elementi `main` visibili come contenuto principale dello stesso documento.
 
-Organizza i titoli in modo logico (`h1`, `h2`, `h3`...). Non scegliere `h4` perché è più piccolo: per l'aspetto usa CSS. I titoli devono descrivere le sezioni e rendere chiara la struttura.
+## Riferimento
+
+[W3Schools — HTML Semantic Elements](https://www.w3schools.com/html/html5_semantic_elements.asp)

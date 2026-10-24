@@ -1,50 +1,47 @@
-# Funzioni in JavaScript
+# Funzioni JavaScript
 
-Una funzione raggruppa istruzioni che eseguono un compito e può essere riutilizzata più volte.
-
-## Dichiarazione e chiamata
+Una funzione raggruppa istruzioni riutilizzabili. Può ricevere parametri e restituire un valore con `return`.
 
 ```javascript
 function somma(a, b) {
   return a + b;
 }
 
-const risultato = somma(3, 4);
-console.log(risultato); // 7
+const risultato = somma(3, 4); // 7
 ```
 
-- `a` e `b` sono parametri.
-- `3` e `4` sono argomenti della chiamata.
-- `return` restituisce il risultato e termina la funzione.
-- Se manca `return`, il risultato della chiamata è `undefined`.
+- Parametri formali: nomi presenti nella dichiarazione.
+- Argomenti: valori forniti quando la funzione viene chiamata.
+- `return`: termina quella chiamata e restituisce il risultato.
+- Se manca `return`, il risultato della funzione è `undefined`.
 
 ## Funzione espressa e arrow function
 
 ```javascript
-const doppio = function (n) {
-  return n * 2;
+const quadrato = function (n) {
+  return n * n;
 };
 
-const triplo = n => n * 3;
+const doppio = n => n * 2;
+const sommaBreve = (a, b) => a + b;
 ```
 
-Le arrow function sono comuni nei callback degli eventi. Non sono identiche alle funzioni normali in tutti i contesti: per esempio non definiscono un proprio `this`.
+Le arrow function hanno una semantica di `this` differente dalle funzioni tradizionali: questo diventa importante negli oggetti e nelle classi. Non sostituirle automaticamente a ogni metodo.
 
-## Ambito delle variabili
-
-Una variabile dichiarata dentro una funzione è locale a quella funzione secondo le regole dello scope. Preferisci passare i valori come parametri invece di dipendere da variabili globali.
-
-## Esempio: validare un numero
+## Parametri predefiniti
 
 ```javascript
-function quadrato(n) {
-  if (!Number.isFinite(n)) {
-    return null;
-  }
-  return n * n;
+function saluta(nome = "utente") {
+  return `Ciao, ${nome}!`;
 }
-
-console.log(quadrato(5)); // 25
 ```
 
-Una funzione dovrebbe avere una responsabilità chiara. Provala con valori normali, limiti e input non validi.
+## Scope e progettazione
+
+Le funzioni possono leggere variabili accessibili nello scope, ma ricevere i dati necessari tramite parametri rende il comportamento più chiaro e facile da testare.
+
+Una funzione dovrebbe avere una responsabilità comprensibile. Suddividi una funzione lunga in operazioni con nomi significativi.
+
+## Riferimento
+
+[W3Schools — JavaScript Functions](https://www.w3schools.com/js/js_functions.asp)

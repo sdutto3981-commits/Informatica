@@ -1,11 +1,10 @@
-# Condizioni e cicli in C#
+# Controlli di flusso in C#
 
-Le strutture di controllo modificano l'ordine in cui vengono eseguite le istruzioni. La sequenza esegue le istruzioni nell'ordine scritto; la selezione sceglie un ramo; l'iterazione ripete un blocco.
+I costrutti di controllo scelgono quali istruzioni eseguire e quante volte ripeterle.
 
-## Selezione: `if`, `else if`, `else`
+## Selezione
 
 ```csharp
-int voto = 7;
 if (voto >= 6)
 {
     Console.WriteLine("Sufficiente");
@@ -16,67 +15,47 @@ else
 }
 ```
 
-Le condizioni devono essere booleane. In una catena `if / else if`, viene eseguito il primo ramo la cui condizione è vera.
-
-## Selezione multipla: `switch`
+`else if` gestisce condizioni successive; `switch` è utile per confrontare un valore con più casi.
 
 ```csharp
-switch (scelta)
+switch (giorno)
 {
     case 1:
-        Console.WriteLine("Nuovo");
+        Console.WriteLine("Lunedì");
         break;
     case 2:
-        Console.WriteLine("Apri");
+        Console.WriteLine("Martedì");
         break;
     default:
-        Console.WriteLine("Scelta non valida");
+        Console.WriteLine("Altro giorno");
         break;
 }
 ```
 
-`break` conclude il ramo. Le forme più recenti di `switch` dipendono dalla versione di C# del progetto.
-
-## Ciclo `for`
-
-Si usa quando il numero di iterazioni è noto o è gestito da un contatore.
+## Iterazione
 
 ```csharp
 for (int i = 0; i < 5; i++)
-    Console.WriteLine(i); // 0, 1, 2, 3, 4
-```
+    Console.WriteLine(i);
 
-## Cicli `while` e `do-while`
+int tentativi = 0;
+while (tentativi < 3)
+    tentativi++;
 
-`while` verifica la condizione prima del corpo; `do-while` esegue il corpo almeno una volta.
-
-```csharp
-int numero = -1;
-while (numero < 0)
+do
 {
-    Console.Write("Inserisci un numero non negativo: ");
-    if (!int.TryParse(Console.ReadLine(), out numero))
-        numero = -1;
-}
+    Console.WriteLine("Eseguito almeno una volta");
+} while (false);
 ```
 
-## `foreach`, `break` e `continue`
+- `for`: spesso adatto a contatori e scansioni.
+- `while`: controlla la condizione prima di ogni iterazione.
+- `do...while`: esegue il corpo almeno una volta.
+- `foreach`: attraversa gli elementi di una collezione.
+- `break`: interrompe il ciclo; `continue`: passa all'iterazione successiva.
 
-```csharp
-int[] valori = { 3, 8, 2 };
-foreach (int valore in valori)
-    Console.WriteLine(valore);
-```
+Controlla sempre che la condizione possa diventare falsa e che gli indici restino nei limiti.
 
-- `break` esce dal ciclo più interno.
-- `continue` salta alla successiva iterazione.
-- Evita cicli senza una condizione di uscita raggiungibile.
+## Riferimento
 
-## Errori frequenti
-
-- confondere `=` (assegnazione) con `==` (confronto);
-- usare `i <= array.Length` e arrivare a un indice non valido;
-- dimenticare di aggiornare il contatore di un `while`;
-- usare `&&` quando serve `||`, o viceversa.
-
-Per ogni algoritmo prova almeno un caso normale, uno limite e uno non valido.
+[W3Schools — C# Conditions](https://www.w3schools.com/cs/cs_conditions.php) · [C# Loops](https://www.w3schools.com/cs/cs_loops.php)

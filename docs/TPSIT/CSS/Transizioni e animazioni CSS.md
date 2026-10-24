@@ -1,48 +1,46 @@
 # Transizioni e animazioni CSS
 
-## Transizioni
+Una transizione interpola una proprietà quando cambia valore; un'animazione CSS può definire più passaggi con `@keyframes`.
 
-Una transizione rende graduale il cambiamento di una proprietà quando passa da un valore a un altro.
+## Transizione
 
 ```css
 .pulsante {
-  background-color: #244b8f;
+  background: #2457a7;
   color: white;
-  transition: background-color 180ms ease-in-out;
+  transition: background-color 180ms ease, transform 180ms ease;
 }
-.pulsante:hover { background-color: #17315e; }
+.pulsante:hover { background: #173d79; transform: translateY(-2px); }
+.pulsante:focus-visible { outline: 3px solid orange; outline-offset: 2px; }
 ```
 
-`transition` può specificare proprietà, durata, funzione temporale e ritardo. Preferisci animare `transform` e `opacity` quando adatto, invece di animare continuamente proprietà che richiedono un ricalcolo costoso del layout.
-
-## Animazioni con `@keyframes`
+## Animazione
 
 ```css
 @keyframes comparsa {
   from { opacity: 0; transform: translateY(8px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.avviso {
-  animation: comparsa 300ms ease-out both;
-}
+.card { animation: comparsa 300ms ease-out both; }
 ```
 
-`animation-duration`, `animation-delay`, `animation-iteration-count` e `animation-direction` controllano aspetti diversi dell'animazione.
+Le animazioni devono essere brevi e avere uno scopo. Il movimento non deve impedire la lettura o rendere difficile l'interazione.
 
-## Accessibilità e prestazioni
-
-- Non usare movimento continuo senza uno scopo.
-- Mantieni leggibile il contenuto anche se l'animazione non viene riprodotta.
-- Rispetta la preferenza di riduzione del movimento:
+## Rispetto delle preferenze
 
 ```css
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
     scroll-behavior: auto !important;
   }
 }
 ```
 
-Usa gli effetti per migliorare il feedback, non per rendere necessario attendere un'animazione prima di poter utilizzare la pagina.
+Questa regola riduce i movimenti non essenziali per chi ha attivato la preferenza di sistema.
+
+## Riferimento
+
+[W3Schools — CSS Animations](https://www.w3schools.com/css/css3_animations.asp) · [CSS Transitions](https://www.w3schools.com/css/css3_transitions.asp)

@@ -1,40 +1,56 @@
-# Operatori di confronto e logici in JavaScript
+# Operatori e controllo del flusso JavaScript
 
-Gli operatori di confronto producono un valore booleano (`true` oppure `false`).
+## Operatori
 
-## Uguaglianza
-
-- `===` e `!==`: confronto stretto, senza coercizione tra tipi; sono in genere preferibili.
-- `==` e `!=`: confronto con conversioni implicite, che possono provocare risultati inattesi.
-
-```javascript
-2 === 2;   // true
-2 === "2"; // false
-2 == "2";  // true
-```
-
-## Confronto numerico
-
-`>`, `<`, `>=`, `<=` confrontano valori. Se si confrontano stringhe, l'ordinamento è lessicografico secondo le regole del linguaggio, non necessariamente numerico.
-
-## Operatori logici
-
-| Operatore | Significato | Esempio |
+| Categoria | Operatori | Esempio |
 |---|---|---|
-| `&&` | AND logico | `eta >= 18 && haDocumento` |
-| `||` | OR logico | `haBiglietto || èOspite` |
-| `!` | negazione | `!completato` |
+| Aritmetici | `+ - * / % **` | `7 % 2` restituisce `1` |
+| Assegnazione | `= += -= *= /=` | `x += 2` |
+| Confronto | `=== !== < > <= >=` | `eta >= 18` |
+| Logici | `&& || !` | `a > 0 && b > 0` |
+| Condizionale | `? :` | `eta >= 18 ? "adulto" : "minore"` |
+| Nullish | `??` | `valore ?? "predefinito"` |
 
-`&&` e `||` usano cortocircuito e restituiscono uno dei valori degli operandi, non sempre un booleano puro. Nelle condizioni, tuttavia, il valore viene valutato come truthy/falsy.
+`+` può sommare numeri oppure concatenare stringhe. Per evitare risultati inattesi, converti esplicitamente i valori ricevuti da input quando devono essere numerici.
 
 ## Condizioni
 
 ```javascript
-if (punteggio >= 60) {
-  console.log("Superato");
+const voto = 7;
+if (voto >= 8) {
+  console.log("Ottimo");
+} else if (voto >= 6) {
+  console.log("Sufficiente");
 } else {
   console.log("Da recuperare");
 }
 ```
 
-Consulta la sezione sul [controllo del flusso](Operatori%20di%20controllo%20js.md) e quella su [tipi e conversioni](Strutture%20e%20tipi%20di%20dati.md).
+`switch` è utile quando si confronta una stessa espressione con più casi distinti:
+
+```javascript
+switch (giorno) {
+  case 1: console.log("Lunedì"); break;
+  case 2: console.log("Martedì"); break;
+  default: console.log("Altro giorno");
+}
+```
+
+`break` evita di proseguire ai casi successivi. In alternativa, alcune forme moderne di `switch` possono usare pattern diversi, ma per gli esercizi introduttivi è sufficiente conoscere i casi classici.
+
+## Cicli
+
+```javascript
+for (let i = 0; i < 5; i++) console.log(i);
+
+let tentativi = 0;
+while (tentativi < 3) {
+  tentativi++;
+}
+```
+
+Usa `for` quando conosci la scansione o gli aggiornamenti, `while` quando il ciclo dipende da una condizione. Assicurati che la condizione possa diventare falsa per evitare cicli infiniti.
+
+## Riferimento
+
+[W3Schools — JavaScript Operators](https://www.w3schools.com/js/js_operators.asp) · [If Else](https://www.w3schools.com/js/js_if_else.asp) · [Loops](https://www.w3schools.com/js/js_loop_for.asp)

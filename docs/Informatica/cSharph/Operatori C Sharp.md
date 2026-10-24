@@ -1,38 +1,42 @@
-# Operatori in C#
-
-Gli operatori combinano valori ed espressioni. I tipi degli operandi influiscono sul risultato.
+# Operatori C#
 
 ## Aritmetici
 
-| Operatore | Significato | Esempio |
-|---|---|---|
-| `+` | somma; concatenazione tra stringhe in contesti validi | `a + b` |
-| `-` | sottrazione | `a - b` |
-| `*` | moltiplicazione | `a * b` |
-| `/` | divisione | `5 / 2` vale `2` se entrambi sono `int` |
-| `%` | resto della divisione intera | `7 % 3` vale `1` |
-| `++`, `--` | incremento/decremento di uno | `i++` |
+| Operatore | Significato |
+|---|---|
+| `+`, `-` | addizione e sottrazione |
+| `*`, `/` | moltiplicazione e divisione |
+| `%` | resto della divisione intera o operazione di resto numerico |
+| `++`, `--` | incremento e decremento |
 
-## Assegnazione composta
+Se entrambi gli operandi di `/` sono interi, il risultato è intero e la parte decimale viene scartata: `7 / 2` produce `3`; `7.0 / 2` produce `3.5`.
 
-`x += 3` equivale in molti casi a `x = x + 3`; analogamente `-=`, `*=`, `/=`, `%=`.
+## Assegnazione
 
-## Confronto
+`=`, `+=`, `-=`, `*=`, `/=`, `%=` assegnano un valore o aggiornano una variabile. `x += 3` equivale a `x = x + 3` per gli usi ordinari.
 
-`==`, `!=`, `<`, `>`, `<=`, `>=` producono un `bool`. Per oggetti, `==` può dipendere dal tipo e dall'eventuale overload; non assumere che confronti sempre i contenuti.
+## Confronto e logica
 
-## Logici
+| Operatori | Significato |
+|---|---|
+| `==`, `!=` | uguaglianza e disuguaglianza |
+| `<`, `>`, `<=`, `>=` | confronti relazionali |
+| `&&`, `||`, `!` | AND, OR e NOT logici |
 
-| Operatore | Significato | Esempio |
-|---|---|---|
-| `&&` | AND logico con cortocircuito | `x > 0 && y > 0` |
-| `||` | OR logico con cortocircuito | `x == 0 || y == 0` |
-| `!` | negazione logica | `!(x > 0)` |
+`&&` e `||` usano la valutazione con cortocircuito: il secondo operando può non essere valutato se il risultato è già determinato.
 
-`&&` non è `&` e `||` non è `|`: le versioni singole possono avere significati differenti, in particolare su interi e booleani.
+## Altri operatori frequenti
 
-## Pre/post incremento
+- `condition ? valore1 : valore2`: operatore condizionale.
+- `??`: restituisce il lato destro se quello sinistro è `null`.
+- `?.`: accesso condizionale quando il riferimento può essere `null`.
+- `is`: verifica il tipo o un pattern.
+- `as`: tenta una conversione compatibile verso un tipo riferimento o nullable.
 
-`i++` restituisce il valore precedente all'incremento quando è usato in un'espressione; `++i` restituisce quello successivo. In istruzioni semplici come `i++;` entrambi incrementano `i` di uno. Per codice chiaro, evita di combinarli con altre modifiche nella stessa espressione.
+## Precedenza
 
-Usa parentesi quando l'ordine delle operazioni non è evidente e ripassa le regole di precedenza prima di semplificare condizioni complesse.
+La precedenza stabilisce l'ordine delle operazioni. Quando espressioni complesse diventano difficili da leggere, aggiungi parentesi per rendere esplicita l'intenzione.
+
+## Riferimento
+
+[W3Schools — C# Operators](https://www.w3schools.com/cs/cs_operators.php)

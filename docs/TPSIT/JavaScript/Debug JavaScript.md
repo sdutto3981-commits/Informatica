@@ -1,26 +1,35 @@
-# Debugging JavaScript nel browser
+# Debugging JavaScript
 
-## Console ed errori
+Il debugging serve a individuare la causa di un comportamento errato. Gli strumenti per sviluppatori del browser mettono a disposizione Console, Sources/Debugger, Network e ispezione del DOM.
 
-Apri gli strumenti per sviluppatori del browser e usa la scheda Console per vedere errori e output di `console.log()`.
+## Procedura
 
-## Breakpoint
+1. Riproduci l'errore con passaggi chiari.
+2. Leggi il primo messaggio di errore nella console.
+3. Individua la riga indicata e controlla i valori usati.
+4. Imposta un breakpoint ed esegui il codice passo-passo.
+5. Controlla scope, tipo dei dati, valori `null`/`undefined` e flusso degli eventi.
+6. Correggi una causa alla volta e ripeti il test.
 
-1. Apri la scheda Sources/Debugger.
-2. Individua il file JavaScript.
-3. Fai clic sul numero di riga per inserire un breakpoint.
-4. Ripeti l'azione che genera l'errore.
-5. Controlla variabili, stack delle chiamate e flusso delle istruzioni.
-6. Continua l'esecuzione passo-passo e rimuovi i breakpoint non più utili.
+## Console
 
-## Errori ricorrenti
+```javascript
+const prezzo = 12;
+console.log("prezzo:", prezzo);
+console.table([{ nome: "Ada", voto: 8 }, { nome: "Luca", voto: 7 }]);
+console.warn("Messaggio di attenzione");
+console.error("Messaggio di errore");
+```
 
-- `ReferenceError`: viene usato un nome non definito nell'ambito corrente.
-- `TypeError`: un'operazione non è valida per il valore effettivo.
-- Errore di sintassi: il parser non riesce a interpretare il codice.
-- `querySelector()` restituisce `null` perché l'elemento non esiste o lo script viene eseguito troppo presto.
-- Un evento non si attiva perché il gestore non è stato registrato o il selettore non individua il controllo.
+Non lasciare nel codice pubblicato log che espongono password, token, dati personali o dettagli interni.
 
-## Metodo
+## Errori frequenti
 
-Riduci il problema a un caso minimo, individua la prima riga in cui il valore diventa scorretto, correggi la causa e ripeti gli stessi test. Rimuovi i log temporanei dopo la diagnosi quando non sono più utili.
+- `ReferenceError`: identificatore non disponibile nel contesto attuale.
+- `TypeError`: operazione non supportata dal valore, ad esempio chiamare come funzione qualcosa che non lo è.
+- `SyntaxError`: codice non valido per il parser.
+- Errore logico: il codice viene eseguito, ma il risultato non è quello atteso.
+
+## Riferimento
+
+[W3Schools — JavaScript Debugging](https://www.w3schools.com/js/js_debugging.asp)

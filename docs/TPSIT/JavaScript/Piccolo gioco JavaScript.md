@@ -1,61 +1,76 @@
-# Progetto: gioco semplice con JavaScript
+# Esercizio: gioco di indovinare un numero
 
-Questo esempio implementa un gioco in cui bisogna trovare un numero da 1 a 10. Permette di esercitarsi con variabili, input, condizioni, funzioni, eventi e DOM.
+Questo esercizio integra variabili, condizioni, funzioni, eventi DOM e validazione dell'input. Il giocatore prova a indovinare un numero da 1 a 20.
+
+## HTML
 
 ```html
-<label for="tentativo">Numero (1–10)</label>
-<input id="tentativo" type="number" min="1" max="10">
+<label for="tentativo">Numero (1–20)</label>
+<input id="tentativo" type="number" min="1" max="20" step="1">
 <button id="controlla" type="button">Controlla</button>
 <button id="nuova-partita" type="button">Nuova partita</button>
-<p id="messaggio" aria-live="polite">Indovina il numero.</p>
+<p id="esito" aria-live="polite"></p>
+<p id="tentativi">Tentativi: 0</p>
+<script src="gioco.js" defer></script>
 ```
+
+## JavaScript (`gioco.js`)
 
 ```javascript
 const campo = document.querySelector("#tentativo");
-const messaggio = document.querySelector("#messaggio");
 const controlla = document.querySelector("#controlla");
 const nuovaPartita = document.querySelector("#nuova-partita");
-let segreto = generaNumero();
-let tentativi = 0;
+const esito = document.querySelector("#esito");
+const outputTentativi = document.querySelector("#tentativi");
 
-function generaNumero() {
-  return Math.floor(Math.random() * 10) + 1;
+let segreto;
+let conteggio;
+let terminato;
+
+function inizializza() {
+  segreto = Math.floor(Math.random() * 20) + 1;
+  conteggio = 0;
+  terminato = false;
+  campo.value = "";
+  esito.textContent = "Inserisci un numero da 1 a 20.";
+  outputTentativi.textContent = "Tentativi: 0";
+  controlla.disabled = false;
 }
 
-function verificaTentativo() {
+function verifica() {
+  if (terminato) return;
   const valore = Number(campo.value);
-  if (!campo.value || !Number.isInteger(valore) || valore < 1 || valore > 10) {
-    messaggio.textContent = "Inserisci un intero da 1 a 10.";
+  if (campo.value.trim() === "" || !Number.isInteger(valore) || valore < 1 || valore > 20) {
+    esito.textContent = "Inserisci un intero valido tra 1 e 20.";
     return;
   }
-  tentativi++;
+
+  conteggio++;
+  outputTentativi.textContent = `Tentativi: ${conteggio}`;
   if (valore === segreto) {
-    messaggio.textContent = `Corretto in ${tentativi} tentativi!`;
+    esito.textContent = `Corretto! Hai indovinato in ${conteggio} tentativi.`;
+    terminato = true;
+    controlla.disabled = true;
   } else if (valore < segreto) {
-    messaggio.textContent = "Troppo basso. Riprova.";
+    esito.textContent = "Troppo basso. Riprova.";
   } else {
-    messaggio.textContent = "Troppo alto. Riprova.";
+    esito.textContent = "Troppo alto. Riprova.";
   }
 }
 
-function reset() {
-  segreto = generaNumero();
-  tentativi = 0;
-  campo.value = "";
-  messaggio.textContent = "Nuova partita: indovina il numero.";
-  campo.focus();
-}
-
-controlla.addEventListener("click", verificaTentativo);
-nuovaPartita.addEventListener("click", reset);
+controlla.addEventListener("click", verifica);
+nuovaPartita.addEventListener("click", inizializza);
+inizializza();
 ```
 
-## Miglioramenti da provare
+## Come estendere l'esercizio
 
-1. Limitare il numero massimo di tentativi.
-2. Disabilitare il pulsante dopo una vittoria e riabilitarlo al reset.
-3. Aggiungere punteggio o livelli di difficoltà.
-4. Gestire l'invio con il tasto Invio usando un form.
-5. Separare lo stato della partita dalla visualizzazione dei messaggi.
+- Limita il numero massimo di tentativi.
+- Aggiungi un messaggio di vittoria o sconfitta.
+- Permetti l'invio con il tasto Invio.
+- Separa il conteggio, lo stato della partita e il rendering in funzioni dedicate.
+- Prova input vuoti, decimali, numeri fuori intervallo e più click dopo la vittoria.
 
-L'esempio usa `textContent`, così il messaggio viene mostrato come testo e non interpretato come HTML.
+## Riferimento
+
+[W3Schools — JavaScript Tutorial](https://www.w3schools.com/js/)

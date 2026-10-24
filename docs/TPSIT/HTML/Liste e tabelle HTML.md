@@ -2,39 +2,57 @@
 
 ## Liste
 
-- `ul` crea una lista non ordinata.
-- `ol` crea una lista ordinata.
-- `li` rappresenta ciascun elemento di una lista.
-- `dl`, `dt` e `dd` rappresentano una lista di termini e descrizioni.
+`ul` crea un elenco non ordinato; `ol` crea un elenco ordinato; ogni voce viene inserita in `li`.
 
 ```html
 <ul>
-  <li>HTML: struttura</li>
-  <li>CSS: presentazione</li>
-  <li>JavaScript: comportamento</li>
+  <li>HTML</li>
+  <li>CSS</li>
+  <li>JavaScript</li>
 </ul>
+
+<ol>
+  <li>Analisi</li>
+  <li>Progettazione</li>
+  <li>Test</li>
+</ol>
 ```
 
-## Tabelle di dati
+`dl`, `dt` e `dd` descrivono invece liste di termini e relative definizioni.
 
-Le tabelle sono destinate a dati tabellari, non a costruire il layout della pagina.
+## Tabelle
+
+Usa le tabelle per dati che hanno relazioni tra righe e colonne, non per impaginare una pagina.
 
 ```html
 <table>
-  <caption>Voti del trimestre</caption>
+  <caption>Voti del progetto</caption>
   <thead>
     <tr><th scope="col">Materia</th><th scope="col">Voto</th></tr>
   </thead>
   <tbody>
     <tr><th scope="row">Informatica</th><td>8</td></tr>
-    <tr><th scope="row">TPSIT</th><td>7</td></tr>
+    <tr><th scope="row">Sistemi</th><td>7</td></tr>
   </tbody>
 </table>
 ```
 
-- `caption` descrive lo scopo della tabella.
-- `thead` e `tbody` raggruppano le righe.
-- `th` è una cella di intestazione; `scope` chiarisce a quali celle si riferisce.
-- `td` è una cella di dati.
+- `table` contiene la tabella; `tr` una riga.
+- `th` identifica una cella d'intestazione, `td` una cella di dati.
+- `thead`, `tbody` e `tfoot` aiutano a organizzare le parti della tabella.
+- `caption` dà un titolo alla tabella; `scope` aiuta a collegare intestazioni e celle.
+- `colspan` e `rowspan` permettono a una cella di occupare più colonne o righe.
 
-Per il layout moderno usa CSS (Flexbox o Grid) anziché tabelle di impaginazione.
+## Stile con CSS
+
+```css
+table { border-collapse: collapse; width: 100%; }
+th, td { border: 1px solid #777; padding: .5rem; text-align: left; }
+thead { background: #eee; }
+```
+
+L'accessibilità dipende anche dalla struttura delle intestazioni e dalla complessità della tabella: per tabelle molto articolate può servire una progettazione specifica.
+
+## Riferimento
+
+[W3Schools — HTML Lists](https://www.w3schools.com/html/html_lists.asp) · [HTML Tables](https://www.w3schools.com/html/html_tables.asp)

@@ -1,41 +1,38 @@
 # Tipi di dati in C#
 
-Il tipo determina quali valori una variabile può rappresentare e quali operazioni sono consentite. C# è un linguaggio staticamente tipizzato: il tipo della variabile è noto in compilazione.
+C# è tipizzato staticamente: ogni variabile ha un tipo noto al compilatore. I tipi numerici differiscono per intervallo, precisione e rappresentazione.
+
+| Tipo | Uso tipico |
+|---|---|
+| `int` | interi a 32 bit con segno |
+| `long` | interi a 64 bit con segno |
+| `short`, `byte` | interi più piccoli, con o senza segno |
+| `float` | numeri in virgola mobile a precisione singola; usa il suffisso `f` |
+| `double` | numeri in virgola mobile a precisione doppia |
+| `decimal` | decimali ad alta precisione usati spesso per importi; usa `m` |
+| `bool` | `true` o `false` |
+| `char` | singolo valore UTF-16 rappresentato da un'unità di codice |
+| `string` | sequenza di caratteri testuale |
 
 ```csharp
-int eta = 17;
+int quantita = 12;
 long popolazione = 8_000_000_000L;
-float temperatura = 21.5f;
+float fattore = 1.5f;
 double media = 7.25;
 decimal prezzo = 19.99m;
-char iniziale = 'A';
-bool promosso = true;
-string nome = "Ada";
+bool disponibile = true;
+char lettera = 'S';
+string testo = "Ciao";
 ```
 
-## Tipi comuni
+## Valori numerici e precisione
 
-| Tipo | Significato | Esempio |
-|---|---|---|
-| `int` | intero a 32 bit con segno | `int x = -12;` |
-| `long` | intero a 64 bit con segno | `long n = 5_000_000_000L;` |
-| `float` | numero binario in virgola mobile a 32 bit | `float f = 1.5f;` |
-| `double` | numero binario in virgola mobile a 64 bit | `double d = 1.5;` |
-| `decimal` | numero decimale ad alta precisione decimale, utile per importi | `decimal p = 1.50m;` |
-| `char` | singolo carattere UTF-16 code unit | `char c = 'A';` |
-| `bool` | `true` o `false` | `bool ok = false;` |
-| `string` | sequenza di caratteri, immutabile | `string s = "Ciao";` |
+I tipi in virgola mobile (`float`, `double`) possono rappresentare alcuni decimali in modo approssimato. Per questo confrontare direttamente numeri `double` ottenuti da calcoli può produrre risultati inattesi. `decimal` è spesso preferibile per importi, ma non sostituisce la necessità di definire arrotondamento e regole di calcolo.
 
-## Conversioni
+## Tipi valore e tipi riferimento
 
-```csharp
-int numero = Convert.ToInt32("42");
-if (int.TryParse(Console.ReadLine(), out int valore))
-    Console.WriteLine(valore);
-else
-    Console.WriteLine("Valore non valido");
-```
+Tra i tipi valore rientrano tipi numerici, `bool`, `char`, `struct` ed enum. `string`, array e classi sono tipi riferimento. Questa distinzione influenza assegnazione, copia e valori `null`.
 
-`TryParse` è utile per validare input che possono essere errati. `Convert.ToInt32` può generare un'eccezione se la stringa non rappresenta un intero valido.
+## Riferimento
 
-Attenzione: la divisione tra due `int` produce un risultato intero (`5 / 2 == 2`); usare `5.0 / 2` oppure un tipo decimale se serve la parte frazionaria. Per `float`, `double` e `decimal` i letterali hanno suffissi specifici (`f`, `d` opzionale, `m`).
+[W3Schools — C# Data Types](https://www.w3schools.com/cs/cs_data_types.php)

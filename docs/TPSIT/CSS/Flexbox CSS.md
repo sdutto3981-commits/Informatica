@@ -1,48 +1,46 @@
-# Flexbox in CSS
+# Flexbox CSS
 
-Flexbox è un sistema di layout monodimensionale: dispone gli elementi lungo un asse principale e gestisce l'allineamento sull'asse trasversale.
+Flexbox è un modello di layout monodimensionale: dispone elementi lungo un asse principale e li allinea lungo l'asse trasversale. È adatto a barre di navigazione, gruppi di pulsanti, righe di schede e allineamenti.
 
-## Contenitore e figli
+## Contenitore e proprietà
 
 ```css
-.riga {
+.menu {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  flex-wrap: wrap;
 }
-.elemento {
-  flex: 1 1 14rem;
-}
+
+.menu a { flex: 0 1 auto; }
 ```
 
-- `display: flex`: attiva il layout Flexbox sui figli diretti.
-- `flex-direction`: imposta la direzione (`row`, `column`, ecc.).
+- `display: flex` attiva Flexbox sui figli diretti.
+- `flex-direction`: `row`, `row-reverse`, `column` o `column-reverse`.
+- `flex-wrap`: permette agli elementi di andare a capo.
 - `justify-content`: distribuisce lo spazio lungo l'asse principale.
 - `align-items`: allinea gli elementi sull'asse trasversale.
-- `gap`: imposta lo spazio fra i figli.
-- `flex-wrap`: permette il passaggio alla riga successiva.
-- `flex-grow`, `flex-shrink`, `flex-basis` controllano crescita, riduzione e base degli elementi; `flex` è la forma abbreviata.
+- `gap`: spazio tra gli elementi.
+- `align-self`: sovrascrive l'allineamento di un singolo elemento.
+- `flex`: scorciatoia per crescita, restringimento e base dell'elemento.
 
-## Esempio: schede responsive
-
-```html
-<div class="schede">
-  <article class="scheda">Scheda 1</article>
-  <article class="scheda">Scheda 2</article>
-  <article class="scheda">Scheda 3</article>
-</div>
-```
+## Esempio di card
 
 ```css
-.schede { display: flex; flex-wrap: wrap; gap: 1rem; }
-.scheda { flex: 1 1 15rem; padding: 1rem; border: 1px solid #bbb; }
+.cards { display: flex; flex-wrap: wrap; gap: 1rem; }
+.card { flex: 1 1 15rem; padding: 1rem; border: 1px solid #ccc; }
 ```
 
-Ogni scheda parte da una base di `15rem` e può crescere o andare a capo. Flexbox riguarda i figli diretti del contenitore, non tutti i discendenti in modo automatico.
+La base `15rem` indica una dimensione preferita; le card possono crescere o restringersi e andare a capo. Il risultato dipende dallo spazio disponibile, quindi va provato a larghezze diverse.
 
-## Quando usarlo
+## Errori comuni
 
-È adatto a barre di navigazione, gruppi di pulsanti, righe di card e allineamento di elementi. Per griglie bidimensionali con righe e colonne coordinate, valuta CSS Grid.
+- Confondere asse principale e asse trasversale: cambiano in base a `flex-direction`.
+- Applicare proprietà del contenitore al singolo figlio o viceversa.
+- Usare `order` per cambiare arbitrariamente l'ordine visivo rispetto alla sequenza logica: può peggiorare l'esperienza con tastiera e screen reader.
+
+## Riferimento
+
+[W3Schools — CSS Flexbox](https://www.w3schools.com/css/css3_flexbox.asp)

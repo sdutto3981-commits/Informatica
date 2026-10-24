@@ -1,38 +1,37 @@
 # Responsive design e media query
 
-Il responsive design adatta contenuto e layout a schermi e finestre differenti. Conviene partire da un layout utilizzabile su schermi piccoli e aggiungere miglioramenti quando c'è spazio.
+Il responsive design adatta struttura, dimensioni e contenuti alle caratteristiche dello schermo. Un layout responsive deve restare leggibile, navigabile e funzionale, non soltanto diventare più stretto.
 
-## Principi
+## Principi fondamentali
 
-- Usa il meta viewport in HTML.
-- Preferisci dimensioni flessibili e contenitori con larghezza massima.
-- Evita larghezze fisse che causano scorrimento orizzontale.
-- Fai andare a capo gli elementi quando lo spazio non basta.
-- Verifica immagini, form, navigazione e testo a diverse larghezze.
+- Inserisci il meta viewport in HTML: `<meta name="viewport" content="width=device-width, initial-scale=1">`.
+- Parti da un layout fluido; evita larghezze rigide che provocano scorrimento orizzontale.
+- Usa `max-width`, unità relative, Flexbox e Grid.
+- Aggiungi breakpoint quando il contenuto richiede un cambiamento, non soltanto perché un dispositivo ha una certa etichetta.
+- Verifica con strumenti di sviluppo e, quando possibile, dispositivi reali.
 
-```html
-<meta name="viewport" content="width=device-width, initial-scale=1">
-```
+## Media query mobile-first
 
 ```css
-* { box-sizing: border-box; }
-.container { width: min(100% - 2rem, 70rem); margin-inline: auto; }
-.griglia { display: flex; flex-wrap: wrap; gap: 1rem; }
-.card { flex: 1 1 17rem; }
+.layout { display: grid; gap: 1rem; }
+img { max-width: 100%; height: auto; }
 
-@media (max-width: 600px) {
-  .navigazione { flex-direction: column; align-items: stretch; }
+@media (min-width: 48rem) {
+  .layout { grid-template-columns: 16rem minmax(0, 1fr); }
 }
 ```
 
-La media query applica la regola solo quando la viewport rispetta la condizione. Il breakpoint dovrebbe derivare dal momento in cui il layout non funziona più, non da una lista rigida di dispositivi.
+Lo stile di base è adatto agli schermi stretti; la media query aggiunge due colonne quando lo spazio è sufficiente.
 
-## Query comuni
+## Immagini e tipografia fluidi
 
-- `(max-width: 600px)`: larghezza massima della viewport.
-- `(min-width: 800px)`: larghezza minima.
-- `prefers-reduced-motion: reduce`: preferenza di sistema per ridurre le animazioni.
+```css
+.titolo { font-size: clamp(1.75rem, 4vw, 3rem); }
+.contenitore { width: min(100% - 2rem, 72rem); margin-inline: auto; }
+```
 
-## Verifica
+`clamp()` limita il valore tra minimo e massimo, mentre `min()` sceglie il valore più piccolo tra le opzioni fornite.
 
-Ridimensiona la finestra, usa gli strumenti responsive del browser e verifica che non appaia uno scorrimento orizzontale involontario. L'adattamento responsive non sostituisce l'accessibilità da tastiera o il contrasto corretto.
+## Riferimento
+
+[W3Schools — CSS Responsive](https://www.w3schools.com/css/css_rwd_intro.asp) · [HTML & CSS Responsive Design](https://www.w3schools.com/htmlcss/htmlcss_responsive_design.asp)

@@ -2,55 +2,53 @@
 
 ## Array
 
-Un array è una raccolta ordinata. Gli indici partono da zero.
+Un array rappresenta una sequenza ordinata. Gli indici partono da zero e `length` restituisce il numero di elementi.
 
 ```javascript
 const voti = [7, 8, 6];
 console.log(voti[0]); // 7
-voti.push(9);         // aggiunge in fondo
-console.log(voti.length);
-
-for (let i = 0; i < voti.length; i++) {
-  console.log(voti[i]);
-}
+voti.push(9);         // aggiunge alla fine
+voti[1] = 10;         // modifica l'indice 1
 ```
 
-Metodi utili includono `push`, `pop`, `includes`, `indexOf`, `slice`, `map` e `filter`. Studia prima scansione, ricerca e aggiornamento con cicli semplici.
+Metodi comuni: `push`, `pop`, `shift`, `unshift`, `includes`, `indexOf`, `slice`, `splice`, `map`, `filter`, `find`, `some`, `every` e `reduce`. Controlla sempre se un metodo modifica l'array originale: `slice` non lo modifica, `splice` sì.
+
+```javascript
+const numeri = [1, 2, 3, 4];
+const pari = numeri.filter(n => n % 2 === 0);
+const doppi = numeri.map(n => n * 2);
+```
 
 ## Oggetti
 
-Un oggetto conserva proprietà associate a chiavi.
+Gli oggetti rappresentano entità con proprietà nominate.
 
 ```javascript
-const studente = {
+const persona = {
   nome: "Ada",
-  classe: "3INF",
-  promosso: true
+  eta: 20,
+  saluta() { return `Ciao, sono ${this.nome}`; }
 };
 
-console.log(studente.nome);
-studente.classe = "4INF";
+persona.eta = 21;
+console.log(persona.saluta());
 ```
 
-Si può accedere alle proprietà con `oggetto.nome` oppure `oggetto[chiave]`. Se la chiave viene costruita a runtime, la notazione tra parentesi quadre è utile.
+Si accede alle proprietà con `persona.nome` o `persona[chiave]`. `this` dipende da come viene chiamata la funzione; nelle arrow function non viene creato un `this` proprio.
 
-## Iterazione
+## Copia e riferimenti
+
+Assegnare un oggetto a un'altra variabile copia il riferimento, non crea automaticamente una copia indipendente:
 
 ```javascript
-const persone = [
-  { nome: "Ada", eta: 16 },
-  { nome: "Alan", eta: 17 }
-];
-
-for (const persona of persone) {
-  console.log(persona.nome);
-}
+const a = { valore: 1 };
+const b = a;
+b.valore = 2;
+console.log(a.valore); // 2
 ```
 
-`for...of` attraversa i valori iterabili. `for...in` attraversa invece le chiavi enumerabili di un oggetto ed è normalmente più appropriato per le proprietà dell'oggetto.
+Lo spread (`{ ...a }` o `[...array]`) crea una copia superficiale: oggetti annidati possono restare condivisi.
 
-## Attenzioni
+## Riferimento
 
-- Gli array possono contenere valori di tipi differenti, ma mantenere un tipo coerente rende il programma più chiaro.
-- `const` impedisce di riassegnare il riferimento, non rende immutabili le proprietà dell'oggetto o gli elementi dell'array.
-- L'indice non valido può restituire `undefined`; controlla che il valore esista prima di usarlo.
+[W3Schools — JavaScript Arrays](https://www.w3schools.com/js/js_arrays.asp) · [JavaScript Objects](https://www.w3schools.com/js/js_objects.asp)

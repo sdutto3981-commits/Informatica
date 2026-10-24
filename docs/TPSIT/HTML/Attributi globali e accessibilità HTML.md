@@ -1,36 +1,32 @@
 # Attributi globali e accessibilità HTML
 
-Gli attributi globali possono essere usati su molti elementi HTML.
+Gli attributi globali possono essere utilizzati su molti elementi HTML:
 
-| Attributo | Scopo |
-|---|---|
-| `id` | Identificatore unico nel documento |
-| `class` | Una o più classi usate soprattutto da CSS e JavaScript |
-| `title` | Informazione supplementare; non sostituisce un'etichetta accessibile |
-| `lang` | Lingua del contenuto dell'elemento |
-| `hidden` | Indica che il contenuto non deve essere presentato |
-| `data-*` | Conserva dati personalizzati associati all'elemento |
-| `tabindex` | Controlla la partecipazione al focus da tastiera; usarlo con criterio |
+- `id`: identifica un elemento in modo univoco nel documento.
+- `class`: associa uno o più elementi a una categoria, usata spesso dal CSS e JavaScript.
+- `title`: fornisce informazioni supplementari; non deve essere l'unico modo per comunicare un'informazione importante.
+- `lang`: specifica la lingua del contenuto.
+- `hidden`: indica che il contenuto non è attualmente pertinente e non dovrebbe essere mostrato.
+- `tabindex`: controlla la possibilità e l'ordine di ricevere il focus da tastiera; usalo con cautela.
+- `data-*`: conserva dati personalizzati associati all'elemento.
 
-## Principi essenziali
+## Accessibilità di base
 
-- Usa HTML nativo: un vero `button` è attivabile da tastiera e ha semantica corretta; un `div` cliccabile non lo è automaticamente.
-- Fornisci testo alternativo per immagini informative e `alt=""` per immagini puramente decorative.
-- Associa `label` ai controlli dei form e indica gli errori con testo comprensibile.
-- Mantieni una gerarchia di titoli chiara e landmark semantici.
-- Assicurati che link, pulsanti e controlli funzionino senza mouse.
-- Non utilizzare soltanto il colore per comunicare uno stato.
-- Il testo di un link deve indicare la destinazione, evitando formulazioni vaghe come “clicca qui” quando manca contesto.
-
-## Esempio: `data-*` letto da JavaScript
+1. Usa la struttura semantica e una gerarchia di titoli coerente.
+2. Associa le etichette ai campi tramite `label for` e `id`.
+3. Scrivi testi alternativi per le immagini informative.
+4. Rendi tutte le funzioni utilizzabili da tastiera e assicurati che il focus sia visibile.
+5. Verifica contrasto, dimensione del testo e reflow su schermi piccoli.
+6. Evita di comunicare gli stati solo tramite colore.
 
 ```html
-<button type="button" data-codice="A17">Apri dettaglio</button>
+<label for="ricerca">Cerca un argomento</label>
+<input id="ricerca" name="q" type="search">
+<button type="submit">Cerca</button>
 ```
 
-```javascript
-const pulsante = document.querySelector("[data-codice]");
-console.log(pulsante.dataset.codice); // "A17"
-```
+L'accessibilità non si ottiene aggiungendo ARIA a caso: quando esiste un elemento HTML nativo con il comportamento desiderato, normalmente è preferibile usarlo.
 
-`data-*` memorizza dati, ma non sostituisce un modello applicativo ben progettato né un controllo di sicurezza lato server.
+## Riferimento
+
+[W3Schools — HTML Attributes](https://www.w3schools.com/html/html_attributes.asp) · [HTML Accessibility](https://www.w3schools.com/html/html_accessibility.asp)

@@ -1,55 +1,50 @@
-# Tipi e strutture di dati in JavaScript
+# Tipi e valori JavaScript
 
-JavaScript è tipizzato dinamicamente: una variabile può riferirsi a valori di tipi diversi nel corso dell'esecuzione. I tipi primitivi includono `string`, `number`, `bigint`, `boolean`, `undefined`, `symbol` e `null` (con una particolarità storica di `typeof null`). Oggetti, array e funzioni sono tipi riferimento.
+JavaScript è dinamicamente tipizzato: una variabile può ricevere in momenti diversi valori di tipi differenti, anche se una buona progettazione mantiene i tipi coerenti quando possibile.
+
+## Tipi primitivi principali
+
+- `number`: numeri, interi e decimali; comprende `NaN`, `Infinity` e `-Infinity`.
+- `string`: sequenze di caratteri.
+- `boolean`: `true` o `false`.
+- `undefined`: valore di una variabile dichiarata ma non inizializzata, o proprietà assente in alcune operazioni.
+- `null`: assenza intenzionale di un valore oggetto; per un comportamento storico, `typeof null` restituisce `"object"`.
+- `bigint`: interi di grandi dimensioni, con suffisso `n` nei letterali, per esempio `123n`.
+- `symbol`: identificatore univoco usato in casi specifici.
+
+Array, funzioni e oggetti sono valori di tipo oggetto o categorie correlate; non sono tipi primitivi.
 
 ## Conversioni
 
 ```javascript
-Number("10");    // 10
-Number("ciao");  // NaN
-Number(null);     // 0
-Number(false);    // 0
-Number(true);     // 1
-String(10);       // "10"
-Boolean(0);       // false
-Boolean("test"); // true
+Number("12");       // 12
+Number("ciao");     // NaN
+String(12);          // "12"
+Boolean(0);          // false
+Boolean("testo");   // true
 ```
 
-`NaN` indica un risultato numerico non valido; per verificarlo usare `Number.isNaN(valore)`. Un valore falsy non è automaticamente uguale a `false`: `0`, `-0`, `0n`, `NaN`, `""`, `null`, `undefined` e `false` sono falsy; gli altri valori sono truthy, compresi `[]` e `{}`.
+`Number()` tenta di convertire un valore in numero. `String()` produce una rappresentazione testuale. `Boolean()` converte secondo le regole di truthiness: valori come `0`, `NaN`, `""`, `null` e `undefined` diventano false; la maggior parte degli altri valori diventa true.
 
-## Stringhe
+## Confronto stretto
+
+Usa in genere `===` e `!==` per evitare conversioni automatiche in fase di confronto.
 
 ```javascript
-const nome = "Ada";
-console.log(`Ciao, ${nome}!`);
+2 === 2;   // true
+2 === "2"; // false
+2 == "2";  // true, per conversione implicita
 ```
 
-Le stringhe sono immutabili. I template literal delimitati da backtick consentono interpolazione `${espressione}` e stringhe multilinea.
-
-## Array
+## Array e oggetti
 
 ```javascript
-const voti = [7, 8, 6];
-voti.push(9);
-console.log(voti.length); // 4
+const colori = ["rosso", "verde"];
+const persona = { nome: "Ada", eta: 20 };
 ```
 
-Gli indici degli array iniziano da zero. `const` impedisce di riassegnare il riferimento contenuto nella variabile, ma non impedisce di modificare un array.
+Gli array conservano elementi in una sequenza indicizzata; gli oggetti associano proprietà a valori. Per approfondire consulta [Array e oggetti JavaScript](Array%20e%20oggetti%20JavaScript.md).
 
-## Oggetti
+## Riferimento
 
-```javascript
-const studente = {
-  nome: "Ada",
-  anno: 3,
-  descrizione() {
-    return `${this.nome}, classe ${this.anno}`;
-  }
-};
-```
-
-Gli oggetti raggruppano proprietà e metodi. `this` dipende da come viene chiamato il metodo; le arrow function non definiscono un proprio `this`.
-
-## `==` e `===`
-
-`===` confronta senza conversione implicita dei tipi ed è generalmente la scelta preferibile. `==` effettua conversioni che possono creare risultati inattesi.
+[W3Schools — JavaScript Data Types](https://www.w3schools.com/js/js_datatypes.asp)

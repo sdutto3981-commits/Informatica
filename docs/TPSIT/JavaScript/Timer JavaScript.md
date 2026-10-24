@@ -1,41 +1,43 @@
-# Timer in JavaScript: setTimeout e setInterval
+# Timer JavaScript: `setTimeout` e `setInterval`
 
-JavaScript mette a disposizione funzioni per pianificare l'esecuzione di codice nel tempo.
+I timer pianificano una callback dopo un intervallo minimo indicativo. Il browser può ritardarne l'esecuzione in base al carico, alla scheda inattiva e alle regole del sistema; non sono timer real-time.
 
 ## `setTimeout`
 
-Esegue una callback una volta dopo il ritardo indicato in millisecondi.
-
 ```javascript
-const idTimeout = setTimeout(() => {
-  console.log("Sono trascorsi circa due secondi");
-}, 2000);
+const timeoutId = setTimeout(() => {
+  console.log("Eseguito dopo circa un secondo");
+}, 1000);
 
 // Per annullare prima dell'esecuzione:
-// clearTimeout(idTimeout);
+// clearTimeout(timeoutId);
 ```
 
 ## `setInterval`
 
-Ripete una callback a intervalli indicativi finché non viene annullata.
-
 ```javascript
 let secondi = 0;
-const idIntervallo = setInterval(() => {
+const intervalId = setInterval(() => {
   secondi++;
   console.log(secondi);
-  if (secondi >= 5) {
-    clearInterval(idIntervallo);
-    console.log("Timer terminato");
-  }
+  if (secondi >= 5) clearInterval(intervalId);
 }, 1000);
 ```
 
-- `clearInterval(id)` arresta un intervallo.
-- Memorizza l'identificatore restituito dal timer.
-- I ritardi non sono scadenze precise: il browser può eseguire la callback più tardi se il thread è occupato o la scheda è sospesa.
-- Per un cronometro visualizzato, calcola il tempo trascorso usando un riferimento temporale come `Date.now()` o `performance.now()` invece di assumere che ogni callback sia puntuale.
+`setInterval()` richiede di essere fermato con `clearInterval()` quando non serve più, per esempio quando termina un gioco o viene smontata una vista.
 
-## Importante
+## Contatore visuale e limiti
 
-Ferma i timer quando non servono più, per esempio quando termina un gioco o si abbandona una schermata. Timer dimenticati possono creare esecuzioni duplicate e comportamenti inattesi.
+Un timer grafico non dovrebbe presupporre che ogni callback arrivi esattamente ogni 1000 ms. Per misurare tempo trascorso con più precisione, confronta `performance.now()` o un riferimento temporale invece di sommare soltanto un secondo per callback.
+
+```javascript
+const inizio = performance.now();
+setTimeout(() => {
+  const trascorso = (performance.now() - inizio) / 1000;
+  console.log(`Secondi trascorsi: ${trascorso.toFixed(2)}`);
+}, 1000);
+```
+
+## Riferimento
+
+[W3Schools — JavaScript Timing Events](https://www.w3schools.com/js/js_timing.asp)

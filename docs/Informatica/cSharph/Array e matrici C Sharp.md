@@ -1,73 +1,62 @@
 # Array e matrici in C#
 
-Un array contiene un numero fisso di elementi dello stesso tipo. Gli indici iniziano da zero e l'ultimo indice valido è `Length - 1`.
-
-## Array monodimensionale
+Un array contiene un numero fissato di elementi dello stesso tipo. Gli indici partono da zero; per un array di lunghezza `n`, gli indici validi vanno da `0` a `n - 1`.
 
 ```csharp
-int[] voti = { 7, 8, 6, 9 };
-Console.WriteLine(voti[0]);       // 7
-Console.WriteLine(voti.Length);  // 4
+int[] numeri = { 4, 7, 2, 9 };
+Console.WriteLine(numeri[0]);
+numeri[1] = 10;
 
-for (int i = 0; i < voti.Length; i++)
-    Console.WriteLine($"voti[{i}] = {voti[i]}");
+for (int i = 0; i < numeri.Length; i++)
+    Console.WriteLine($"numeri[{i}] = {numeri[i]}");
 ```
 
-Lunghezza fissa non significa contenuto immutabile: gli elementi possono essere aggiornati.
+`Length` restituisce il numero totale di elementi. Se si accede a un indice non valido, il programma genera un'eccezione `IndexOutOfRangeException`.
 
-## Ricerca del massimo
-
-```csharp
-int[] valori = { 4, 7, 2, 9 };
-int massimo = valori[0];
-for (int i = 1; i < valori.Length; i++)
-    if (valori[i] > massimo)
-        massimo = valori[i];
-Console.WriteLine(massimo); // 9
-```
-
-Prima di leggere `valori[0]`, verifica che l'array non sia vuoto.
-
-## Matrici bidimensionali
-
-Una matrice rettangolare può essere dichiarata con `[,]`.
+## Creazione e input
 
 ```csharp
-int[,] matrice = {
-    { 1, 2, 3 },
-    { 4, 5, 6 }
-};
-
-int righe = matrice.GetLength(0);
-int colonne = matrice.GetLength(1);
-for (int r = 0; r < righe; r++)
+Console.Write("Dimensione: ");
+if (!int.TryParse(Console.ReadLine(), out int n) || n < 0)
 {
-    for (int c = 0; c < colonne; c++)
-        Console.Write(matrice[r, c] + " ");
-    Console.WriteLine();
+    Console.WriteLine("Dimensione non valida");
+    return;
+}
+
+int[] valori = new int[n];
+for (int i = 0; i < valori.Length; i++)
+{
+    Console.Write($"Elemento {i}: ");
+    if (!int.TryParse(Console.ReadLine(), out valori[i]))
+    {
+        Console.WriteLine("Valore non valido");
+        return;
+    }
 }
 ```
 
-- `GetLength(0)` restituisce il numero di righe.
-- `GetLength(1)` restituisce il numero di colonne.
-- Ogni coppia di indici deve essere dentro i limiti.
+## Copiare un array
 
-## Copia e assegnazione
+L'assegnazione `b = a` copia il riferimento allo stesso array, non crea una seconda sequenza indipendente. Per copiare i valori puoi usare un ciclo o `Array.Copy`.
 
 ```csharp
-int[] originale = { 1, 2, 3 };
-int[] copia = new int[originale.Length];
-for (int i = 0; i < originale.Length; i++)
-    copia[i] = originale[i];
+int[] copia = new int[numeri.Length];
+Array.Copy(numeri, copia, numeri.Length);
 ```
 
-L'istruzione `int[] b = a;` non duplica i valori: copia il riferimento all'array, quindi `a` e `b` indicano lo stesso oggetto.
+## Matrici
 
-## Errori frequenti
+```csharp
+int[,] matrice = new int[2, 3];
+matrice[0, 1] = 5;
 
-- confondere indice e numero di elementi;
-- utilizzare `<= Length` anziché `< Length`;
-- non inizializzare una variabile di indice;
-- assumere che assegnare un array a un altro crei una copia indipendente.
+for (int r = 0; r < matrice.GetLength(0); r++)
+    for (int c = 0; c < matrice.GetLength(1); c++)
+        Console.WriteLine(matrice[r, c]);
+```
 
-Vedi anche [la pagina sugli array](../ArrayMatrici/Array.md), [le matrici](../ArrayMatrici/Matrici.md) e [ricerca e ordinamento](Ricerca%20e%20ordinamento%20C%20Sharp.md).
+`GetLength(0)` restituisce il numero di righe e `GetLength(1)` quello delle colonne in una matrice bidimensionale.
+
+## Riferimento
+
+[W3Schools — C# Arrays](https://www.w3schools.com/cs/cs_arrays.php)

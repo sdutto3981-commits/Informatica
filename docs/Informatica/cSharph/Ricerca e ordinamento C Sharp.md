@@ -1,67 +1,52 @@
 # Ricerca e ordinamento in C#
 
-La ricerca individua uno o più elementi che soddisfano un criterio. L'ordinamento dispone gli elementi secondo una regola, per esempio dal più piccolo al più grande.
-
 ## Ricerca lineare
 
-Funziona anche su un array non ordinato. Nel caso peggiore controlla tutti gli `n` elementi: costo temporale `O(n)`.
+Esamina gli elementi uno alla volta e termina quando trova il valore o finisce l'array. Funziona anche su dati non ordinati.
 
 ```csharp
 static int RicercaLineare(int[] valori, int cercato)
 {
     for (int i = 0; i < valori.Length; i++)
-        if (valori[i] == cercato)
-            return i;
-    return -1; // valore non trovato
+        if (valori[i] == cercato) return i;
+    return -1;
 }
 ```
 
+`-1` indica che il valore non è stato trovato. La ricerca lineare richiede nel caso peggiore un numero di confronti proporzionale alla lunghezza, cioè `O(n)`.
+
 ## Ricerca dicotomica
 
-Richiede un array ordinato. A ogni passo dimezza l'intervallo di ricerca, ottenendo costo `O(log n)` nel caso tipico.
+Funziona solo su una sequenza ordinata in modo compatibile con il confronto. A ogni passo restringe l'intervallo a metà.
 
 ```csharp
-static int RicercaDicotomica(int[] valori, int cercato)
+static int RicercaBinaria(int[] valori, int cercato)
 {
     int sinistra = 0;
     int destra = valori.Length - 1;
+
     while (sinistra <= destra)
     {
-        int medio = sinistra + (destra - sinistra) / 2;
-        if (valori[medio] == cercato) return medio;
-        if (valori[medio] < cercato) sinistra = medio + 1;
-        else destra = medio - 1;
+        int centro = sinistra + (destra - sinistra) / 2;
+        if (valori[centro] == cercato) return centro;
+        if (valori[centro] < cercato) sinistra = centro + 1;
+        else destra = centro - 1;
     }
     return -1;
 }
 ```
 
-## Ordinamento per selezione
+La complessità è `O(log n)` nel caso peggiore, ma prima di usarla l'array deve essere ordinato.
 
-In ogni iterazione si cerca il minimo della parte non ancora ordinata e lo si porta nella posizione corretta.
+## Ordinamento
+
+I metodi didattici come bubble sort, selection sort e insertion sort permettono di comprendere confronti e scambi. Per codice reale con array di tipi standard, valuta `Array.Sort()`.
 
 ```csharp
-static void SelectionSort(int[] a)
-{
-    for (int i = 0; i < a.Length - 1; i++)
-    {
-        int indiceMin = i;
-        for (int j = i + 1; j < a.Length; j++)
-            if (a[j] < a[indiceMin]) indiceMin = j;
-
-        int temp = a[i];
-        a[i] = a[indiceMin];
-        a[indiceMin] = temp;
-    }
-}
+int[] valori = { 8, 3, 6, 1 };
+Array.Sort(valori);
 ```
 
-Questo algoritmo è semplice ma ha costo `O(n²)`; per grandi quantità di dati si usano algoritmi più efficienti.
+## Riferimento
 
-## Come verificare
-
-- Array vuoto e array con un solo elemento.
-- Elemento presente in prima/ultima posizione.
-- Elemento assente.
-- Valori ripetuti e valori già ordinati.
-- Per la ricerca dicotomica, verifica che l'array sia ordinato prima della chiamata.
+[W3Schools — C# Arrays](https://www.w3schools.com/cs/cs_arrays.php)

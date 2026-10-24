@@ -1,52 +1,49 @@
 # DOM ed eventi JavaScript
 
-Il DOM (*Document Object Model*) rappresenta la pagina come una struttura di nodi accessibili e modificabili tramite JavaScript.
+Il DOM rappresenta il documento HTML come una struttura di nodi e oggetti. JavaScript può selezionare elementi, modificarne il contenuto, aggiornare attributi e reagire agli eventi.
 
-## Selezionare e aggiornare elementi
-
-```html
-<p id="stato">Pronto</p>
-<button id="azione" type="button">Avvia</button>
-```
+## Selezionare e modificare elementi
 
 ```javascript
-const stato = document.querySelector("#stato");
-const azione = document.querySelector("#azione");
-
-azione.addEventListener("click", () => {
-  stato.textContent = "Pulsante premuto";
-  stato.classList.add("attivo");
-});
+const titolo = document.querySelector("h1");
+if (titolo !== null) {
+  titolo.textContent = "Titolo aggiornato";
+  titolo.classList.add("evidenziato");
+}
 ```
 
 - `querySelector()` restituisce il primo elemento che corrisponde al selettore oppure `null`.
-- `textContent` aggiorna il testo senza interpretarlo come HTML.
-- `classList.add()`, `remove()` e `toggle()` gestiscono le classi CSS.
+- `querySelectorAll()` restituisce una NodeList con gli elementi corrispondenti.
+- `textContent` legge o scrive testo.
+- `classList.add()`, `remove()`, `toggle()` e `contains()` gestiscono classi CSS.
+- `setAttribute()` e le proprietà DOM permettono di lavorare con attributi e valori.
 
 ## Eventi
 
-Un evento è una notifica di un'azione, per esempio `click`, `input`, `change`, `submit` o `keydown`.
+```html
+<button id="azione" type="button">Esegui</button>
+<p id="stato" aria-live="polite"></p>
+```
 
 ```javascript
-const campo = document.querySelector("#nome");
-campo.addEventListener("input", event => {
-  console.log(event.target.value);
+const pulsante = document.querySelector("#azione");
+const stato = document.querySelector("#stato");
+
+pulsante?.addEventListener("click", event => {
+  stato.textContent = "Hai attivato il pulsante.";
 });
 ```
 
-`event.target` indica l'elemento che ha originato l'evento; `event.currentTarget` indica l'elemento a cui è collegato il gestore.
+`addEventListener()` associa una callback senza sovrascrivere gli altri listener. L'oggetto evento contiene informazioni sull'evento; `event.target` indica l'origine dell'evento, mentre `event.currentTarget` indica l'elemento al quale è collegato il listener.
 
-## Prevenire il comportamento predefinito
+## `preventDefault()`
 
-```javascript
-form.addEventListener("submit", event => {
-  event.preventDefault();
-  // Controlli prima di elaborare i dati
-});
-```
+Per un form, il comportamento standard è inviare i dati. `event.preventDefault()` lo impedisce, per esempio se vuoi verificare i campi con JavaScript prima di gestire l'azione.
 
-Usa `preventDefault()` solo quando l'applicazione deve sostituire il comportamento standard. Se si inserisce JavaScript in una pagina con elementi generati dinamicamente, verifica che i selettori vengano eseguiti quando gli elementi sono già presenti, per esempio usando uno script con `defer`.
+## Sicurezza
 
-## Sicurezza e robustezza
+Per visualizzare testo inserito dall'utente, preferisci `textContent`. Inserire input non attendibile in `innerHTML` può creare vulnerabilità XSS. Non associare codice tramite stringhe in attributi `onclick`; usa listener e funzioni.
 
-Preferisci `textContent` quando visualizzi testo inserito dall'utente. `innerHTML` interpreta markup e può introdurre vulnerabilità se usato con dati non fidati. Controlla che un selettore non restituisca `null` prima di accedere alle proprietà dell'elemento.
+## Riferimento
+
+[W3Schools — JavaScript HTML DOM](https://www.w3schools.com/js/js_htmldom.asp) · [JavaScript Events](https://www.w3schools.com/js/js_events.asp)

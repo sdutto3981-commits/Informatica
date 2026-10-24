@@ -1,49 +1,47 @@
----
-date: 2025-10-16
-time: 08:27
----
+# Conversioni di tipo in C#
 
-# Conversione del data types C Sharp
-
-La conversione dei tipi di dati può avvenire in modo :
-
-- **Implicito** ovvero quando la conversione avviene in modo automatico ed è il passaggio da un data type minore a uno maggiore: `char->int->long->float->double`
-- **Esplicito** ovvero quando la conversione avviene in modo manuale ed è il passaggio da un data type maggiore a uno minore: `double->float->long->int->char`
+La conversione cambia il tipo di un valore oppure controlla se questa modifica è possibile. Alcune conversioni sono implicite; altre richiedono un cast o un metodo di conversione.
 
 ## Conversione implicita
 
-Conversione implicita avviene in modo automatico quando passiamo da tu type minore a uno maggiore
-```csharp
-int myInt = 9;
-double myDouble = myInt;       // Automatic casting: int to double
+Una conversione implicita è consentita quando il linguaggio può eseguirla senza perdita di informazioni nel normale modello del tipo.
 
-Console.WriteLine(myInt);      // Outputs 9
-Console.WriteLine(myDouble);   // Outputs 9
+```csharp
+int intero = 10;
+double numero = intero;
 ```
 
-## Conversione esplicita
+## Cast esplicito
 
-Conversione esplicita dev'avvenire manualmente piazzando il parametro del type di fronte al valore
 ```csharp
-double myDouble = 9.78;
-int myInt = (int) myDouble;    // Manual casting: double to int
-
-Console.WriteLine(myDouble);   // Outputs 9.78
-Console.WriteLine(myInt);      // Outputs 9
+double valore = 9.8;
+int intero = (int)valore; // 9: la parte frazionaria viene troncata
 ```
 
-## Funzione di conversione
+Un cast da numero in virgola mobile a intero non è un arrotondamento. Per arrotondare usa `Math.Round`, `Math.Floor` o `Math.Ceiling` a seconda della regola richiesta.
 
-é anche possibile convertire tipi di dato esplicitamente usando una funzione interna nei seguenti metodi `Convet.ToBoolean`,`Convet.ToDouble`, `Convet.ToString`,`Convert.ToInt32(int)`, `Convet.ToInt64(long)`
+## Input da console
 
-Esempio:
 ```csharp
-int myInt = 10;
-double myDouble = 5.25;
-bool myBool = true;
+Console.Write("Inserisci l'età: ");
+string? testo = Console.ReadLine();
 
-Console.WriteLine(Convert.ToString(myInt));    // convert int to string
-Console.WriteLine(Convert.ToDouble(myInt));    // convert int to double
-Console.WriteLine(Convert.ToInt32(myDouble));  // convert double to int
-Console.WriteLine(Convert.ToString(myBool));   // convert bool to string
+if (int.TryParse(testo, out int eta))
+{
+    Console.WriteLine($"Età inserita: {eta}");
+}
+else
+{
+    Console.WriteLine("Valore non valido.");
+}
 ```
+
+`int.Parse()` lancia un'eccezione quando la stringa non è un intero valido; `int.TryParse()` restituisce `false` senza lanciare quell'eccezione per un normale input non convertibile.
+
+## Conversioni testuali
+
+Usa `ToString()` per ottenere una rappresentazione testuale. Per formattare numeri e date in modo dipendente dalla lingua considera le impostazioni di cultura (`CultureInfo`), specialmente quando elabori file o dati scambiati tra sistemi.
+
+## Riferimento
+
+[W3Schools — C# Type Casting](https://www.w3schools.com/cs/cs_type_casting.php)
