@@ -5,7 +5,6 @@ Possiamo ritrovare diversi tipi di cicli per esempio come detto negli schemi fon
 - Post condizionale: La condizione almeno una volta viene eseguita
 - Ciclo For: Lo usiamo solo quando sappiamo il numero esatto di volte che il ciclo deve ripetersi
 
-
 ## Ciclo Pre-condizionale
 ```mermaid
 flowchart TD

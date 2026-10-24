@@ -1,42 +1,27 @@
-# HTML e HTML5
+# HTML5
 
-HTML descrive la struttura e il significato dei contenuti; CSS cura la presentazione e JavaScript aggiunge interattività.
+HTML definisce struttura e significato dei contenuti di una pagina web. Non è un linguaggio di programmazione: descrive elementi, relazioni e metadati del documento.
 
-## Percorso
+## Struttura e contenuti
 
 - [Introduzione HTML](Introduzione%20HTML.md)
-- [Struttura e semantica HTML5](HTML5.md) e [elementi semantici](Elementi%20semantici%20HTML5.md)
-- [Attributi HTML](Attributi%20HTML.md), [attributi globali e accessibilità](Attributi%20globali%20e%20accessibilit%C3%A0%20HTML.md)
-- [Titoli](Intestazioni%20HTML.md), [paragrafi](Paragrafi%20HTML.md), [liste e tabelle](Liste%20e%20tabelle%20HTML.md)
+- [HTML5](HTML5.md)
+- [Intestazioni](Intestazioni%20HTML.md), [paragrafi](Paragrafi%20HTML.md) e [formattazione del testo](Formattazione%20testo%20HTML.md)
+- [Attributi HTML](Attributi%20HTML.md) e [attributi globali/accessibilità](Attributi%20globali%20e%20accessibilità%20HTML.md)
+- [Elementi semantici HTML5](Elementi%20semantici%20HTML5.md)
+- [Liste e tabelle](Liste%20e%20tabelle%20HTML.md)
+
+## Link, immagini e media
+
 - [Link](Link%20HTML.md), [URL assoluti e relativi](URL%20assoluti%20vs%20URL%20relativi%20HTML.md)
-- [Immagini](Immagini%20HTML.md) e [attributo alt](Attributo%20alt%20HTML.md)
-- [Form](HTML%20Forms.md), [form e validazione](Form%20e%20validazione%20HTML.md)
-- [Audio, video e iframe](Media%20e%20iframe%20HTML.md)
-- [CSS in HTML](HTML-Usare%20CSS.md)
+- [Immagini](Immagini%20HTML.md), [attributo alt](Attributo%20alt%20HTML.md)
+- [Media e iframe](Media%20e%20iframe%20HTML.md)
 
-## Struttura semantica minima
+## Form
 
-```html
-<!doctype html>
-<html lang="it">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Titolo descrittivo</title>
-</head>
-<body>
-  <header><h1>Titolo della pagina</h1></header>
-  <main><p>Contenuto principale.</p></main>
-  <footer>Informazioni finali</footer>
-</body>
-</html>
-```
+- [HTML Forms](HTML%20Forms.md)
+- [Form e validazione](Form%20e%20validazione%20HTML.md)
+- [Fieldset e legend](Elementi%20fielset%20e%20legend.md)
+- [Attributi action e method](Attributo%20Action.md), [method](Attributo%20Method.md)
 
-## Regole essenziali
-
-- Usa titoli in ordine gerarchico e landmark semantici appropriati.
-- Le immagini informative hanno bisogno di un `alt` significativo; quelle decorative possono avere `alt=""`.
-- Associa un'etichetta a ogni campo di un form.
-- Usa un link per navigare e un pulsante per compiere un'azione.
-- Specifica la lingua principale con `lang="it"` quando il testo è in italiano.
-
+HTML struttura il contenuto; [CSS](../CSS/index.md) ne controlla la presentazione e [JavaScript](../JavaScript/index.md) aggiunge comportamento interattivo.

@@ -1,10 +1,13 @@
----
-date: 2025-09-26
-time: 12:56
----
-# HTML-Padding CSS
+# `padding` in CSS
 
-La proprietà CSS ==padding== definisce lo spazio tra il testo e il bordo
+`padding` definisce lo spazio interno fra contenuto e bordo. Lo sfondo dell'elemento si estende normalmente nell'area di padding.
 
-## Riferimenti
-1. 
+```css
+.card {
+  padding: 1rem;
+}
+```
+
+Il padding contribuisce alle dimensioni visualizzate con `box-sizing: content-box`, mentre con `border-box` rientra nella larghezza/altezza dichiarata. Valori negativi di padding non sono validi.
+
+Consulta [box model](../CSS/Box-Model.md).

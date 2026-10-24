@@ -1,13 +1,13 @@
 # Compilare un programma
 
 Vengono suddivise in vari fasi per prima cosa:
-1. Viene creato un file Assembler linguaggio più prossimo alla macchina vengono generati in fase di compilazione rispetto a ciò che viene  scritto inoltre 
+1. Viene creato un file Assembler linguaggio più prossimo alla macchina vengono generati in fase di compilazione rispetto a ciò che viene  scritto inoltre
 
 2. avviene la creazione di uno o più fil oggetto forniti dall'assemblatore infine viene creato un file unico che ha dei link automatici per i vari file di compilazione
 
 3. Poi la creazione di un fil eseguibile .exe
 
-Esse poi vengono caricate in memoria per poi essere eseguite dall'processo di avviamo che 
+Esse poi vengono caricate in memoria per poi essere eseguite dall'processo di avviamo che
 
 Utente-> Codice sorgente -> Compilatore -> Codice oggetto -> Linker -> Codice eseguibile -> Loader -> Codice macchina -> CPU
 
@@ -25,11 +25,11 @@ Molto spesso una applicazione è costruita da più file sorgenti ognuno dei qual
 
 ## LOADER
 
-Il loader ci permette di far si di richiamarlo automaticamente quando viene eseguito da riga di comando l'esecuzione del programma in modo da dare inizio alla fase di fatch e cosi via 
+Il loader ci permette di far si di richiamarlo automaticamente quando viene eseguito da riga di comando l'esecuzione del programma in modo da dare inizio alla fase di fatch e cosi via
 
 ## Esempio
 
-Quando noi vogliamo compilare un file per esempio un file c in ambiente linux usiamo 
+Quando noi vogliamo compilare un file per esempio un file c in ambiente linux usiamo
 - `gcc nome_file.c -a nome_eseguibile`
 Per visualizzare il file assembler
 - `gcc -S nome_file.c`

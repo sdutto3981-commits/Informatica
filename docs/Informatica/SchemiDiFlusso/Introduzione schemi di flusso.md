@@ -7,4 +7,3 @@
 Serve a progettare e visualizzare il percorso logico per risolvere un problema prima di tradurlo in codice sorgente.
 
 L'algoritmo viene scomposto in passi elementari, ognuno racchiuso in una forma geometrica precisa.
-

@@ -2,6 +2,7 @@
 date: 2025-09-24
 time: 10:19
 ---
+
 # Esercizi ripasso sistemi numerazione
 
 $$
@@ -16,4 +17,5 @@ $$
 $$
 
 ## Riferimenti
-1. 
+
+1.

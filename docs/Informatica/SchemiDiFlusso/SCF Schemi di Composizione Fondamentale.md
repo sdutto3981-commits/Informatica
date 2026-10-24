@@ -9,7 +9,7 @@
 
 Sono una sequenza di comandi che partono da Start e arrivano a Stop
 **Esempio**
-*Data l'ipotenusa e un cateto di un triangolo rettangolo calcolare il perimetro* 
+*Data l'ipotenusa e un cateto di un triangolo rettangolo calcolare il perimetro*
 
 #### Selezione
 
@@ -23,4 +23,4 @@ Sono una sequenza di comandi che presentano una condizione prima o dopo un azion
 
 Le peculiarità sono per il *precondizionale* potrebbe capitare che l'azione non venga mai eseguita mentre per il *post condizionale* l'azione viene eseguita almeno una volta
 
-Quando sappiamo anche quante volte questo ciclo viene eseguito possiamo usare **for** ovvero è un ciclo che viene eseguito n volte dal programma 
+Quando sappiamo anche quante volte questo ciclo viene eseguito possiamo usare **for** ovvero è un ciclo che viene eseguito n volte dal programma

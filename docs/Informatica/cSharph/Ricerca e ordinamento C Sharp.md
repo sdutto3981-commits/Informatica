@@ -36,8 +36,6 @@ static int RicercaDicotomica(int[] valori, int cercato)
 }
 ```
 
-
-
 ## Ordinamento per selezione
 
 In ogni iterazione si cerca il minimo della parte non ancora ordinata e lo si porta nella posizione corretta.

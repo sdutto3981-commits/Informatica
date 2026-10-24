@@ -1,6 +1,6 @@
 # ricerca dicotomica
 
-Funziona solo nel caso ordinato 
+Funziona solo nel caso ordinato
 
 ```
 Start
@@ -15,7 +15,7 @@ Se v[meta] != X
 			(falso)
 				inf = meta+1
 	(falso)
-	
+
 Se v[meta] == x
 	(vero)
 		output: oltre la meta

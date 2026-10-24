@@ -1,12 +1,9 @@
----
-date: 2025-09-25
-time: 20:12
----
-# HTML-Che cos'è CSS
+# Che cos'è CSS
 
-Cascading Style Sheets CSS è usato per formattare il layout delle pagine web.
+CSS significa **Cascading Style Sheets** ed è il linguaggio che descrive la presentazione degli elementi HTML: colori, font, dimensioni, spaziature, layout, animazioni e adattamento allo schermo.
 
-Con CSS possiamo controllare il colore il font la dimensione del testo lo spazio tra gli elementi come sono posizionati gli elementi lo sfondo con un immagine oppure il colore di sfondo la dimensione della pagina web e molto altro.
+```html
+<link rel="stylesheet" href="style.css">
+```
 
-## Riferimenti
-1. 
+La struttura rimane nel documento HTML, mentre le regole di presentazione sono normalmente definite nel foglio CSS. Approfondisci nella sezione [CSS](../CSS/index.md).

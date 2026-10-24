@@ -2,6 +2,7 @@
 date: 2025-10-31
 time: 08:25
 ---
+
 # Data types C
 
 In C ritroviamo diversi tipi di dati:
@@ -10,7 +11,8 @@ In C ritroviamo diversi tipi di dati:
 - double: numeri in virgola mobile con precisione doppia 64 bit
 - char: carattere
 
-Non abbiamo la tipologia: string ne bool 
+Non abbiamo la tipologia: string ne bool
 
 ## Riferimenti
-1. 
+
+1.

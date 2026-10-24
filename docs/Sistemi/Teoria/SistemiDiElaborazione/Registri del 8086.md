@@ -2,9 +2,10 @@
 date: 2026-02-01
 time: 15:05
 ---
+
 # Registri del 8086
 
-![[Pasted image 20260201150748.png]]
+*Risorsa non inclusa: Pasted image 20260201150748.png*
 
 1. **Data Register (Registri Dati)**
 
@@ -15,12 +16,12 @@ Sono registri a 16 bit ma  possono essere accessibili anche come due registri se
 - **CX (CH, CL) - Counter:** Usato come contatore nei loop e nelle operazioni sulle stringhe.
 - **DX (DH,HL) - Data:** Usato per le operazioni di moltiplicazione e divisione per I/O
 
-2. **Pointers (Puntatori)** 
+2. **Pointers (Puntatori)**
 
 Sono i registri utilizzati per gestire la memoria e lo stack:
 
 - **SP (Stack Pointer):** Punta alla cima dello stack (la memoria temporanea)
-- **BP (Base Pointer:** Usato per accedere ai dati all'interno dello stack 
+- **BP (Base Pointer:** Usato per accedere ai dati all'interno dello stack
 - **SI (Source Index):** Indice sorgente per le operazioni sulle stringhe o array
 - **DI (Destination Index):** Indice di destinazione per le operazioni sulle stringhe o array
 - **IP (Instruction Pointer):** Contiene l'indirizzo della prossima istruzione da eseguire
@@ -32,7 +33,7 @@ Sono i registri utilizzati per gestire la memoria e lo stack:
 - **CS (Code Segment):** Contiene il codice del programma (le istruzioni)
 - **SS (Stack Segment):** Contiene lo stack
 - **DS (Data Segment):** Contiene i dati e le variabili globaliao
-- **ES (Extra Segment):** Segmento aggiuntivo per dati extra 
+- **ES (Extra Segment):** Segmento aggiuntivo per dati extra
 
 4. **Instruction Queue (Coda Istruzioni)**
 
@@ -52,8 +53,9 @@ Decodifica le istruzioni prelevate dalla coda e invia segnali elettrici a tutti 
 
 7. **Interfaccia Esterna**
 
-- **Adress/Data (20pin):** L'8086 ha un bus di indirizzi a 20bit che permette di indirizzare 1MB di memoria $2^{20}$ 
+- **Adress/Data (20pin):** L'8086 ha un bus di indirizzi a 20bit che permette di indirizzare 1MB di memoria $2^{20}$
 - **Control (16pin):** Segnali per controllare la memoria e le periferiche lettura scrittura interrupt
 
 ## Riferimenti
-1. 
+
+1.

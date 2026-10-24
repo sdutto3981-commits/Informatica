@@ -1,6 +1,6 @@
-# Sistemi telematici e laboratorio
+# Sistemi e laboratorio
 
-Appunti di architettura del calcolatore, hardware, memoria, sistemi operativi, Linux, macchine virtuali e linguaggio C.
+Appunti di architettura del calcolatore, componenti hardware, rappresentazione dei dati, memorie, sistemi operativi, Linux, virtualizzazione e linguaggio C.
 
 - [Teoria generale](Teoria/index.md)
 - [Componenti del computer](Teoria/ComponentiComputer/index.md)
@@ -10,3 +10,4 @@ Appunti di architettura del calcolatore, hardware, memoria, sistemi operativi, L
 - [Macchine virtuali](VirtualMachine/index.md)
 - [Linguaggio C](C/index.md)
 
+Ordine consigliato: rappresentazione → architettura → memoria e file system → sistemi operativi → installazione e virtualizzazione → shell → C.

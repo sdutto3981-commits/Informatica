@@ -1,22 +1,28 @@
----
-date: 2025-09-11
-time: 10:54
----
-# Introduzione HTML
+# Introduzione a HTML
 
+HTML significa **HyperText Markup Language**. È un linguaggio di marcatura, non un linguaggio di programmazione: usa elementi e attributi per descrivere la struttura e il significato dei contenuti. Il browser interpreta il documento e costruisce il DOM.
 
-HTML Hyper Text Markup Language
-Linguaggio formato da marcatori non è un linguaggio compilato ma viene interpretato utilizzato per creare pagine web
+## Documento minimo
 
 ```html
-<!DOCTYPE html>
-
-<html>
-
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prima pagina</title>
+</head>
+<body>
+  <h1>Ciao, web</h1>
+  <p>Questa è la prima pagina.</p>
+</body>
 </html>
 ```
 
-`<!DOCTYPE html>` definiamo che il documento utilizza HTML5
-`<html<></html>` definiscono dove inizia e dove finisce il nostro codice html che verrà racchiuso tra di esse 
-## Riferimenti
-1. [[W3C]]
+- `<!doctype html>` attiva la modalità standard HTML moderna.
+- `<html lang="it">` è l'elemento radice e dichiara la lingua principale.
+- `<head>` contiene metadati, titolo e riferimenti a risorse.
+- `<body>` contiene i contenuti mostrati nella pagina.
+- Un elemento di solito comprende tag di apertura, contenuto e tag di chiusura; alcuni elementi, come `img` e `meta`, sono void e non hanno tag di chiusura.
+
+Il significato del tag va preferito alla scelta di elementi generici: per questo HTML5 comprende elementi semantici come `header`, `nav`, `main`, `article` e `footer`.

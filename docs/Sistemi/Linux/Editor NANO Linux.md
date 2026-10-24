@@ -2,6 +2,7 @@
 date: 2025-10-24
 time: 08:15
 ---
+
 # Editor NANO Linux
 
 Avvio e salvataggio
@@ -40,4 +41,5 @@ Inserisci output comando Ctrl + R, poi Ctrl + T
 | Annulla ultima azione          | Alt + U         |
 
 ## Riferimenti
-1. 
+
+1.

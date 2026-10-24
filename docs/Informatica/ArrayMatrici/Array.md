@@ -1,63 +1,64 @@
 # Array in C#
 
-Un array contiene un numero determinato di elementi tutti dello stesso tipo. Gli indici partono da `0`; per un array di lunghezza `n`, l'ultimo indice valido è `n - 1`.
+Un array conserva un numero definito di elementi dello stesso tipo. Gli indici partono da `0`; se l'array ha `Length == n`, gli indici validi sono da `0` a `n - 1`.
 
 ## Dichiarazione e inizializzazione
 
 ```csharp
-int[] numeri = new int[5];          // cinque interi, inizializzati al valore predefinito
+int[] numeri = new int[5];
 int[] voti = { 7, 8, 6, 9 };
 ```
 
-La dimensione di un array esistente non cambia. `Length` restituisce il numero di elementi.
-
-## Caricamento e visualizzazione
+Per dimensioni determinate a runtime:
 
 ```csharp
-int[] v = new int[3];
-for (int i = 0; i < v.Length; i++)
+Console.Write("Quanti elementi? ");
+if (!int.TryParse(Console.ReadLine(), out int dimensione) || dimensione < 1)
 {
-    Console.Write($"Inserisci v[{i}]: ");
-    if (!int.TryParse(Console.ReadLine(), out v[i]))
-    {
-        Console.WriteLine("Valore non valido.");
-        return;
-    }
+    Console.WriteLine("Inserire un intero positivo.");
+    return;
 }
 
-for (int i = 0; i < v.Length; i++)
-    Console.WriteLine($"v[{i}] = {v[i]}");
+int[] valori = new int[dimensione];
+for (int i = 0; i < valori.Length; i++)
+{
+    Console.Write($"valori[{i}] = ");
+    while (!int.TryParse(Console.ReadLine(), out valori[i]))
+        Console.Write("Valore non valido; riprova: ");
+}
 ```
 
-`TryParse` evita un'eccezione in caso di input non numerico. Per esercizi che richiedono `Convert.ToInt32`, ricordati che l'input non valido può produrre un errore.
-
-## Lettura e modifica
+## Scansione e modifica
 
 ```csharp
-int x = v[0];
-v[0] = 42;
+for (int i = 0; i < valori.Length; i++)
+    Console.WriteLine($"valori[{i}] = {valori[i]}");
 ```
 
-Assegnare a una posizione già occupata sostituisce il valore esistente.
+Assegnare `valori[i] = nuovoValore;` sostituisce il contenuto di quella posizione.
 
 ## Copiare un array
 
-L'assegnazione `int[] b = a;` copia il riferimento all'array, non crea una seconda copia indipendente.
+L'assegnazione `int[] b = a;` copia il riferimento, quindi `a` e `b` indicano lo stesso array. Per ottenere una copia indipendente:
 
 ```csharp
-int[] copia = new int[v.Length];
-for (int i = 0; i < v.Length; i++)
-    copia[i] = v[i];
+int[] copia = (int[])valori.Clone();
+// In alternativa: int[] copia = valori.ToArray(); con using System.Linq;
 ```
 
-Oppure, quando consentito dal percorso, si può usare `Array.Copy(v, copia, v.Length)`.
+Oppure, per capire il processo, si può copiare elemento per elemento:
 
-## Errori frequenti
+```csharp
+int[] copiaManuale = new int[valori.Length];
+for (int i = 0; i < valori.Length; i++)
+    copiaManuale[i] = valori[i];
+```
 
-- usare `i <= v.Length` al posto di `i < v.Length`;
-- confondere indice e numero di elementi;
-- dimenticare di inizializzare una variabile di indice;
-- credere che l'assegnazione di un array crei automaticamente una copia;
-- usare un array di lunghezza zero senza gestirne il caso.
+## Errori comuni
 
-Per matrici consulta [Matrici](Matrici.md) e per la ricerca [Ricerca e ordinamento](../AlgoritmiFondamentali/Ricerca%20e%20ordinamento.md).
+- Usare `Length` invece di `Length`.
+- Accedere a `array[array.Length]`: è fuori dai limiti.
+- Confondere la copia del riferimento con la copia degli elementi.
+- Usare un indice senza verificare che rientri nell'intervallo valido.
+
+Per array multidimensionali consulta [Matrici](Matrici.md); per algoritmi consulta [Ricerca e ordinamento](../AlgoritmiFondamentali/Ricerca%20e%20ordinamento.md).

@@ -2,17 +2,16 @@
 date: 2026-02-01
 time: 18:24
 ---
+
 # Memoria RAM
 
 Costituita da una successione di elementi vistabili raggruppati in celle di uguale larghezza ciascuna dotata di un indirizzo univoco.
 
 L'accesso alle celle di memoria tramite un decodificatore di indirizzi.
 
-Da un punto di vista circuitale l'elemento minimo della ram è il flip flop un circuito che può risiedere in due stati stabili 
-
+Da un punto di vista circuitale l'elemento minimo della ram è il flip flop un circuito che può risiedere in due stati stabili
 
 Il dato 0/1 viene trasferito in un uscita Q in corrispondenza dell'impulso di sincronizzazione l'uscita si mantiene in questo stato detto memorizzazione fino a una nuova variazione di segnale in T anche se l' ingresso D cambia.
-
 
 La memoria RAM mantiene al proprio interno i dati e le istruzioni dei programmi in esecuzione
 Caratteristiche: volatile, riscrivibile, veloce, meno capace., costosa, ad accesso diretto
@@ -42,4 +41,5 @@ Generalmente vengono utilizzate per realizzare memoria cache.
 - La RAM è un memoria veloce e dati rimangono finché il computer è in funzione. Quando si spegne la RAM si svuota
 
 ## Riferimenti
-1. 
+
+1.

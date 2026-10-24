@@ -2,6 +2,7 @@
 date: 2025-09-23
 time: 17:33
 ---
+
 # Elementi di citazione e citazione HTML
 
 #### Elemento `<blockquote>`
@@ -24,6 +25,6 @@ Definisce  le informazioni di contatto del proprietario del documento o dell'art
 
 Definisce l'autore di un opera creativa
 
-
 ## Riferimenti
-1. 
+
+1.

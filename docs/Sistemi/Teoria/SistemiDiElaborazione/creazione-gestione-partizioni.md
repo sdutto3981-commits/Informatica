@@ -43,5 +43,5 @@ Il processo di inizializzazione e creazione di una nuova partizione segue una pr
 
 ## Collegamenti
 
-- [[partizionamento-disco-mbr-gpt]]
-- [[Indice-sistemi]]
+- [partizionamento-disco-mbr-gpt](partizionamento-disco-mbr-gpt.md)
+- Indice-sistemi

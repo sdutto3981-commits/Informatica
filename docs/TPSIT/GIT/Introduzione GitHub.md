@@ -2,6 +2,7 @@
 date: 2025-09-12
 time: 20:33
 ---
+
 # Introduzione GitHub
 
 Git serve per creare e gestire le versione del codice come inizializzare una cartella:
@@ -11,4 +12,5 @@ Git serve per creare e gestire le versione del codice come inizializzare una car
 - Per guardare lo status della cartela collegata a git usiamo `git status` se i nomi dei file sono in rosso vuol dire che non sono ancora stati salvati allora bisogna eseguire il comando `git add .`
 
 ## Riferimenti
-1. 
+
+1.

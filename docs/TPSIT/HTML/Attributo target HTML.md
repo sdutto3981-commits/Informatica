@@ -2,6 +2,7 @@
 date: 2025-09-26
 time: 13:07
 ---
+
 # Attributo target HTML
 
 Quando premiamo un collegamento quella pagina viene aperta direttamente sulla stessa pagina del browser per cambiare ciò usiamo il tag `target` che specifica dove aprire il collegamento
@@ -17,4 +18,5 @@ Può avere i seguenti valori:
 `<form action="/action_page.php" target="_blank">`
 
 ## Riferimenti
-1. 
+
+1.

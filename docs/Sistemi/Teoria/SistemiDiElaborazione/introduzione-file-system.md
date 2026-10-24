@@ -1,49 +1,24 @@
----
-tags: [studio, materia/sistemi, stato/bozza]
-data_creazione: 2026-05-24
-argomento: Introduzione al File System e Protezione dei File
-priorità: alta
-collegamenti: [indice-sistemi]
----
+# Introduzione ai file system
 
-# Introduzione al File System e Protezione dei File
+Un file system definisce come il sistema operativo organizza, nomina, localizza e gestisce file e directory su un dispositivo o volume. Può mantenere metadati come dimensione, date, proprietario e permessi, secondo il formato e il sistema operativo.
 
-## Concetti Chiave
+## Operazioni tipiche
 
-- **Memoria Secondaria**: supporto di memorizzazione permanente, non volatile e ad alta capacità.
-- **File System**: modulo del Sistema Operativo incaricato di organizzare e gestire i dati sui dispositivi di memoria di massa.
-- **ACL (Access Control List)**: lista di controllo degli accessi associata a ogni file per verificarne i permessi.
+- creare, aprire, leggere e scrivere un file;
+- rinominare, spostare ed eliminare file;
+- creare ed esplorare directory;
+- verificare permessi e proprietà;
+- gestire lo spazio libero e le informazioni necessarie al recupero dopo errori, se supportato.
 
-## Spiegazione Approfondita
+## File system e partizioni non sono la stessa cosa
 
-I programmi e i dati richiedono di essere preservati in modo persistente. Questo compito è affidato alla **memoria secondaria**, che offre non-volatilità e ampie capacità ma sconta latenze elevate a causa dei limiti fisici del supporto (come i movimenti meccanici nei dischi HDD o i cicli di lettura/scrittura nelle memorie Flash rispetto alla velocità elettronica della CPU).
+Una **partizione** definisce una porzione del dispositivo descritta dalla tabella delle partizioni. Un **file system** organizza i file all'interno di un volume. Un disco può avere più partizioni, e non tutte devono necessariamente contenere un file system montabile.
 
-> **Definizione**: Il File System è l'insieme dei file, delle strutture dati, delle directory e dei meccanismi software del sistema operativo che gestiscono la memorizzazione permanente dei dati, mascherando l'organizzazione fisica dei settori sul disco e offrendo una visione logica unitaria.
+## Esempi
 
-Il File System assolve la necessità di memorizzare enormi quantità di informazioni, permettere l'accesso contemporaneo ai dati da parte di più processi e attivare le misure di protezione. La sicurezza logica è implementata mediante le **ACL (Access Control List)**, tabelle consultate dal kernel prima di autorizzare operazioni di lettura, scrittura, esecuzione, accodamento o cancellazione.
+- FAT32: ampia compatibilità, ma non supporta file singoli oltre 4 GiB.
+- exFAT: spesso usato per memorie rimovibili e file grandi.
+- NTFS: comune in Windows, con funzionalità avanzate e permessi.
+- ext4: comune nelle distribuzioni Linux.
 
-Nei sistemi POSIX/Linux-like viene impiegata una versione sintetica della ACL basata su tre categorie di utenti:
-- **Proprietario (Owner)**: l'utente che ha creato il file.
-- **Gruppo (Group)**: insieme di utenti che condividono diritti d'accesso simili per motivi di collaborazione o di ruolo.
-- **Universo (Others/World)**: la totalità degli altri utenti registrati nel sistema calcolatore.
-
-Ciascuna categoria dispone di un campo da 3 bit per mappare i diritti di Lettura (r), Scrittura (w) ed Esecuzione (x), richiedendo solo 9 bit totali per definire la stringa di protezione fondamentale del file.
-
-## Schema Riassuntivo
-
-| Categoria Utente | Bit di Controllo | Significato Operativo |
-|------------------|------------------|-----------------------|
-| **Proprietario** | `r w x` | Permessi di accesso ed esecuzione esclusivi del creatore del file |
-| **Gruppo** | `r w x` | Permessi assegnati a un team ristretto per la condivisione protetta |
-| **Universo** | `r w x` | Permessi di base o nulli validi per qualsiasi altro utente del sistema |
-
-## Domande di Autovalutazione
-
-1. Perché il controllo degli accessi tramite ACL è una funzione critica che deve essere gestita ed eseguita esclusivamente in modalità protetta (kernel mode) dal Sistema Operativo?
-2. Se un file possiede una stringa di permessi pari a `rwxr-x---`, quali operazioni sono consentite ai membri del gruppo proprietario e quali agli utenti appartenenti all'universo?
-
-## Collegamenti
-
-- [[Indice-sistemi]]
-- [[struttura-attributi-operazioni-file]]
-- [[tipologie-file-system-fat-ext]]
+Le caratteristiche dipendono dall'implementazione e dal sistema operativo. Prima di partizionare o formattare un'unità, eseguire un backup e verificare con precisione il dispositivo selezionato: la formattazione può cancellare i dati.

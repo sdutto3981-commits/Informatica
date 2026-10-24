@@ -2,10 +2,10 @@
 date: 2025-09-17
 time: 10:22
 ---
+
 # Sistema di numerazione decimale
 
-
-Il sistema di numerazione decimale è posizionale quindi ogni cifra ha un peso per esempio 
+Il sistema di numerazione decimale è posizionale quindi ogni cifra ha un peso per esempio
 
 $$
 \begin{flalign*}
@@ -23,7 +23,7 @@ $$
 & 250+25+15+4=294
 \end{flalign*}
 $$
-Quindi prendiamo ogni cifra del numero e la eleviamo alla propria posizione 
+Quindi prendiamo ogni cifra del numero e la eleviamo alla propria posizione
 $$
 \begin{flalign*}
 &103_{(3)}=X_{(10)}
@@ -35,5 +35,7 @@ Non è possibile convertire 103 in base 3 siccome:
 - Base 4 = 0,1,2,3
 - ...
 Quindi 103 non può essere presente in base 3
+
 ## Riferimenti
-1. 
+
+1.

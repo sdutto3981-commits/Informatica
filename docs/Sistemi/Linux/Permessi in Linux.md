@@ -2,6 +2,7 @@
 date: 2025-10-24
 time: 08:11
 ---
+
 # Permessi in Linux
 
 Per vedere i permessi dei file possiamo usare `ls -l`
@@ -14,9 +15,9 @@ Categoria di utenti:
 Come categoria di permessi possiamo avere:
 - r = read
 - w = write
-- x = execute 
+- x = execute
 
-Se si presenta con la prima lettera `d` è una cartella se il primo carattere è `-` è un file 
+Se si presenta con la prima lettera `d` è una cartella se il primo carattere è `-` è un file
 
 `-rwxr--r--`
 `-  rwx  r--  r--`
@@ -43,4 +44,5 @@ per aggiungere al gruppo il permesso di scrittura
 `chmod g+w file.txt`
 
 ## Riferimenti
-1. 
+
+1.

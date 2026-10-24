@@ -2,6 +2,7 @@
 date: 2025-09-14
 time: 21:28
 ---
+
 # Repository GitHub
 
 Cos' una repository  un elemento fondamentale di github serve per lasciare tutto il codice per il progetto
@@ -24,5 +25,7 @@ La schermata della mia cartella presenza diverse diapositive come per esempio:
 - Setting: Dove possiamo aggiungere eventuali collaboratori al  nostro progetto
 
 E possivie aumentare le proprie conoscenza su GitHub Foundations
+
 ## Riferimenti
-1. 
+
+1.

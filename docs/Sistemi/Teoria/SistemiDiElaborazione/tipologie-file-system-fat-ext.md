@@ -46,5 +46,5 @@ A partire dalla versione **Ext3**, è stata introdotta la tecnica del **journali
 
 ## Collegamenti
 
-- [[Indice-sistemi]]
-- [[struttura-attributi-operazioni-file]]
+- Indice-sistemi
+- [struttura-attributi-operazioni-file](struttura-attributi-operazioni-file.md)

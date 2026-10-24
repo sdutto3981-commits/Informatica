@@ -1,100 +1,43 @@
----
-date: 2025-11-11
-time: 12:36
----
-# HTML5
+# HTML5 e semantica
 
-Da HTML 5 semantico il problema del div coi fino a con tutti i div questo codice non si capisce cosa contiene questo div 
-```html
-<!DOCTYPE html>
-
-  
-
-<html>
-
-    <head>
-
-  
-
-    </head>
-
-    <body>
-
-        <div>
-
-            <h1>Titolo Sito</h1>
-
-        </div>
-
-        <div>
-
-            <p>Testo della pagina</p>
-
-        </div>
-
-        <div>
-
-            <p>Copyright 2025</p>
-
-        </div>
-
-    </body>
-
-</html>
-```
-HTML 5 risolve con i tag semantici semantico significa che è nome del tag dice cosa contiene 
+HTML definisce la struttura del documento; la semantica aiuta browser, tecnologie assistive e sviluppatori a comprenderne le aree. Non è necessario usare un `div` per ogni contenitore: scegli un elemento in base alla funzione.
 
 ```html
-<!DOCTYPE html>
-
-  
-
-<html>
-
-    <head>
-
-  
-
-    </head>
-
-    <body>
-
-        <header>
-
-            <h1>Titolo</h1>
-
-        </header>
-
-        <main>
-
-            <p>Contenuto della pagina</p>
-
-        </main>
-
-        <footer>
-
-            <p>© 2025</p>
-
-        </footer>
-
-    </body>
-
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Il mio sito</title>
+</head>
+<body>
+  <header>
+    <h1>Titolo del sito</h1>
+    <nav aria-label="Navigazione principale">
+      <a href="index.html">Home</a>
+      <a href="contatti.html">Contatti</a>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <h2>Un articolo</h2>
+      <p>Contenuto principale.</p>
+    </article>
+    <aside>Informazioni correlate.</aside>
+  </main>
+  <footer><p>Informazioni finali.</p></footer>
+</body>
 </html>
 ```
 
-1. HEADER
-il tag `<header>`  l'intestazione della pagina contiene il logo il titolo il menu principale
-2. NAV
-Il tag `<nav>` contiene i link di navigazione il menu
-3. MAIN
-il tag `<main>` contiene il contenuto principale della pagina. Ce ne può essere uno solo per pagina
-4. SECTION
-il tag `<section>` è una sezione tematica 
-5. ARTICLE
-il tag `<article>` è una sezione tematica che ha senso da solo 
-6. ASIDE
-il tag `<aside>`  è contenuto  correlato ma secondario una sidebar un box informativo
-7. FOOTER
-il tag `<footer>` è il pie di pagina contatti link ai social 
-## Riferimenti
-1.
+## Elementi semantici
+
+- `header`: intestazione di una pagina o di una sezione.
+- `nav`: area con collegamenti di navigazione importanti.
+- `main`: contenuto principale della pagina; normalmente c'è un solo `main` visibile.
+- `section`: sezione tematica, di norma con un titolo.
+- `article`: contenuto autonomo, potenzialmente riutilizzabile o distribuibile separatamente.
+- `aside`: contenuto complementare o correlato.
+- `footer`: informazioni finali di una pagina o sezione.
+
+Gli elementi semantici non assegnano automaticamente un layout: l'aspetto viene controllato con CSS. L'indentazione è una convenzione di leggibilità, non cambia il significato del codice.

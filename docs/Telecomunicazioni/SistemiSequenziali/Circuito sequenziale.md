@@ -2,6 +2,7 @@
 date: 2026-02-03
 time: 11:30
 ---
+
 # Circuito sequenziale
 
 Qui il valore dell'uscita può essere influenzato dai valori che vi erano precedentemente in memoria.
@@ -21,9 +22,8 @@ A fianco di ogni transizione troviamo la funzione logica legata agli ingressi me
 
 Progettare un contatore che sia in grado di calcolare su 2 bit.
 
-
 Esso avrà 4 stati
 
-
 ## Riferimenti
-1. 
+
+1.

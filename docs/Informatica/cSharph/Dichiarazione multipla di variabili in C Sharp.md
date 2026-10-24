@@ -2,6 +2,7 @@
 date: 2025-10-16
 time: 08:09
 ---
+
 # Dichiarazione multipla di variabili in C Sharp
 
 Se vogliamo dichiarare una serie di variabili tutte dello stesso tipo posso usare semplicemente una virgola tra una e l'altra
@@ -17,4 +18,5 @@ x=y=z=50;
 ```
 
 ## Riferimenti
-1. 
+
+1.

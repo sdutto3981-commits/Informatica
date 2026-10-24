@@ -1,68 +1,51 @@
-# Comandi Linux
+# Comandi Linux essenziali
 
-La shell permette di interagire con il sistema operativo tramite comandi. Per sapere come funziona un comando puoi consultare `man nome_comando` oppure, quando disponibile, `nome_comando --help`.
+I comandi vengono digitati in una shell. Per conoscere le opzioni disponibili usa `man comando` oppure `comando --help` quando supportato.
 
-## Navigazione
+## Navigazione e file
 
 | Comando | Funzione | Esempio |
 |---|---|---|
 | `pwd` | mostra la directory corrente | `pwd` |
-| `ls` | elenca file e directory | `ls -la` |
+| `ls -la` | mostra file e dettagli, inclusi quelli nascosti | `ls -la` |
 | `cd` | cambia directory | `cd Documenti` |
-| `cd ..` | sale di un livello | `cd ..` |
-| `clear` | pulisce la schermata del terminale | `clear` |
-| `date` | mostra data e ora del sistema | `date` |
-
-Un percorso che parte da `/` è assoluto. Un percorso relativo viene interpretato rispetto alla directory corrente. `.` indica la directory corrente e `..` quella superiore.
-
-## File e directory
-
-| Comando | Funzione | Esempio |
-|---|---|---|
-| `mkdir` | crea una directory | `mkdir progetto` |
-| `rmdir` | elimina una directory vuota | `rmdir vecchia_cartella` |
+| `mkdir` | crea directory | `mkdir progetto` |
 | `touch` | crea un file vuoto o aggiorna i timestamp | `touch note.txt` |
-| `cp` | copia | `cp origine.txt copia.txt` |
+| `cp` | copia file/directory (con opzioni per directory) | `cp a.txt b.txt` |
 | `mv` | sposta o rinomina | `mv vecchio.txt nuovo.txt` |
-| `rm` | rimuove file | `rm file.txt` |
-| `cat` | visualizza o concatena file | `cat note.txt` |
-| `less` | legge un file in modo scorrevole | `less note.txt` |
+| `rm` | elimina file; irreversibile senza backup | `rm note.txt` |
+| `rmdir` | rimuove directory vuota | `rmdir vuota` |
+| `cat` | stampa il contenuto | `cat note.txt` |
+| `less` | consulta un file scorrendolo | `less note.txt` |
 | `head` / `tail` | mostra inizio/fine file | `tail -n 20 log.txt` |
 
-**Attenzione:** `rm` elimina senza spostare nel cestino. `rm -r` può eliminare un'intera directory e il suo contenuto; controlla sempre il percorso prima di eseguirlo. Non copiare comandi distruttivi senza comprenderli.
+Attenzione: `rm -r` rimuove directory e contenuti; `rm -rf` è particolarmente pericoloso. Prima di eseguire comandi distruttivi, controllare percorso e argomenti.
 
-## Ricerca e filtri
-
-```bash
-find . -name "*.c"
-grep -n "main" programma.c
-ls -la | less
-```
-
-- `find` ricerca file e directory a partire da un percorso.
-- `grep` cerca righe che corrispondono a un testo o a un'espressione.
-- `|` (pipe) passa l'output di un comando come input al successivo.
-
-## Reindirizzamento
+## Ricerca
 
 ```bash
-comando > output.txt     # crea/sovrascrive l'output
-comando >> output.txt    # aggiunge in fondo
-comando < input.txt      # usa il file come input
+find . -type f -name '*.c'
+grep -n "main" sorgente.c
 ```
 
-Lo standard output e lo standard error sono flussi distinti. `2>` consente di reindirizzare gli errori in modo separato.
+`find` ricerca file in base a criteri; `grep` ricerca testo. I nomi dei file Linux distinguono generalmente maiuscole e minuscole.
 
-## Utenti, gruppi e permessi
+## Informazioni e permessi
 
 - `whoami`: utente corrente.
-- `id`: UID, GID e gruppi associati.
+- `id`: UID, GID e gruppi.
 - `chmod`: modifica i permessi.
-- `chown`: cambia il proprietario (richiede spesso privilegi).
-- `sudo`: esegue un comando con privilegi elevati se autorizzato.
+- `chown`: modifica proprietario/gruppo, normalmente richiedendo privilegi adeguati.
+- `sudo`: esegue un comando con privilegi elevati, se autorizzati.
 
-I permessi base sono lettura (`r`), scrittura (`w`) ed esecuzione (`x`) per proprietario, gruppo e altri. Approfondisci nelle note [Permessi in Linux](Permessi%20in%20Linux.md) e [Utenti](Utenti.md).
+Esempio di permessi simbolici: `chmod u+x script.sh` aggiunge il permesso di esecuzione al proprietario. Non usare `sudo` come soluzione automatica a ogni errore.
 
-## Codice di uscita
+## Pipeline e redirezioni
 
-Un programma restituisce un codice di uscita: per convenzione `0` indica successo, mentre valori non zero indicano un errore o un esito specifico. `echo $?` mostra il codice dell'ultimo comando eseguito.
+```bash
+ls -la | less
+comando > output.txt
+comando >> output.txt
+```
+
+`|` invia l'output di un comando al successivo; `>` sovrascrive un file e `>>` aggiunge in fondo. Prima di usare `>` su file importanti, verificare l'effetto.

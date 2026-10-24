@@ -2,6 +2,7 @@
 date: 2025-11-11
 time: 11:26
 ---
+
 # Flip Flop
 
 Simile al latch sempre un circuito sequenziale in cui stati dipendono dagli stati precedenti nei latch sr nand e nor sono molto sensibili appena si modifica leggermente un entrata e molto delicata noi vorremo che l'acquisizione dei dati e rischiamo di avere delle lettura sbagliate.
@@ -17,8 +18,6 @@ Quindi per tabella quando non siamo sui fronti esso rimane in memoria ovvero Q(i
 | 1   | 0   | $\rightarrow \uparrow$ | 1      | Set     |
 | 1   | 1   | $\rightarrow \uparrow$ | N.A    |         |
 
-
-
-
 ## Riferimenti
-1. 
+
+1.

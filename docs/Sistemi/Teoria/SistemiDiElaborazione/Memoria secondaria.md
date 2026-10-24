@@ -145,7 +145,7 @@ $$T_{accesso} = T_{seek} + T_{latency} + T_{transfer}$$
 **Tempo medio di I/O** = tempo medio accesso + (dati / velocità trasf.) + overhead
 
 > [!example] Esempio calcolo I/O Blocco 4 KB, disco 7200 RPM, seek 5 ms, transfer 1 Gb/s, overhead 0,1 ms:
-> 
+>
 > - Transfer = 4 KB / 1 Gb/s = 0,031 ms
 > - I/O totale = 5 + 4,16 + 0,1 + 0,031 ≅ **9,3 ms**
 
@@ -192,7 +192,7 @@ Le memorie flash sono **EEPROM** basate su **Floating Gate MOSFET**:
 ### Problematiche NAND
 
 > [!warning] Impossibile sovrascrivere direttamente
-> 
+>
 > - Scrittura a granularità di **pagina** (analogo del settore)
 > - Cancellazione solo per **blocchi** interi (più pagine)
 > - Le celle si **deteriorano** ad ogni ciclo di cancellazione
@@ -332,7 +332,7 @@ Range dischi: 0–199
 |**C-LOOK**|Attese uniformi, efficiente|Leggermente complesso|
 
 > [!tip] Algoritmo consigliato
-> 
+>
 > - **SSTF**: comune, semplice, abbastanza efficiente
 > - **SCAN / C-SCAN**: migliori per sistemi con elevato carico I/O (evitano starvation)
 > - **SSTF / LOOK** (e varianti circolari): scelte ragionevoli come algoritmi default

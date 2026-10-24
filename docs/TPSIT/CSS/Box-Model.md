@@ -1,49 +1,44 @@
 # Box model CSS
 
-Ogni elemento HTML può essere rappresentato come una scatola composta da **content**, **padding**, **border** e **margin**.
+Il box model descrive come il browser calcola lo spazio occupato da un elemento: **content**, **padding**, **border** e **margin**.
 
-- **Content:** area del contenuto; `width` e `height` la dimensionano nel modello predefinito.
-- **Padding:** spazio interno tra contenuto e bordo; lo sfondo dell'elemento si estende in quest'area.
-- **Border:** cornice del riquadro.
-- **Margin:** spazio esterno che separa la scatola dagli elementi vicini.
+- **Content:** area del contenuto; `width` e `height` si riferiscono a questa area con `box-sizing: content-box`.
+- **Padding:** spazio interno tra contenuto e bordo; lo sfondo dell'elemento si estende normalmente anche qui.
+- **Border:** bordo intorno al padding e al contenuto.
+- **Margin:** spazio esterno al bordo, che separa l'elemento dagli altri. Lo sfondo dell'elemento non dipinge il margine.
 
 ## `content-box` e `border-box`
 
-Con il valore predefinito `box-sizing: content-box`, la larghezza totale occupata è contenuto + padding sinistro/destro + bordi sinistro/destro.
-
 ```css
-.box {
+.content-box {
+  box-sizing: content-box;
   width: 200px;
   padding: 20px;
-  border: 10px solid black;
-  box-sizing: content-box;
+  border: 10px solid;
+}
+
+.border-box {
+  box-sizing: border-box;
+  width: 200px;
+  padding: 20px;
+  border: 10px solid;
 }
 ```
 
-La larghezza esterna è `200 + 40 + 20 = 260px` (il margine è escluso dal calcolo). Con `box-sizing: border-box`, i 200 px comprendono contenuto, padding e bordo.
+Con `content-box`, la larghezza esterna di base è `200 + 20×2 + 10×2 = 260px`, senza contare il margine. Con `border-box`, la larghezza complessiva comprensiva di padding e bordo è `200px`.
+
+È comune applicare:
 
 ```css
-* {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 ```
 
-Questa regola è comune per rendere più prevedibile il dimensionamento.
+## Overflow e dimensionamento
 
-## Dimensionamento e overflow
+Se il contenuto non entra nel box si verifica overflow. `overflow: auto` mostra le barre di scorrimento quando necessarie; `hidden` taglia l'eccesso; `visible` è il comportamento iniziale comune. `min-content` e `max-content` possono essere usati per il dimensionamento intrinseco.
 
-- Le dimensioni possono essere esplicite (`width: 300px`) o dipendere dal contenuto (`min-content`, `max-content`).
-- `min()`, `max()` e `clamp()` permettono di combinare valori per layout adattivi.
-- `overflow` regola il contenuto che eccede il riquadro (`visible`, `hidden`, `auto`, `scroll`). Non nascondere contenuti importanti senza offrire un modo per accedervi.
-- `display: block`, `inline` e `inline-block` influenzano flusso, larghezza e comportamento del box.
-
-## Esempio responsive
-
-```css
-.contenitore {
-  width: min(100% - 2rem, 70rem);
-  margin-inline: auto;
-}
-```
-
-La larghezza si adatta allo schermo mantenendo un margine laterale e un limite massimo.
+Il `outline` è disegnato fuori dal bordo ma non occupa spazio nel calcolo del box; anche `box-shadow` non modifica le dimensioni di layout. Il margine, invece, partecipa alla spaziatura esterna e i margini verticali di elementi a blocco possono collassare in determinate condizioni.

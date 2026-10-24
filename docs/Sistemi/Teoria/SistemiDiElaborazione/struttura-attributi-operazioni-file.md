@@ -27,7 +27,7 @@ Oltre al contenuto binario (flusso di byte), ogni file possiede degli **attribut
 - I timestamp temporali (data dell'ultimo accesso e dell'ultima modifica).
 - L'ID dell'utente proprietario e i relativi diritti di accesso (permessi).
 
-Le operazioni sui file seguono algoritmi rigorosi gestiti tramite chiamate di sistema (system call). Nell'operazione di **spostamento (move)**, i parametri essenziali includono l'handle e il nome delle directory sia di partenza che di destinazione. Se le due directory coincidono e i due nomi differiscono, l'operazione si riduce ad una *rinomina (rename)*. 
+Le operazioni sui file seguono algoritmi rigorosi gestiti tramite chiamate di sistema (system call). Nell'operazione di **spostamento (move)**, i parametri essenziali includono l'handle e il nome delle directory sia di partenza che di destinazione. Se le due directory coincidono e i due nomi differiscono, l'operazione si riduce ad una *rinomina (rename)*.
 
 Nella **copia di una directory**, il File System implementa un controllo preventivo navigando a ritroso verso la radice (`root`) a partire dalla directory di destinazione: questo serve a verificare che la destinazione non sia una sottocartella della directory sorgente, evitando un ciclo di ricorsione infinita (che farebbe diventare una directory figlia di se stessa). Quando un file viene aperto, il SO associa un descrittore e restituisce un **handle** all'applicazione. I blocchi fisici occupati e il descrittore vengono rilasciati solo alla chiusura dell'ultimo handle attivo, garantendo la consistenza dei file aperti da processi concorrenti.
 
@@ -46,5 +46,5 @@ Nella **copia di una directory**, il File System implementa un controllo prevent
 
 ## Collegamenti
 
-- [[Indice-sistemi]]
-- [[tipologie-file-system-fat-ext]]
+- Indice-sistemi
+- [tipologie-file-system-fat-ext](tipologie-file-system-fat-ext.md)

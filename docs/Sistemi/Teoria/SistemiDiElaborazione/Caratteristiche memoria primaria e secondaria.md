@@ -2,6 +2,7 @@
 date: 2026-02-01
 time: 18:11
 ---
+
 # Caratteristiche memoria primaria e secondaria
 
 Funzione:
@@ -14,7 +15,7 @@ Funzione:
 
 **Tempo di ciclo**: tempo di accesso + tempo che deve trascorrere prima che possa iniziare un successivo accesso alla memoria
 
-**Transfer rate**: quantità di dati trasferiti nell'unità di tempo 
+**Transfer rate**: quantità di dati trasferiti nell'unità di tempo
 
 Capacità multipli di byte
 Costo per bit
@@ -23,6 +24,6 @@ Modalità di accesso:
 - Sequenziale
 - Mista
 
-
 ## Riferimenti
-1. 
+
+1.

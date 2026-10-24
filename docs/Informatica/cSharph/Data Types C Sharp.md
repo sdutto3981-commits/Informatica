@@ -1,47 +1,41 @@
----
-date: 2025-10-16
-time: 08:11
----
-# Data Types C Sharp
+# Tipi di dati in C#
 
-Esistono diversi tipi di dati in C# alcuni esempi sono:
-```C#
-int myNum = 15; //Intero
-double myDoubleNum =5.99; //Decimale
-char MyLetter = 'd'; //Carattere
-bool Mybool = true; //Booleano
-string myText = "Ciao"; //String
- ```
+Il tipo determina quali valori una variabile può rappresentare e quali operazioni sono consentite. C# è un linguaggio staticamente tipizzato: il tipo della variabile è noto in compilazione.
 
-Il data Types è il tipo di variabili che andiamo a dichiarare 
+```csharp
+int eta = 17;
+long popolazione = 8_000_000_000L;
+float temperatura = 21.5f;
+double media = 7.25;
+decimal prezzo = 19.99m;
+char iniziale = 'A';
+bool promosso = true;
+string nome = "Ada";
+```
 
-## Numeri 
+## Tipi comuni
 
-**Numeri interi** positivi e negativi senza parte decimale hanno data type `int long`
+| Tipo | Significato | Esempio |
+|---|---|---|
+| `int` | intero a 32 bit con segno | `int x = -12;` |
+| `long` | intero a 64 bit con segno | `long n = 5_000_000_000L;` |
+| `float` | numero binario in virgola mobile a 32 bit | `float f = 1.5f;` |
+| `double` | numero binario in virgola mobile a 64 bit | `double d = 1.5;` |
+| `decimal` | numero decimale ad alta precisione decimale, utile per importi | `decimal p = 1.50m;` |
+| `char` | singolo carattere UTF-16 code unit | `char c = 'A';` |
+| `bool` | `true` o `false` | `bool ok = false;` |
+| `string` | sequenza di caratteri, immutabile | `string s = "Ciao";` |
 
-**Numeri decimali** rappresentano numeri frazionari ovvero con parte decimale hanno data type `float double`
+## Conversioni
 
-#### INT
-L' `int` può contenere numeri sia positivi che negativi compresi tra -2147483648 a 2147483647.
+```csharp
+int numero = Convert.ToInt32("42");
+if (int.TryParse(Console.ReadLine(), out int valore))
+    Console.WriteLine(valore);
+else
+    Console.WriteLine("Valore non valido");
+```
 
-#### LONG
-L' `long` può contenere numeri tra  -9223372036854775808 a 9223372036854775807 e viene usato quando la dimensione del `int` 
+`TryParse` è utile per validare input che possono essere errati. `Convert.ToInt32` può generare un'eccezione se la stringa non rappresenta un intero valido.
 
- #### FLOAT DOUBLE
- Usiamo `float` quando abbiamo bisogno di un numeri che abbia una parte decimale come 9.99 ecc...
-
-Il tipo `float e double` servono per contenere numeri frazionari float con minore precisione con double con maggior precisione 
-
-## Booleani
-
-Un dato booleano è dichiarato con `bool` che può assumere solo valore `true o false`
-
-## Caratteri
-
-Il tipo di dato `char` è utilizzato per ricordare un singolo carattere come `'A' o 'c'`
-
-## Stringhe
-
-Il tipo di dato stringa è usato per ricordare una serie di caratteri questi valori devono essere racchiusi tra le virgolette
-## Riferimenti
-1. 
+Attenzione: la divisione tra due `int` produce un risultato intero (`5 / 2 == 2`); usare `5.0 / 2` oppure un tipo decimale se serve la parte frazionaria. Per `float`, `double` e `decimal` i letterali hanno suffissi specifici (`f`, `d` opzionale, `m`).

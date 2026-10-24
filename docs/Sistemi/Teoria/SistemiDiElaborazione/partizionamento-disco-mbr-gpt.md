@@ -21,7 +21,7 @@ Il partizionamento consente di suddividere un disco fisicamente unitario in più
 
 > **Definizione**: Una partizione di un disco è una parte di disco separata da un punto di vista logico, considerata dal sistema operativo come un'unità di memorizzazione indipendente.
 
-Storicamente, l'organizzazione logica in ambiente BIOS (utilizzato fino al 2010 circa) si è basata sul **MBR (Master Boot Record)**, posizionato nel primo settore del disco. Il MBR presenta forti limitazioni strutturali: supporta al massimo 4 partizioni primarie e ha un limite massimo di indirizzamento della memoria pari a 2 TB. 
+Storicamente, l'organizzazione logica in ambiente BIOS (utilizzato fino al 2010 circa) si è basata sul **MBR (Master Boot Record)**, posizionato nel primo settore del disco. Il MBR presenta forti limitazioni strutturali: supporta al massimo 4 partizioni primarie e ha un limite massimo di indirizzamento della memoria pari a 2 TB.
 
 I sistemi moderni utilizzano l'architettura **GPT (GUID Partition Table)** basata su **LBA (Logical Block Addressing)**. GPT supera i vincoli di spazio del predecessore e introduce ridondanza per la tolleranza ai guasti. La sua struttura fisica sul disco prevede:
 - **LBA 0 (Protective MBR)**: un blocco di retro-compatibilità in sola lettura che mostra ai vecchi software di partizionamento il disco come un'unica grande partizione occupata. Questo evita che applicativi obsoleti interpretino erroneamente il disco GPT come vuoto, azzerando il rischio di formattazioni accidentali.
@@ -47,5 +47,5 @@ I sistemi moderni utilizzano l'architettura **GPT (GUID Partition Table)** basat
 
 ## Collegamenti
 
-- [[Indice-sistemi]]
-- [[creazione-gestione-partizioni]]
+- Indice-sistemi
+- [creazione-gestione-partizioni](creazione-gestione-partizioni.md)

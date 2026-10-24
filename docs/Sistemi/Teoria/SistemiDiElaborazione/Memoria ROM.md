@@ -2,6 +2,7 @@
 date: 2026-02-01
 time: 18:38
 ---
+
 # Memoria ROM
 
 Con il termine ROM Read Only Memory indichiamo una categoria di memorie accessibili sono in lettura.
@@ -26,6 +27,6 @@ Esistono diversi tipi di ROM.
 **EEPROM Eletrical Erasable Programmable ROM:**
 - Sono identiche alle EPROM per la cancellazione al posto che avvenire tramite raggi UV avviene tramite energia eletricca
 
-
 ## Riferimenti
-1. 
+
+1.

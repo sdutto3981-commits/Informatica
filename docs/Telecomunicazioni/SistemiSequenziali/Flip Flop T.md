@@ -1,17 +1,11 @@
----
-date: 2025-11-11
-time: 11:59
----
-# Flip Flop T
+# Flip-flop T
 
-Flip flop  ha solo come scopo l'inversione dello stato memoria come per gli altri in tuttigli altri stati tranne quello attivo rimane in memoria
+Il flip-flop T (toggle) mantiene lo stato se `T=0` e inverte lo stato se `T=1`, al fronte attivo del clock.
 
+| T | Fronte attivo | Q(t+1) |
+|---:|---|---|
+| 0 | sì | Q(t) |
+| 1 | sì | ¬Q(t) |
+| X | nessun fronte attivo | mantiene Q(t) |
 
-| T   | CH                     | Q(i)    |
-| --- | ---------------------- | ------- |
-| 0   | $\rightarrow \uparrow$ | Q(i-1)  |
-| 1   | $\rightarrow \uparrow$ | -Q(i-1) |
-
-
-## Riferimenti
-1. 
+Equazione caratteristica: `Q(t+1) = T ⊕ Q(t)` al fronte attivo. Il flip-flop T è utile per costruire contatori, perché con `T=1` commuta a ogni fronte.

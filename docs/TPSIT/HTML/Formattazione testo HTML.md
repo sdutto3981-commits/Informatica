@@ -2,6 +2,7 @@
 date: 2025-09-19
 time: 13:31
 ---
+
 # Formattazione testo HTML
 
 Esistono diversi elementi per la formattazione del testo in html
@@ -17,4 +18,5 @@ Esistono diversi elementi per la formattazione del testo in html
 - `<sup>`  Testo superiore
 
 ## Riferimenti
-1. 
+
+1.

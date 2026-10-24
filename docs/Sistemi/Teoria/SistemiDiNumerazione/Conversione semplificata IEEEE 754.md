@@ -2,6 +2,7 @@
 date: 2025-10-01
 time: 09:55
 ---
+
 # Conversione semplificata IEEEE 754
 
 Per convertire un numero reale viene utilizzata la notazione scientifica normalizzata.
@@ -21,7 +22,7 @@ $$
 \end{flalign*}
 $$
 
-La mantissa  e esponente possiamo rappresentare un numero a 32 bit come il primo 1bit (0 Positivo 1 Negativo) dedicato al segno gli altri 8 bit corrispondono al esponente e gli altri 23 bit corrispondo alla mantissa 
+La mantissa  e esponente possiamo rappresentare un numero a 32 bit come il primo 1bit (0 Positivo 1 Negativo) dedicato al segno gli altri 8 bit corrispondono al esponente e gli altri 23 bit corrispondo alla mantissa
 
 $$
 \begin{align*}
@@ -30,8 +31,8 @@ $$
 &73000_{(10)}\\
 &0,73*10^5 \\
 &M=73 \ \ \ \  E=5 \\
-&& 73|1 \\ 
-&&36|0 \\ 
+&& 73|1 \\
+&&36|0 \\
 &&18|0 \\
 &&9|1 \\
 &&4|0 \\
@@ -66,7 +67,8 @@ $$
 &-0,0010_{(10)}=11111111000000000000000000001010_{(2)}
 \end{align*}
 $$
-# Conversione standard IEEE 754 
+
+# Conversione standard IEEE 754
 
 $$
 \begin{align*}
@@ -90,13 +92,15 @@ $$
 &5|1 \\
 &2|0 \\
 &1|1 \\
-&0|- \\ 
+&0|- \\
 &Segno\rightarrow 1 \;\text{Perchè il segno è negativo} \\
 &-10100,10 \rightarrow -1,010010 *10^4 \\
-&Esponente \rightarrow 4+127=131 \; \text{Perchè andando a sottrare 127} \\ &\text{se l'esponente è positivo sarebbe 131-127=4} \\ 
+&Esponente \rightarrow 4+127=131 \; \text{Perchè andando a sottrare 127} \\ &\text{se l'esponente è positivo sarebbe 131-127=4} \\
 &\text{se fosse negativo -4 127-4=123 e al contrario 123-127=-4} \\
 &1100000110100100000000000000000
 \end{align*}
 $$
+
 ## Riferimenti
-1. 
+
+1.

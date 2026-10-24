@@ -2,6 +2,7 @@
 date: 2026-03-16
 time: 09:21
 ---
+
 # Cache
 
 ## Indice
@@ -716,7 +717,7 @@ CPU richiede dato all'indirizzo: 0000001100
                                  ←TAG=00000011→ ←BYTE=00→
 
 1. CAM confronta TAG=00000011 con tutti i TAG in cache
-   ├─ TROVATO (Hit): 
+   ├─ TROVATO (Hit):
    │   → la riga con quel TAG restituisce il dato
    │   → aggiorna l'ordine LRU (questa riga è la "più recente")
    └─ NON TROVATO (Miss):
@@ -1119,4 +1120,5 @@ Allora:
 ---
 
 ## Riferimenti
-1. 
+
+1.

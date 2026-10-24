@@ -1,31 +1,40 @@
----
-date: 2025-12-04
-time: 08:41
----
-# Operatori di controllo js
+# Operatori di confronto e logici in JavaScript
 
-Gli operatori di confronto i valori di due operandi è valutano se l'affermazione che formano è `true o false` per esempio l'operatore di uguaglianza è ` ===`    
+Gli operatori di confronto producono un valore booleano (`true` oppure `false`).
 
-```js
-2 + 2 === 4
-> true
+## Uguaglianza
+
+- `===` e `!==`: confronto stretto, senza coercizione tra tipi; sono in genere preferibili.
+- `==` e `!=`: confronto con conversioni implicite, che possono provocare risultati inattesi.
+
+```javascript
+2 === 2;   // true
+2 === "2"; // false
+2 == "2";  // true
 ```
 
-### Uguaglianza
+## Confronto numerico
 
-Due degli operatori di confronto più utilizzati sono ` ==` per l'uguaglianza approssimativa ` ===` per l'uguaglianza rigorosa
-
-Il primo esegue un confronto approsimato tra due valori forzando i valori a due tipi di dati corrispondenti se possibile ad esempio `2 == "2"` restituisce `true` stessa cosa per `!=` 
-
-Mentre i confronti rigorosi che utilizzano ` === o !==` non eseguono la coercizione di tipo per lui servono gli stessi tipi di dati
+`>`, `<`, `>=`, `<=` confrontano valori. Se si confrontano stringhe, l'ordinamento è lessicografico secondo le regole del linguaggio, non necessariamente numerico.
 
 ## Operatori logici
 
+| Operatore | Significato | Esempio |
+|---|---|---|
+| `&&` | AND logico | `eta >= 18 && haDocumento` |
+| `||` | OR logico | `haBiglietto || èOspite` |
+| `!` | negazione | `!completato` |
+
+`&&` e `||` usano cortocircuito e restituiscono uno dei valori degli operandi, non sempre un booleano puro. Nelle condizioni, tuttavia, il valore viene valutato come truthy/falsy.
+
+## Condizioni
+
+```javascript
+if (punteggio >= 60) {
+  console.log("Superato");
+} else {
+  console.log("Da recuperare");
+}
 ```
-and &&
-or ||
-not !
-```
- 
-## Riferimenti
-1. 
+
+Consulta la sezione sul [controllo del flusso](Operatori%20di%20controllo%20js.md) e quella su [tipi e conversioni](Strutture%20e%20tipi%20di%20dati.md).

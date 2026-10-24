@@ -1,26 +1,23 @@
 # Variabili logiche e assiomi booleani
 
-In elettronica digitale, una variabile logica assume uno tra due valori convenzionali: `0` e `1`. Questi valori rappresentano stati logici; il livello di tensione fisico associato dipende dalla tecnologia del circuito.
-
-Un **circuito combinatorio** produce uscite determinate dalla combinazione degli ingressi presenti in quell'istante. Il suo comportamento può essere descritto con una tabella della verità e con una funzione booleana. Un circuito sequenziale, invece, conserva uno stato e dipende anche dalla storia/condizione memorizzata.
+Una variabile logica può assumere due valori convenzionali: `0` e `1`. Un circuito combinatorio produce le uscite in funzione delle sole entrate presenti; la relazione può essere rappresentata con una funzione logica e una tabella di verità.
 
 ## Operazioni fondamentali
 
-| A | B | AND `A·B` | OR `A+B` | NOT A `¬A` |
+| A | B | AND `A·B` | OR `A+B` | XOR `A⊕B` |
 |---:|---:|---:|---:|---:|
-| 0 | 0 | 0 | 0 | 1 |
+| 0 | 0 | 0 | 0 | 0 |
 | 0 | 1 | 0 | 1 | 1 |
-| 1 | 0 | 0 | 1 | 0 |
+| 1 | 0 | 0 | 1 | 1 |
 | 1 | 1 | 1 | 1 | 0 |
 
-- **AND (prodotto logico):** vale `1` solo quando entrambi gli ingressi sono `1`.
-- **OR (somma logica):** vale `1` quando almeno un ingresso è `1`.
-- **NOT (complementazione):** inverte il valore logico.
+La negazione NOT inverte il valore: `NOT 0 = 1` e `NOT 1 = 0`.
 
-Queste operazioni seguono le definizioni dell'algebra di Boole, non le usuali regole dell'aritmetica decimale. Per esempio, `1 + 1 = 1` nella OR logica.
+## Proprietà da ricordare
 
-## Ordine di valutazione
+- AND (`·`) è 1 solo quando tutti gli ingressi sono 1.
+- OR (`+`) è 1 quando almeno un ingresso è 1.
+- XOR è 1 quando gli ingressi sono differenti.
+- NOT è l'operazione di complementazione.
 
-Le parentesi chiariscono l'ordine. Nelle espressioni miste conviene indicare esplicitamente il raggruppamento, ad esempio `F = (A AND B) OR C`.
-
-Per le proprietà, l'assorbimento e i teoremi di De Morgan consulta [Proprietà e teoremi dell'algebra di Boole](Proprietà%20e%20teoremi%20dell'algebra%20di%20Boole.md). Per gli esercizi di minimizzazione consulta [Mappe di Karnaugh](Mappe%20di%20Karnaugh.md).
+L'algebra booleana usa simboli simili a quelli dell'algebra ordinaria ma con regole specifiche. Le leggi di De Morgan e le proprietà di assorbimento permettono di semplificare le espressioni; vedere [proprietà e teoremi dell'algebra di Boole](Proprietà%20e%20teoremi%20dell'algebra%20di%20Boole.md).

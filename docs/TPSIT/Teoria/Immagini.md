@@ -2,6 +2,7 @@
 date: 2025-10-02
 time: 10:03
 ---
+
 # Immagini
 
 Le immagini sono delle matrici di pixel oppure strutture dati bidimensionali in cui ogni elemento è un pixel le funzioni delle immagini sono:
@@ -9,7 +10,7 @@ Le immagini sono delle matrici di pixel oppure strutture dati bidimensionali in 
 	- Trasmette informazioni
 - Decorativa
 	- Abbellire e rendere attraente
-- Emotiva 
+- Emotiva
 	- Suscitare emozioni
 - Comunicativa
 	- Può comunicare qualcosa
@@ -24,7 +25,7 @@ Che cosa sono i metadati sono delle informazioni nascoste associate all'immagine
 	- Dimensione
 	- Risoluzione
 	- Formato file
-	- Estensione e formato 
+	- Estensione e formato
 2. **Caption (didascalie)**
 	- Breve descrizione dell'immagine
 	- Spiega cosa ce nel immagine
@@ -42,9 +43,8 @@ Si inseriscono in head
 	- Specifica l'autore
 - keyword
 	- Utili per alcuni sistemi
-- viewport 
+- viewport
 	- Crea pagine responsive
-
 
 Secondo rgb
 
@@ -54,7 +54,7 @@ Secondo rgb
 
 Esistono anche altri formati per i colori le stampanti per esempio usano CMYK l'ultimo è black ovvero nero perché con gli altri tre non posso creare il nero
 
-[[Conversione RGB to CMYK]]
+[Conversione RGB to CMYK](Conversione%20RGB%20to%20CMYK.md)
 
 Calcolo delle dimensioni  larghezza + altezza + bytes per pixel
 
@@ -64,7 +64,7 @@ Per questo usiamo delle compressioni delle immagini per permette uno scaricament
 #### PPI
 
 Pixel per pollice è un qualcosa che non possiamo modificare  un pollice e 2,46 cm la scelta del PPi dev'essere scelta per quello che dovremo andare a  fare con l'immagine maggiore è il PPi più dettagli vengono catturati e di conseguenza la dimensione del file sul monitore la densità di pixel per determinare il numero di pixel di un lato la formula è $$L=Dimensione \ in \ pollici * PPI$$
-Nella stampa di immagini serve un PPI sulle riviste troviamo una PPI di circa 300 mentre su monitor e schermi del telefono possono arrivare sino a 530 PPI perché andando oltre è inutile 
+Nella stampa di immagini serve un PPI sulle riviste troviamo una PPI di circa 300 mentre su monitor e schermi del telefono possono arrivare sino a 530 PPI perché andando oltre è inutile
 
 #### DPI
 
@@ -76,11 +76,9 @@ Possiamo scegliere il DPI dalle impostazioni di stampa quando stampiamo il docum
 #### Algoritmi di compressione
 
 Possono essere:
-- [[Lossless]]: applicando una compressione e decomprimendola riottengo la stessa immagine
-- [[Lossy]]: applico la compressione e decomprimendo non riesco a riavere la stessa immagine
-
-
-
+- [Lossless](Lossless.md): applicando una compressione e decomprimendola riottengo la stessa immagine
+- [Lossy](Lossy.md): applico la compressione e decomprimendo non riesco a riavere la stessa immagine
 
 ## Riferimenti2
-1. [[Immagini HTML]]
+
+1. [Immagini HTML](../HTML/Immagini%20HTML.md)

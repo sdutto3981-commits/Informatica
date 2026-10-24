@@ -2,6 +2,7 @@
 date: 2026-02-01
 time: 16:08
 ---
+
 # Sistema 8086
 
 ## I BUS
@@ -25,15 +26,15 @@ Si occupa di eseguire le istruzioni, decodificate dalla CU.
 
 L'elemento principale contenuto nella EU è la ALU componente basato sulla logica combinatoria che svolge le operazioni logico matematiche esso ammette al massimo sue operandi alla volta.
 
-![[Pasted image 20260201162026.png]]
+*Risorsa non inclusa: Pasted image 20260201162026.png*
 
 ### Bus Interface Unit
 
-Si occupa del interfacciamento ai bus. 
+Si occupa del interfacciamento ai bus.
 
 Tra le altre cose, contiene un sommatore simile alla ALU che permette di determinare dati i registri segmento e puntatore l'indirizzo assoluto su 20 bit si una qualsiasi locazione di memoria a cui si deve accedere
 
-![[Pasted image 20260201162234.png]]
+*Risorsa non inclusa: Pasted image 20260201162234.png*
 
 ### Control Unit
 
@@ -41,12 +42,11 @@ Permette l'esecuzione di una singola istruzione oridina alla BIU di caricare la 
 
 Gestisce la sincronizzazione delle attività di tutti i dispositivi esterni grazie tra le altre cose al clock un segnale periodico.
 
-![[Pasted image 20260201162510.png]]
+*Risorsa non inclusa: Pasted image 20260201162510.png*
 
 ## Il clock
 
 L'attività della CPU è regolata mediante un clock esterno generato mediante un oscillatore ad elevata precisione, IN corrispondenza di ogni colpo di clock la CPU esegue una certa operazione la sua unità di misura è l'Herz.
-
 
 # Esempi
 
@@ -61,7 +61,8 @@ $f = N \ istruzioni \ al \ sec = 2,5*10^9Hz=2,5GHz$
 **Soluzione:**
 $f=5*10^3Hz$
 $N\ istruzioni = 5000$
-$t\ istruzione = \frac{1}{5000Hz}=0,0002s$ 
+$t\ istruzione = \frac{1}{5000Hz}=0,0002s$
 
 ## Riferimenti
-1. 
+
+1.

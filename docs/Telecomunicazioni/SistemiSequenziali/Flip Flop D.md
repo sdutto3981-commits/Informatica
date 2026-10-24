@@ -1,27 +1,19 @@
 # Flip-flop D
 
-Il flip-flop D memorizza il valore dell'ingresso `D` al fronte attivo del clock. Tra un fronte attivo e il successivo l'uscita `Q` mantiene il valore memorizzato.
-
-## Tabella caratteristica
+Il flip-flop D memorizza il valore dell'ingresso `D` al fronte attivo del clock. Tra due fronti attivi, l'uscita `Q` mantiene lo stato memorizzato (salvo eventuali ingressi asincroni di set/reset, se presenti nel componente).
 
 Per un flip-flop attivato sul fronte di salita:
 
-| Fronte del clock | D | Q successivo |
+| Fronte di clock | D | Q dopo il fronte |
 |---|---:|---:|
-| Fronte di salita | 0 | 0 |
-| Fronte di salita | 1 | 1 |
-| Nessun fronte attivo | X | Q precedente |
+| salita `↑` | 0 | 0 |
+| salita `↑` | 1 | 1 |
+| nessun fronte attivo | X | mantiene il valore precedente |
 
-`X` significa che in quella riga l'ingresso può avere qualunque valore: senza fronte attivo non viene campionato.
+`X` indica “non importa” in quella riga perché il valore di `D` non viene campionato senza un fronte attivo. Un cerchio sul simbolo del clock indica normalmente un ingresso attivo basso/una negazione, ma va interpretato secondo il simbolo elettrico completo.
 
-La relazione caratteristica si scrive `Q(t+1) = D` al fronte attivo. Se il dispositivo è attivato sul fronte di discesa, l'aggiornamento avviene al fronte opposto. Simbolo, pallino e triangolo del clock indicano la modalità secondo la convenzione grafica adottata.
+## Equazione caratteristica
 
-## Differenza tra latch e flip-flop
+Al fronte attivo, `Q(t+1) = D`. La funzione del D è rendere semplice il trasferimento di un bit all'uscita e il suo mantenimento fino al successivo fronte attivo.
 
-Un latch sensibile al livello può seguire l'ingresso quando il segnale di abilitazione è attivo; un flip-flop edge-triggered campiona al fronte del clock. Non confondere il fronte di salita con quello di discesa.
-
-## Applicazioni
-
-- memorizzazione di un bit;
-- registri composti da più flip-flop;
-- sincronizzazione e pipeline digitali (con le cautele di progetto appropriate).
+Un latch D è diverso: è sensibile a un livello di abilitazione, non soltanto al fronte del clock.

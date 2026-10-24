@@ -15,9 +15,9 @@ Sono questi `<, >, >=, <=, ==, !=` quindi:
 #### Gli operatori logici
 
 Sono questi `Not And Or` quindi:
-- And = e 
-- Not = non 
-- Or = o 
+- And = e
+- Not = non
+- Or = o
 
 #### Gli operatori matematici
 

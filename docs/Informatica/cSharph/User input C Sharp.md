@@ -2,6 +2,7 @@
 date: 2025-10-16
 time: 08:37
 ---
+
 # User input C Sharp
 
 Per avere input dall'utente usiamo  la funzione `Console.ReadLine()`.

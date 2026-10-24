@@ -2,6 +2,7 @@
 date: 2026-02-01
 time: 16:40
 ---
+
 # Ciclo Macchina
 
 Quando si avvia un qualsiasi programma, esso viene eseguito istruzione per istruzione dal processore.
@@ -17,7 +18,7 @@ E poi si continua il ciclo con il caricamento dell'istruzione successiva riesegu
 
 1. La Cu imposta il registro CS e PC per calcolare il valore del MAR
 2. Il contenuto di MAR viene calcolato dalla BIu e caricato sul Address Bus
-3. Contemporaneamente viene abilitato un segnale di Read sul bus di controllo 
+3. Contemporaneamente viene abilitato un segnale di Read sul bus di controllo
 4. La memoria decodifica l'indirizzo dell'istruzione da caricare e la trasferisce sul Data Bus
 5. L'istruzione viene portata dal Data Bus su MDR
 6. L'istruzione viene copiata da MDR a IR
@@ -30,11 +31,12 @@ E poi si continua il ciclo con il caricamento dell'istruzione successiva riesegu
 
 ## Fase di execute
 
-1. Carica i dati necessari sui registri di ingresso della ALU 
+1. Carica i dati necessari sui registri di ingresso della ALU
 2. La CU genera i segnali di controllo verso la ALU  per eseguire l'istruzione
 3. Preleva il risultato dal registro di output della ALU e lo carica nel registro di destinazione o eventualmente nel MDR se il risultato deve essere salvato in memoria
 4. Se il risultato deve essere salvato in memoria esegue un ultimo ciclo di scrittura in memoria.
 5. Terminata l'istruzione in corso la CU riprende il cilco caricando la prossima istruzione fino al termine del programa.
 
 ## Riferimenti
-1. 
+
+1.

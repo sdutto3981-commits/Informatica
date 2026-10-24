@@ -1,25 +1,29 @@
----
-date: 2025-09-11
-time: 21:55
----
-# Variabili
+# Variabili in C#
 
+Una variabile è un nome associato a un valore di un determinato tipo. La dichiarazione tipica è `tipo nome = valore;`.
 
+```csharp
+int eta = 17;
+string nome = "Ada";
+bool iscritta = true;
+eta = eta + 1;
+```
 
-I tipi di variabili sono:
-- `int`-memorizza numeri interi senza decimali
-- `double`-memorizza numeri con la virgola
-- `char`-memorizza un solo carattere
-- `bool`-memorizza valori in due stati: vero o falso
-- `string`-memorizza il testo 
-#### Dichiarazione di variabili
+- `int`: intero.
+- `double`: numero in virgola mobile.
+- `decimal`: adatto a molti calcoli monetari.
+- `char`: singolo carattere.
+- `bool`: vero/falso.
+- `string`: testo.
 
-`type variableName = value;`
+La stringa usa virgolette doppie; un `char` usa apici singoli. Il tipo del valore assegnato deve essere compatibile con quello della variabile.
 
+## Dichiarazione e assegnazione
 
-Quando la variabile a cui assegnamo il valore è di tipo testuale allora dobbiamo rachiudere il tutto  tra `""` .
+```csharp
+int punteggio;       // dichiarazione
+punteggio = 0;       // assegnazione
+punteggio = 10;      // nuova assegnazione
+```
 
-Possiamo anche specificare il tipo di una variabile ed assegnarci il valore dopo
-
-## Riferimenti
-1. 
+Le variabili locali devono essere assegnate prima di essere lette. Per gli ambiti e la durata delle variabili consulta [sottoprogrammi](Sottoprogramma%20C%20Sharp.md) e [programmazione a oggetti](../OOP/index.md).

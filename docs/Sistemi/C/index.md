@@ -1,12 +1,12 @@
-# Linguaggio C
+# C — indice
 
-Appunti di programmazione C per il laboratorio: sintassi, tipi, funzioni, strutture dati e file.
+C consente di studiare funzioni, strutture dati e gestione dei file a basso livello.
 
 - [Introduzione e compilazione](Introduzione%20C.md)
 - [Tipi di dati](Data%20types%20C.md)
 - [Costanti](Costanti%20C.md)
 - [Strutture (`struct`)](Struct%20in%20C.md)
-- [File, puntatori e memoria dinamica](File%20e%20memoria%20dinamica.md)
+- [Gestione di file e memoria dinamica](File%20e%20memoria%20dinamica.md)
 - [Liste concatenate](Liste%20concatenate.md)
 
-Ricorda: controllare il valore restituito dalle funzioni di libreria, inizializzare le variabili e liberare la memoria dinamica sono parti della correttezza del programma, non dettagli facoltativi.
+Ordine consigliato: sintassi e tipi → selezione/cicli → funzioni → array e stringhe → puntatori e `struct` → file → memoria dinamica e liste.

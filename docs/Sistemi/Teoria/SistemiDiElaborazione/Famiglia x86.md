@@ -2,6 +2,7 @@
 date: 2026-02-01
 time: 14:53
 ---
+
 # Famiglia x86
 
 Essa è composta da numerosi prodotti da intel e altri il processore 8086 e il primo della famiglia x86 all'interno è garantito la compatibilità software quindi ogni processore può eseguire il codice prodotto per i processori precedenti.
@@ -16,4 +17,5 @@ L'architettura x86 può essere talvolta suddivisa in 3 tipologie:
 - x86-64: architettura a 64bit
 
 ## Riferimenti
-1. 
+
+1.

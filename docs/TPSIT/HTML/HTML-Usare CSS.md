@@ -1,45 +1,41 @@
----
-date: 2025-09-25
-time: 20:15
----
-# HTML-Usare CSS
+# Collegare CSS a HTML
 
-Possiamo aggiungere CSS ai documenti in 3 modi:
-- **In linea** - usando l'attributo `style=""`
-- **Interno**-usando il tag `<style>` nel elemento `<head>`
-- **Esterno**-usando il tag `<link>` per aggiungere il file CSS esterno
+Ci sono tre modi comuni per applicare regole CSS, ma nei progetti organizzati è preferibile un foglio esterno.
 
-#### In linea CSS
-
-Un CSS in line viene utilizza per applicare uno stile univoco lo si usa tramite il comando `style` 
+## Stile in linea
 
 ```html
-<h1 style="color:blue;">A Blue Heading</h1>
+<h1 style="color: navy;">Titolo</h1>
 ```
-#### CSS interno
 
-Per definire un CSS interno viene definito all'interno del  tag `<head>` all'interno del tag `<style>` 
+È rapido per una prova, ma mescola contenuto e presentazione e rende più difficile mantenere uno stile coerente.
+
+## Foglio interno
 
 ```html
-<head>  
-<style>  
-body {background-color: powderblue;}  
-h1   {color: blue;}  
-p    {color: red;}  
-</style>  
+<head>
+  <style>
+    body { font-family: sans-serif; }
+    h1 { color: navy; }
+  </style>
 </head>
 ```
 
-#### CSS esterno
+Le regole si applicano a quel documento.
 
-Possiamo usare un file di stile esterno CSS il link a questo file viene inserito all'interno del tag `<head>` 
+## Foglio esterno (consigliato)
+
+Nel file HTML:
 
 ```html
-<head>  
-  <link rel="stylesheet" href="styles.css">  
-</head>
+<link rel="stylesheet" href="styles.css">
 ```
 
+Nel file `styles.css`:
 
-## Riferimenti
-1.
+```css
+body { font-family: system-ui, sans-serif; }
+h1 { color: navy; }
+```
+
+Il percorso `href` deve puntare al file corretto. Un foglio esterno può essere condiviso da più pagine e mantenere separate struttura e presentazione. Consulta la sezione [CSS](../CSS/index.md) per selettori, box model, Flexbox e responsive design.

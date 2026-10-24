@@ -1,8 +1,6 @@
 # Strutture (`struct`) in C
 
-Una `struct` consente di raggruppare campi di tipi differenti in un unico oggetto.
-
-## Dichiarazione e uso
+Una `struct` aggrega campi di tipi differenti in un unico tipo composto.
 
 ```c
 #include <stdio.h>
@@ -15,32 +13,19 @@ struct Persona {
 
 int main(void)
 {
-    struct Persona p = {"Ada", 18, 1.68f};
-    printf("%s: %d anni, %.2f m\n", p.nome, p.eta, p.altezza);
+    struct Persona p = {"Ada", 20, 1.68f};
+    printf("%s, %d anni, %.2f m\\n", p.nome, p.eta, p.altezza);
     return 0;
 }
 ```
 
-Attenzione al punto e virgola dopo la definizione di `struct`. I campi si accedono con l'operatore `.`; se si dispone di un puntatore alla struttura, si usa `->`.
+Il punto e virgola dopo la graffa che chiude la definizione della `struct` è obbligatorio. I membri si accedono con `.` quando si dispone di un oggetto e con `->` quando si dispone di un puntatore alla struttura.
 
 ## Array di strutture
 
 ```c
 struct Persona persone[5];
-persone[0].eta = 17;
+persone[0].eta = 18;
 ```
 
-L'array contiene cinque strutture, indicizzate da `0` a `4`. Prima di utilizzare un campo, assicurati che abbia ricevuto un valore valido. Le stringhe C sono array di `char` terminati da `\0`; la capacità dell'array deve comprendere anche il terminatore.
-
-## `typedef` (opzionale)
-
-```c
-typedef struct {
-    int codice;
-    float prezzo;
-} Prodotto;
-
-Prodotto p;
-```
-
-`typedef` crea un alias di tipo, evitando di scrivere `struct` ad ogni dichiarazione.
+La dichiarazione riserva spazio per cinque strutture. Prima di usare i campi, inizializzarli in modo appropriato. Per leggere stringhe da input, preferire funzioni che limitano il numero di caratteri letti.

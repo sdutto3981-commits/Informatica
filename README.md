@@ -1,1 +1,1 @@
-# README
+# Appunti di informatica 

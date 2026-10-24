@@ -2,6 +2,7 @@
 date: 2025-09-26
 time: 13:21
 ---
+
 # Struttura di un URL
 
 Le parti principali di un URL:
@@ -23,4 +24,5 @@ Un URL è una sequenza di elementi che lavorano insieme pr locallizare una risor
 	- sequenza di parametri per filtrare o personalizzare una risorsa
 
 ## Riferimenti
-1. 
+
+1.

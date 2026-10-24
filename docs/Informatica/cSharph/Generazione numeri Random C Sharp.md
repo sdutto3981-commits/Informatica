@@ -2,6 +2,7 @@
 date: 2025-09-30
 time: 09:53
 ---
+
 # Generazione numeri Random C Sharp
 
 ```C#
@@ -29,7 +30,6 @@ rnd = new Random();
 
 int numero;
 Random rnd = new Random();
-
 
 ```
 
@@ -60,7 +60,7 @@ num_v=rnd.NextDouble(); //Genera numeri tra 0 - 1(escluso) quindi da 0 - 0.99999
 //Generare numeri compreso tra 0.00 e 10.00
 num_v = rnd.NextDouble() * 10;
 
-math.Round(num_v, 2) //arrotondare alla seconda cifra dopo la virsola arrivati 0.995 inzia ad arrotondare a dieci 
+math.Round(num_v, 2) //arrotondare alla seconda cifra dopo la virsola arrivati 0.995 inzia ad arrotondare a dieci
 
 Console.readKey;
 
@@ -105,6 +105,6 @@ num_v =math.Round(num_v, 2) -5;
 Console.readKey;
 ```
 
-
 ## Riferimenti
-1. 
+
+1.

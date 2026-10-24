@@ -30,7 +30,7 @@ flowchart LR
     id1{IF condition}
 ```
 
-Poi un Programma che richiama dei **sottoprogrammi** forma rettangolare con dei bordi laterale oppure rombi con bordi su tutto il contorno per le condizioni 
+Poi un Programma che richiama dei **sottoprogrammi** forma rettangolare con dei bordi laterale oppure rombi con bordi su tutto il contorno per le condizioni
 
 ```mermaid
 flowchart LR
@@ -47,4 +47,3 @@ flowchart LR
     id1 --> id3
     id3 --> id2
 ```
-

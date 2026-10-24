@@ -2,8 +2,8 @@
 date: 2025-09-19
 time: 08:18
 ---
-# Che cos'è una Virtual Machine
 
+# Che cos'è una Virtual Machine
 
 Lo scopo della virtualizzazione è quello di lavorare con un sistema operativo diverso a quello installato nel computer abbiamo quindi bisogno di una macchina virtuale.
 
@@ -14,7 +14,9 @@ Questo ci permette anche di personalizzare le caratteristiche della macchina vir
 Ci sono diversi software per esso il piu famoso è:
 - VMware
 - Virtual Box
-- Iper-V 
+- Iper-V
 - Parallel OS
+
 ## Riferimenti
-1. 
+
+1.

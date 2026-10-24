@@ -1,65 +1,34 @@
----
-date: 2025-09-19
-time: 13:11
----
-# Stili HTML
+# Stili HTML e proprietà CSS
 
-L' attributo `style` aggiunge lo stile, il colore, il carattere e la dimensione
+L'attributo `style` permette di applicare CSS direttamente a un elemento, ma per un progetto mantenibile è preferibile usare un file CSS esterno.
 
-#### Attributo style 
-
-Ha la seguente sintassi:
-`<_tagname_ style="_property_:_value;_">`
-
-La proprietà è una proprietà CSS il valore è un valore CSS
-
-#### Colore dio sfondo
-
-La proprietà CSS `basckground-color` definisce il colore di sfondo per l'elemento HTML
+Esempio in linea:
 
 ```html
-<body>  
-  
-<h1 style="background-color:powderblue;">This is a heading</h1>  
-<p style="background-color:tomato;">This is a paragraph.</p>  
-  
-</body>
+<p style="color: #b00020; text-align: center;">Testo di esempio</p>
 ```
-#### Colore del testo
 
-La proprietà CSS `color` definisce il colore del testo dell'elemento HTML 
+Le proprietà usate sono CSS:
+
+- `background-color`: colore di sfondo;
+- `color`: colore del testo;
+- `font-family`: famiglia tipografica;
+- `font-size`: dimensione del testo;
+- `text-align`: allineamento orizzontale del testo.
+
+Attenzione ai nomi esatti: `background-color` è corretto, non `background-color`; `text-align` è corretto, non `text-align` o `text-align`.
+
+Per separare contenuto e presentazione, definire una classe nel file CSS:
 
 ```html
-<h1 style="color:blue;">This is a heading</h1>  
-<p style="color:red;">This is a paragraph.</p>
+<p class="avviso">Testo di esempio</p>
 ```
 
-#### Caratteri 
-
-La proprietà CSS `font-family` definisce il font da utilizzare nel testo dell'elemento HTML
-
-```html
-<h1 style="font-family:verdana;">This is a heading</h1>  
-<p style="font-family:courier;">This is a paragraph.</p>
+```css
+.avviso {
+  color: #b00020;
+  text-align: center;
+}
 ```
 
-#### Dimensione del testo
-
-La proprietà CSS `font-size` definisce la dimensione del  font da utilizzare nel testo dell'elemento HTML
-
-```html
-<h1 style="font-size:300%;">This is a heading</h1>  
-<p style="font-size:160%;">This is a paragraph.</p>
-```
-#### Allignamento del testo
-
-La proprietà CSS `font-allign` definisce l'allignamento orizzontale del testo dell'elemento HTML
-
-```html
-<h1 style="text-align:center;">Centered Heading</h1>  
-<p style="text-align:center;">Centered paragraph.</p>
-```
-
-
-## Riferimenti
-1. 
+Vedi [collegare CSS a HTML](HTML-Usare%20CSS.md) e la sezione [CSS](../CSS/index.md).

@@ -1,12 +1,13 @@
 ---
 
-date: 2026-03-23 
-time: 09:10 
+date: 2026-03-23
+time: 09:10
 ---
 
 # L14 — Gestione della Memoria Secondaria
 
 ## Indice
+
 1. [[#1. Formattazione]]
 2. [[#2. Blocco di BOOT]]
 3. [[#3. Gestione dei Blocchi Difettosi]]
@@ -17,12 +18,11 @@ time: 09:10
 ---
 
 > [!abstract] Obiettivi della lezione Il SO deve occuparsi di quattro compiti fondamentali relativi alla memoria secondaria:
-> 
+>
 > 1. **Inizializzare** i dispositivi tramite formattazione (fisica e logica)
 > 2. **Creare il blocco di boot** per l'avvio del sistema
 > 3. **Gestire i blocchi difettosi** del disco
 > 4. **Gestire in modo efficiente l'area di swap**
-
 
 ## 1. Formattazione
 
@@ -35,7 +35,7 @@ Alla produzione, il disco magnetico **non è diviso in settori** e quindi non pu
 - Aggiunge spazio per la **correzione degli errori (ECC)**
 
 > [!info] Struttura di un settore (512 byte standard) Ogni settore è composto da:
-> 
+>
 > - **Intestazione (Header)** — contiene numero di settore/pagina e codice ECC
 > - **Area dati** — tipicamente 512 byte (standard moderno: 4 KB)
 > - **Coda (ECC)** — 40 × 10 bit = 50 byte per la correzione degli errori
@@ -61,7 +61,7 @@ Per poter memorizzare file, il SO deve mantenere le proprie strutture dati sul d
     - Lista spazio occupato (**FAT**) e libero (**Free List – FL**)
 
 > [!tip] Cluster Per migliorare le prestazioni, la maggior parte dei file system accorpa i blocchi in gruppi detti **cluster**:
-> 
+>
 > - L'I/O su disco avviene per **blocchi**
 > - L'I/O via file system avviene per **cluster** (accesso sequenziale)
 > - File e metadati vicini su HDD → meno movimenti della testina
@@ -124,7 +124,7 @@ I dischi magnetici sono strutturalmente soggetti a malfunzionamenti perché comp
 
 ### Tecnica: Accantonamento dei settori (Sector Sparing)
 
-- Durante la formattazione fisica si mantiene un **gruppo di settori di riserva** non visibili al SO 
+- Durante la formattazione fisica si mantiene un **gruppo di settori di riserva** non visibili al SO
 - Il controller sostituisce logicamente un **settore difettoso** con uno dei settori di riserva inutilizzati
 
 > [!note] NVM (SSD) Anche i dispositivi NVM possono contenere **pagine difettose**, sostituite logicamente tramite pagine accantonate o appartenenti alla riserva dell'**over-provisioning**.
@@ -137,7 +137,7 @@ I dischi magnetici sono strutturalmente soggetti a malfunzionamenti perché comp
 
 L'**area di swap** è una porzione di disco usata dal gestore della memoria come **estensione della memoria principale** (memoria virtuale).
 
-Essa viene utilizzata per caricare un programma in modo sequenziale e fa da estensione per la RAM 
+Essa viene utilizzata per caricare un programma in modo sequenziale e fa da estensione per la RAM
 
 > [!tip] Oggi meno comune grazie all'aumento delle capacità delle memorie RAM.
 
@@ -168,7 +168,6 @@ In Linux, lo swap è usato **solo per la memoria anonima**: dati che non corrisp
 | **0**            | Pagina disponibile (slot libero)                                                    |
 | **> 0**          | Slot occupato; il valore indica il numero di processi che condividono quella pagina |
 
-
 ```
 Swap Area:
 ┌──────┬──────┬──────┬──────┬──────┐
@@ -195,7 +194,7 @@ Problema: la differenza di velocità tra applicazioni e dischi aumenta sempre di
 
 L'idea è quella di combinare una serie di dischi a basso costo in modo da ottimizzare il sistema in termine di capacità affidabilità  e velocità rispetto a un disco di ultima generazione.
 
-I dischi più economici sono gli 
+I dischi più economici sono gli
 - IDE
 - ATA
 - SATA
@@ -205,6 +204,7 @@ Si raggruppano più unita fisiche reali in un unico disco logico esso viene chia
 - La ridondanza può essere gestita dal **controller** (RAID hardware) o dal **driver** (RAID software)
 - Esistono diversi **livelli** (organizzazioni), a seconda del tipo di ridondanza
 - I dati vengono partizionati in **stripes** di uguale lunghezza e distribuiti su più dischi quando l'elemento supera la lunghezza della stripe esso viene distribuito in parallelo sui vari dischi
+
 ### 5.3 Livelli RAID
 
 #### RAID 0 — Striping (min. 2 dischi)
@@ -269,12 +269,12 @@ Si raggruppano più unita fisiche reali in un unico disco logico esso viene chia
 
 - Come RAID 4, ma i **blocchi di parità sono distribuiti** su tutti i dischi
 - Elimina il collo di bottiglia del disco di parità che invece avveniva sul ride 4
-- **Prestazioni migliorate in scrittura** 
+- **Prestazioni migliorate in scrittura**
 - Sistema complesso e costoso da realizzare
 
 #### RAID 6 — Double Distributed Parity (min. 4 dischi)
 
-- Come RAID 5, ma utilizza **due tipi di controllo d'errori** (p e q) quindi su ogni blocco ci sarà un doppio controllo rispetto al raid 5 
+- Come RAID 5, ma utilizza **due tipi di controllo d'errori** (p e q) quindi su ogni blocco ci sarà un doppio controllo rispetto al raid 5
 - **Grande ridondanza e sicurezza** (tollera il guasto di 2 dischi)
 - **Svantaggio:** ricostruzione dei dati molto lenta (doppio calcolo ECC)
 

@@ -2,10 +2,11 @@
 date: 2025-10-24
 time: 08:37
 ---
+
 # Compilatori Linux
 
 GCC = GNU COMPILER COLLECTION
-permette di eseguire file in codice creati tramite un editor 
+permette di eseguire file in codice creati tramite un editor
 
 `sudo apt install build essential`
 
@@ -17,4 +18,5 @@ PASSI:
 Primo file
 
 ## Riferimenti
-1. 
+
+1.

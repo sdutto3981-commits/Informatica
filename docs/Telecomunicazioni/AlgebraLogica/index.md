@@ -5,9 +5,10 @@ time: 11:51
 
 # 00 Algebra logica
 
-- [[AND]]
-- [[OR]]
-- [[NOT]]
+- [AND](AND.md)
+- [OR](OR.md)
+- [NOT](NOT.md)
 
 ## Riferimenti
-1. #Telecomunicazioni #HardWare 
+
+1. #Telecomunicazioni #HardWare

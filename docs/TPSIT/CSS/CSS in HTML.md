@@ -1,15 +1,18 @@
----
-date: 2025-09-25
-time: 20:08
----
-# CSS in HTML
+# Collegare CSS a HTML
 
-- [[HTML-Che cos'è CSS]]
-- [[HTML-Usare CSS]]
-- [[HTML-Colori Font e Dimensioni CSS]]
-- [[HTML-Bordi CSS]]
-- [[HTML-Padding CSS]]
-- [[HTML-Margin CSS]]
+Il CSS può essere inserito in tre modi: inline (`style`), in un blocco `<style>` nel documento o in un foglio esterno. Per un sito con più pagine, il file esterno è normalmente la scelta più manutenibile.
 
-## Riferimenti
-1. [[00 CSS]]
+```html
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+```
+
+```css
+body {
+  font-family: system-ui, sans-serif;
+  line-height: 1.5;
+}
+```
+
+Il percorso nel `href` deve essere corretto; un CSS caricato male può essere verificato nella scheda Network degli strumenti per sviluppatori del browser. Vedi [CSS](index.md) per cascata, selettori e layout.

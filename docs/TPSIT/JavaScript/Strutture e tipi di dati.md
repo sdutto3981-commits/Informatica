@@ -1,23 +1,12 @@
-# Strutture e tipi di dati in JavaScript
+# Tipi e strutture di dati in JavaScript
 
-JavaScript è un linguaggio a tipizzazione dinamica: una variabile può contenere valori di tipo diverso durante l'esecuzione. Il tipo del valore è importante nelle operazioni, nelle conversioni e nei confronti.
+JavaScript è tipizzato dinamicamente: una variabile può riferirsi a valori di tipi diversi nel corso dell'esecuzione. I tipi primitivi includono `string`, `number`, `bigint`, `boolean`, `undefined`, `symbol` e `null` (con una particolarità storica di `typeof null`). Oggetti, array e funzioni sono tipi riferimento.
 
-## Tipi primitivi principali
-
-- `number`: numeri, sia interi sia con parte decimale; comprende `NaN` e `Infinity`.
-- `string`: sequenza di caratteri.
-- `boolean`: `true` o `false`.
-- `undefined`: valore tipico di una variabile dichiarata senza valore assegnato o di una proprietà assente.
-- `null`: assenza intenzionale di un valore.
-- `bigint` e `symbol`: tipi disponibili per casi d'uso specifici.
-
-Gli array e gli oggetti sono valori di tipo riferimento. `typeof null` restituisce storicamente `"object"`: è un comportamento del linguaggio, non indica che `null` sia un normale oggetto.
-
-## Conversioni esplicite
+## Conversioni
 
 ```javascript
 Number("10");    // 10
-Number("abc");   // NaN
+Number("ciao");  // NaN
 Number(null);     // 0
 Number(false);    // 0
 Number(true);     // 1
@@ -26,38 +15,41 @@ Boolean(0);       // false
 Boolean("test"); // true
 ```
 
-`NaN` indica un risultato numerico non valido; per verificarlo usa `Number.isNaN(valore)`, non `valore === NaN`.
+`NaN` indica un risultato numerico non valido; per verificarlo usare `Number.isNaN(valore)`. Un valore falsy non è automaticamente uguale a `false`: `0`, `-0`, `0n`, `NaN`, `""`, `null`, `undefined` e `false` sono falsy; gli altri valori sono truthy, compresi `[]` e `{}`.
 
-## Stringhe e template literal
+## Stringhe
 
 ```javascript
 const nome = "Ada";
-console.log("Ciao " + nome);
-console.log(`Ciao ${nome}`);
-console.log(`2 + 4 = ${2 + 4}`);
+console.log(`Ciao, ${nome}!`);
 ```
 
-I template literal usano i backtick `` ` `` e permettono di interpolare espressioni con `${...}`. Non è necessario usare le virgolette singole per l'interpolazione.
+Le stringhe sono immutabili. I template literal delimitati da backtick consentono interpolazione `${espressione}` e stringhe multilinea.
 
-## Valori truthy e falsy
-
-I valori falsy principali sono `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined` e `NaN`. Quasi tutti gli altri valori sono truthy, inclusi array vuoti `[]` e oggetti vuoti `{}`.
-
-## Array e oggetti
+## Array
 
 ```javascript
 const voti = [7, 8, 6];
-console.log(voti[0]); // 7
-
-const studente = { nome: "Ada", classe: "3INF" };
-console.log(studente.nome);
+voti.push(9);
+console.log(voti.length); // 4
 ```
 
-Gli array sono indicizzati da zero. Per evitare errori controlla la lunghezza prima di accedere agli indici. Le proprietà di un oggetto si possono leggere con la notazione punto o con parentesi quadre.
+Gli indici degli array iniziano da zero. `const` impedisce di riassegnare il riferimento contenuto nella variabile, ma non impedisce di modificare un array.
 
-## Uguaglianza
+## Oggetti
 
-- `===` confronta senza conversione automatica dei tipi.
-- `==` può convertire i valori e produrre risultati meno intuitivi.
+```javascript
+const studente = {
+  nome: "Ada",
+  anno: 3,
+  descrizione() {
+    return `${this.nome}, classe ${this.anno}`;
+  }
+};
+```
 
-Negli esercizi ordinari preferisci `===` e `!==`, salvo quando la conversione implicita è intenzionale e compresa.
+Gli oggetti raggruppano proprietà e metodi. `this` dipende da come viene chiamato il metodo; le arrow function non definiscono un proprio `this`.
+
+## `==` e `===`
+
+`===` confronta senza conversione implicita dei tipi ed è generalmente la scelta preferibile. `==` effettua conversioni che possono creare risultati inattesi.

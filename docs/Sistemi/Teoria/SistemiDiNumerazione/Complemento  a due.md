@@ -2,6 +2,7 @@
 date: 2025-10-01
 time: 09:54
 ---
+
 # Complemento  a due
 
 Per convertire in complemento a 2, si seguono i seguenti passaggi:
@@ -40,6 +41,6 @@ $$
 \end{flalign*}
 $$
 
-
 ## Riferimenti
-1. 
+
+1.
