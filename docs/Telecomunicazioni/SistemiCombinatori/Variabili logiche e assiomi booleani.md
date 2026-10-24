@@ -1,41 +1,26 @@
----
-date: 2025-09-30
-time: 16:15
----
 # Variabili logiche e assiomi booleani
 
-In elettronica digita si usano le variabili logiche binarie che possono assumere solo due valori convenzionalmente esse sono 0 e 1.
+In elettronica digitale, una variabile logica assume uno tra due valori convenzionali: `0` e `1`. Questi valori rappresentano stati logici; il livello di tensione fisico associato dipende dalla tecnologia del circuito.
 
-una variabile logica è per tanto un segnale binario in quanto nella variabile dello stato logico è contenuta l'informazione possiamo rappresentarlo come un interruttore che può avere stato off e stato on 
+Un **circuito combinatorio** produce uscite determinate dalla combinazione degli ingressi presenti in quell'istante. Il suo comportamento può essere descritto con una tabella della verità e con una funzione booleana. Un circuito sequenziale, invece, conserva uno stato e dipende anche dalla storia/condizione memorizzata.
 
-In un circuito la combinazione logica in uscita dipende solo dalla combinazione logica in entrata nello stesso istante.
+## Operazioni fondamentali
 
-La  funzione logica si un circuito combinatorio ovvero il legame ingressi-uscite dello stesso è esprimibile attraverso una tabella di verità ché riporta per ogni combinazione degli ingressi la corrispondente combinazione delle uscite.
+| A | B | AND `A·B` | OR `A+B` | NOT A `¬A` |
+|---:|---:|---:|---:|---:|
+| 0 | 0 | 0 | 0 | 1 |
+| 0 | 1 | 0 | 1 | 1 |
+| 1 | 0 | 0 | 1 | 0 |
+| 1 | 1 | 1 | 1 | 0 |
 
-Per descriver il funzionamento del circuiti si ha una particolare algebra  inventata da George Boole.
+- **AND (prodotto logico):** vale `1` solo quando entrambi gli ingressi sono `1`.
+- **OR (somma logica):** vale `1` quando almeno un ingresso è `1`.
+- **NOT (complementazione):** inverte il valore logico.
 
-L'algebra di Boole si basa sugli assiomi del prodotto logico AND della somma logica OR e della complementazione logica NOT 
+Queste operazioni seguono le definizioni dell'algebra di Boole, non le usuali regole dell'aritmetica decimale. Per esempio, `1 + 1 = 1` nella OR logica.
 
-Assiomi del prodotto logico
-$$
-\begin{flalign*}
-&Assioma \ del \ prodotto \ logico \ AND \ *\\
-&1*1=1 & \\
-&1*0=0 & \\
-&0*1=0 & \\
-&0*0=0 & \\
-&Assioma \ della \ somma \ logica \ OR \ + \\
-&1*1=1 & \\
-&1*0=1 & \\
-&0*1=1 & \\
-&0*0=0 & \\
-&Assioma \ della \ complementazione \ logica \ NOT \ - \\
-&- & - \ \ \ \ \ \ & \\
-&\ 1 =0& 0=1& \\
-\end{flalign*}
-$$
+## Ordine di valutazione
 
-Questi assiomi vanno accettati nella logica booleana e quindi non bisogna interpretarli secondo le regole matematiche abituali.
+Le parentesi chiariscono l'ordine. Nelle espressioni miste conviene indicare esplicitamente il raggruppamento, ad esempio `F = (A AND B) OR C`.
 
-## Riferimenti
-1. 
+Per le proprietà, l'assorbimento e i teoremi di De Morgan consulta [Proprietà e teoremi dell'algebra di Boole](Proprietà%20e%20teoremi%20dell'algebra%20di%20Boole.md). Per gli esercizi di minimizzazione consulta [Mappe di Karnaugh](Mappe%20di%20Karnaugh.md).

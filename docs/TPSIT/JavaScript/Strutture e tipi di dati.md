@@ -1,71 +1,63 @@
----
-date: 2025-12-04
-time: 08:14
----
-# Strutture e tipi di dati
+# Strutture e tipi di dati in JavaScript
 
-## Numeri interi
+JavaScript è un linguaggio a tipizzazione dinamica: una variabile può contenere valori di tipo diverso durante l'esecuzione. Il tipo del valore è importante nelle operazioni, nelle conversioni e nei confronti.
 
-Quando usiamo la funzione `Number()` il valore al so interno viene convertito in un numero equivalente
+## Tipi primitivi principali
 
-```js
-Number("10")
->10
-Numeber(null)
->0
-Number(false)
->0
-Number(true)
->1
+- `number`: numeri, sia interi sia con parte decimale; comprende `NaN` e `Infinity`.
+- `string`: sequenza di caratteri.
+- `boolean`: `true` o `false`.
+- `undefined`: valore tipico di una variabile dichiarata senza valore assegnato o di una proprietà assente.
+- `null`: assenza intenzionale di un valore.
+- `bigint` e `symbol`: tipi disponibili per casi d'uso specifici.
+
+Gli array e gli oggetti sono valori di tipo riferimento. `typeof null` restituisce storicamente `"object"`: è un comportamento del linguaggio, non indica che `null` sia un normale oggetto.
+
+## Conversioni esplicite
+
+```javascript
+Number("10");    // 10
+Number("abc");   // NaN
+Number(null);     // 0
+Number(false);    // 0
+Number(true);     // 1
+String(10);       // "10"
+Boolean(0);       // false
+Boolean("test"); // true
 ```
 
-Se il valore non può essere convertito in un valore numerico restituisce `NaN`
+`NaN` indica un risultato numerico non valido; per verificarlo usa `Number.isNaN(valore)`, non `valore === NaN`.
 
-## Stringhe
+## Stringhe e template literal
 
-Qualsiasi carattere numeri simboli e cosi via tra `" ' '` è una stringa 
-
-```js
-console.log("Hello World.");
->Hello World.
+```javascript
+const nome = "Ada";
+console.log("Ciao " + nome);
+console.log(`Ciao ${nome}`);
+console.log(`2 + 4 = ${2 + 4}`);
 ```
 
-Otteniamo lo stesso risultato se la stringa fosse contenuta in pedici singoli o altro carattere alcuni caratteri per essere stampati dobbiamo usare `\`
+I template literal usano i backtick `` ` `` e permettono di interpolare espressioni con `${...}`. Non è necessario usare le virgolette singole per l'interpolazione.
 
- ### Oggetto stringa
+## Valori truthy e falsy
 
-Quando viene chiama l'oggetto stringa `String` forza un valore  a essere specificato come una stringa
+I valori falsy principali sono `false`, `0`, `-0`, `0n`, `""`, `null`, `undefined` e `NaN`. Quasi tutti gli altri valori sono truthy, inclusi array vuoti `[]` e oggetti vuoti `{}`.
 
-```js
-let myString = String( 10 );
+## Array e oggetti
 
-myString
-> "10"
+```javascript
+const voti = [7, 8, 6];
+console.log(voti[0]); // 7
 
-typeof myString
-> string
+const studente = { nome: "Ada", classe: "3INF" };
+console.log(studente.nome);
 ```
 
-### Concatenazione
+Gli array sono indicizzati da zero. Per evitare errori controlla la lunghezza prima di accedere agli indici. Le proprietà di un oggetto si possono leggere con la notazione punto o con parentesi quadre.
 
-```js
-console.log( "My" + " string." );
-> My string.
-```
+## Uguaglianza
 
-Possiamo concatenare anche valori stringa e variabili utilizzando `${}`
-pero per fare cio serve `''`
+- `===` confronta senza conversione automatica dei tipi.
+- `==` può convertire i valori e produrre risultati meno intuitivi.
 
-```js
-console.log( `The result is ${ 2 + 4 }.` );
-> The result is 6.
-```
-
-## Valori booleani
-
-Possono avere due tipi di dati primitivi ovvero `true o false`
-
-I valori che generano `false` includono `0,null,undefined,NaN, ""` un valore omesso è un valore booleano `false` tutti gli altri generano `true`.
-
-## Riferimenti
-1. 
+Negli esercizi ordinari preferisci `===` e `!==`, salvo quando la conversione implicita è intenzionale e compresa.

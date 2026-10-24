@@ -1,72 +1,67 @@
----
-date: 2025-10-28
-time: 09:57
----
-# Sottoprogramma C Sharp
+# Metodi e sottoprogrammi in C#
 
-Sono dei programmi di istruzioni finite che servono per delle azioni ripetute che poi possono essere richiamate più volte nel codice esso svolge un compito specifico.
+Un metodo raggruppa istruzioni che svolgono un compito definito. Favorisce il riuso, la leggibilità, il test e la scomposizione top-down del problema.
 
-Che vengono inserite nello stack che contiene i sotto programmi 
+## Struttura
 
-Quando parliamo di funzione si intende un particole tipo di sottoprogramma la cui caratteristica principale è quella  di calcolare e fornire un risultato in uscita il risultato calcolato dalla funzione viene quindi ritornato al programma chiamante negli altri casi è una procedura.
-
-La funzione è un sottoprogramma che restituisce un valore oppure restituisce nessun valore.
-
-##### intestazione della funzione o firma
-
-```
-tipo di dato nome funzione(parametri)
+```csharp
+static tipoRitorno NomeMetodo(tipo parametro1, tipo parametro2)
 {
-	return
+    // istruzioni
+    return valore;
 }
 ```
 
-- Tipo di dato = se restituisce oppure void se non restituisce nome
-- Nome funzione = nome che viene richiamato 
-- Parametri = quello su cui andrà a lavorare la funzione
-- return  = restituisce una variabile dello stesso tipo di dato con cui e stata dichiarata la funzione se void non lo scrivo
+Se il metodo non restituisce un valore si usa `void` e non si restituisce un risultato con `return` (è comunque possibile usare `return;` per terminare il metodo).
 
-![[Variabili locali e globali C Sharp]]
+```csharp
+static int Somma(int a, int b)
+{
+    return a + b;
+}
 
-##### richiamare una funzione
+static void Main()
+{
+    int risultato = Somma(3, 4);
+    Console.WriteLine(risultato); // 7
+}
+```
 
-Per richiamare una funzione ci basta richiamare il suo nome inserendo i parametri e se ci da un return possiamo assegnarla ad una variabile in modo tale che il return della funzione sia uguale alla variabile
+- **Parametri formali:** quelli nella dichiarazione del metodo (`a`, `b`).
+- **Argomenti attuali:** i valori o le variabili passati nella chiamata (`3`, `4`).
+- **Tipo restituito:** deve corrispondere al valore restituito su ogni percorso che termina normalmente.
+- **Overload:** più metodi possono avere lo stesso nome se la firma dei parametri è diversa.
 
-##### parametri
+## Passaggio dei parametri
 
-I parametri specificati nella dichiarazione di una funzione sono **parametri formali** mentre quelli inseriti quando richiamiamo una funzione vengono detti **parametri attuali** e inizia il meccanismo per qui i formali vengono sostituite con gli attuali
+In C#, i parametri vengono passati per valore per impostazione predefinita. Per i tipi valore viene copiata la variabile; per i tipi riferimento viene copiata la *referenza* all'oggetto. Quindi un metodo può modificare lo stato dell'oggetto referenziato, ma riassegnare il parametro non riassegna la variabile del chiamante.
 
-Viene considerata la regola del NOT ovvero il numero di parametri formali dev'essere uguale al numero di parametri attuali il tipo che dev'essere uguale 
+```csharp
+static void Incrementa(int x) { x++; }
+int n = 5;
+Incrementa(n);
+// n è ancora 5
+```
 
-Passaggio di parametri:
-1. **Per valore**
-Quando un parametro viene passato **per valore**, il **valore della variabile originale viene copiato** in una nuova variabile (il **parametro formale** della funzione).
+Con `ref` il metodo riceve un parametro per riferimento alla variabile del chiamante; la variabile deve essere inizializzata prima della chiamata. Con `out` il metodo deve assegnare un valore prima di terminare normalmente.
 
-- `a` ha il valore `5` nel `main`.
-    
-- Quando chiami `incrementa(a)`, viene **copiato** il valore 5 in una nuova cella (il parametro `x`).
-    
-- Dentro la funzione modifichi `x`, **non** `a`.
-    
-- Quando la funzione finisce, la variabile `x` viene **deallocata**, e le modifiche **non si riflettono su `a`**.
+```csharp
+static void Incrementa(ref int x) { x++; }
+int n = 5;
+Incrementa(ref n);
+// n ora vale 6
+```
 
- 2. **Per referenza (per indirizzo)**
+Questa semantica è diversa dai puntatori del linguaggio C: in C# normalmente non si gestiscono indirizzi manualmente e un array non è semplicemente un puntatore.
 
-In questo caso, invece di passare il valore, **si passa l’indirizzo di memoria** della variabile.  
-La funzione riceve un **puntatore** e può modificare **direttamente** la variabile originale.
-Quando passo i parametri per referenza le modiche fatte sui parametri formali valgono anche dopo
+## Variabili locali e ambito
 
-- `a` ha il valore `5` nel `main`.
-    
-- `&a` è l’indirizzo di `a` (es. 0x7ffe...).
-    
-- Dentro la funzione `incrementa`, il parametro `x` contiene quell’indirizzo.
-    
-- Quando scrivi `*x = *x + 1`, vai in quella posizione di memoria e **modifichi il valore originale**.
-    
-- Al termine, `a` nel `main` è cambiato (ora vale 6).
+Una variabile locale esiste nel blocco in cui è dichiarata ed è accessibile secondo le regole di scope. Un campo di classe può essere condiviso tra metodi della stessa istanza. Preferisci la variabile con l'ambito più piccolo sufficiente al compito.
 
-Se vogliamo andare a caricare come parametro un vettore non serve passarlo per referenza anche se sarebbe logico farlo siccome un array e già un puntatore quindi passandolo per referenza creeremmo un puntatore che punta ad un altro puntatore che punta all' area di memoria 
+## Progettazione top-down
 
-## Riferimenti
-1. [[00 Top Down]]
+1. Descrivi il risultato richiesto.
+2. Dividi il problema in compiti più piccoli.
+3. Definisci metodi con responsabilità chiare e nomi descrittivi.
+4. Passa i dati necessari tramite parametri e restituisci i risultati.
+5. Prova ogni metodo con input normali e casi limite.

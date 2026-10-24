@@ -1,109 +1,68 @@
----
-date: 2025-10-17
-time: 08:12
----
 # Comandi Linux
 
-Con il comando **man** ci è possibile visualizzare tutte le informazioni riguardanti un certo comando per esempio tutti i metodi e cosa fanno come funziona e cosi via.
+La shell permette di interagire con il sistema operativo tramite comandi. Per sapere come funziona un comando puoi consultare `man nome_comando` oppure, quando disponibile, `nome_comando --help`.
 
-Con il comando **clear** è possibile eliminare tutto il contenuto del terminale scritto sino ad ora.
+## Navigazione
 
-Con il comando **date** è possibile visualizzare data e ora locale del sistema  
+| Comando | Funzione | Esempio |
+|---|---|---|
+| `pwd` | mostra la directory corrente | `pwd` |
+| `ls` | elenca file e directory | `ls -la` |
+| `cd` | cambia directory | `cd Documenti` |
+| `cd ..` | sale di un livello | `cd ..` |
+| `clear` | pulisce la schermata del terminale | `clear` |
+| `date` | mostra data e ora del sistema | `date` |
 
-1. Gestione file e directory
-### **pwd**
-Il comando `pwd` ci permette di vedere il percorso della cartella corrente in cui siamo 
-### **ls**
-Il comando `ls` ci permette di vedere tutto ciò che contiene la cartella corrente sia cartelle che file inclusi
-`ls -l` ci permette di vedere l'elenco di file compreso di permessi per i vari utenti 
+Un percorso che parte da `/` è assoluto. Un percorso relativo viene interpretato rispetto alla directory corrente. `.` indica la directory corrente e `..` quella superiore.
 
-### **cd**
-Il comando `cd` ci permette di spostarci tra le varie cartelle possiamo spostarci sia avanti nella cartella successiva semplicemente:
-```linux
-cd test_dir/
-```
+## File e directory
 
-oppure nella cartella precedente con:
-```
-cd ..
-```
-ogni puntino corrisponde a una cartella precedente se dovessimo tornare indietro di due cartelle `../..` per tornare due cartelle indietro
+| Comando | Funzione | Esempio |
+|---|---|---|
+| `mkdir` | crea una directory | `mkdir progetto` |
+| `rmdir` | elimina una directory vuota | `rmdir vecchia_cartella` |
+| `touch` | crea un file vuoto o aggiorna i timestamp | `touch note.txt` |
+| `cp` | copia | `cp origine.txt copia.txt` |
+| `mv` | sposta o rinomina | `mv vecchio.txt nuovo.txt` |
+| `rm` | rimuove file | `rm file.txt` |
+| `cat` | visualizza o concatena file | `cat note.txt` |
+| `less` | legge un file in modo scorrevole | `less note.txt` |
+| `head` / `tail` | mostra inizio/fine file | `tail -n 20 log.txt` |
 
-### **mkdir**
-Questo comando permette di creare una cartella nel seguente modo:
-```
-mkdir new_dir
-```
-Quindi come comando + nome cartella 
+**Attenzione:** `rm` elimina senza spostare nel cestino. `rm -r` può eliminare un'intera directory e il suo contenuto; controlla sempre il percorso prima di eseguirlo. Non copiare comandi distruttivi senza comprenderli.
 
-### **touch**
-Permette di creare un file vuoto nel seguente modo:
-```
-touch file1.txt
-```
-crea un file1 completamente vuoto
-### **cp**
-Copia un file dalla cartella corrente ad un percorso inserito
-```shell
-cp file.txt ../file
-```
-In questo modo possiamo copiare il primo file nella cartella file che si trova nella cartella corrente `../` 
-### **mv**
-Il comando ci permette di rinominare e spostare dei file tra una cartella e l'altra per esempio posso cambiare il nome del file  nel seguente modo:
-```
-mv file1.txt file_r_1.txt
-```
-Quindi modifica il nome del file1 in file_r_1
+## Ricerca e filtri
 
-### **rm**
-Rimuovere un file dalla cartella corrente nel seguente modo:
-```
-rm file1.txt
-```
-posso anche rimuovere più file di fila aggiungendo i nomi uno dopo l'altro:
-```
-rm file1.txt file2.txt file3.txt ...
+```bash
+find . -name "*.c"
+grep -n "main" programma.c
+ls -la | less
 ```
 
-Posso anche rimuovere il cartelle vuote nel seguente modo:
+- `find` ricerca file e directory a partire da un percorso.
+- `grep` cerca righe che corrispondono a un testo o a un'espressione.
+- `|` (pipe) passa l'output di un comando come input al successivo.
+
+## Reindirizzamento
+
+```bash
+comando > output.txt     # crea/sovrascrive l'output
+comando >> output.txt    # aggiunge in fondo
+comando < input.txt      # usa il file come input
 ```
-rm -d dir1
-```
-solo se vuota.
 
-Posso rimuovere le cartelle piene nel seguente modo:
-```
-rm -r dir2
-```
-se è piena eliminerà anche i. contenuto di essa
+Lo standard output e lo standard error sono flussi distinti. `2>` consente di reindirizzare gli errori in modo separato.
 
-### **rmdir**
-Usiamo questo comando per eliminare delle cartelle vuote:
-```
-rmdir dir1
-```
-con questo comando non posso rimuovere le cartelle piene siccome non è progettato per questo 
-### **cat** 
-Visualizzare il contenuto di un file
+## Utenti, gruppi e permessi
 
-### **less**
-Visualzizzare il contenuto di un file scorrendolo dall'interno
+- `whoami`: utente corrente.
+- `id`: UID, GID e gruppi associati.
+- `chmod`: modifica i permessi.
+- `chown`: cambia il proprietario (richiede spesso privilegi).
+- `sudo`: esegue un comando con privilegi elevati se autorizzato.
 
-### **more**
-Abbinato al cat/less pemette di visualizzare a pagine il contenuto del file 
+I permessi base sono lettura (`r`), scrittura (`w`) ed esecuzione (`x`) per proprietario, gruppo e altri. Approfondisci nelle note [Permessi in Linux](Permessi%20in%20Linux.md) e [Utenti](Utenti.md).
 
-### **tail**
-Visualizzare il contenuto del file dal fondo
+## Codice di uscita
 
-2. Funzioni di ricerca
-
-### **find**
-Ricerca di un file all'interno di una cartella
-2. Gestione di file compressi
-3. Gestione Informazioni S.O.
-4. Gestione amministrazione utenti
-5. Eseguire comandi
-
-## Riferimenti
-
-1. 
+Un programma restituisce un codice di uscita: per convenzione `0` indica successo, mentre valori non zero indicano un errore o un esito specifico. `echo $?` mostra il codice dell'ultimo comando eseguito.

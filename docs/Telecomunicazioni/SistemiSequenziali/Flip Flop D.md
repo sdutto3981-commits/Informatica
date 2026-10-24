@@ -1,17 +1,27 @@
----
-date: 2025-11-11
-time: 11:39
----
-# Flip Flop D
+# Flip-flop D
 
-Il flip flop di tipo D  ha solo un ingresso per capire su che fronte è attivo ci basta vedere se ce la presenza del pallino davanti alla variabile del clock:
+Il flip-flop D memorizza il valore dell'ingresso `D` al fronte attivo del clock. Tra un fronte attivo e il successivo l'uscita `Q` mantiene il valore memorizzato.
 
-Nel caso del flip flop D sarà così quindi quando siamo sul fronte attivo dobbiamo modificare i valori siccome non è presente lo stato di memoria mentre per gli altri stati abbiamo memoria quindi l'atro fronte sara su stato di meomoria
+## Tabella caratteristica
 
-| D   | CK                       | Q(i) |
-| --- | ------------------------ | ---- |
-| 0   | $\rightarrow \downarrow$ | 0    |
-| 1   | $\rightarrow \downarrow$ | 1    |
+Per un flip-flop attivato sul fronte di salita:
 
-## Riferimenti
-1. 
+| Fronte del clock | D | Q successivo |
+|---|---:|---:|
+| Fronte di salita | 0 | 0 |
+| Fronte di salita | 1 | 1 |
+| Nessun fronte attivo | X | Q precedente |
+
+`X` significa che in quella riga l'ingresso può avere qualunque valore: senza fronte attivo non viene campionato.
+
+La relazione caratteristica si scrive `Q(t+1) = D` al fronte attivo. Se il dispositivo è attivato sul fronte di discesa, l'aggiornamento avviene al fronte opposto. Simbolo, pallino e triangolo del clock indicano la modalità secondo la convenzione grafica adottata.
+
+## Differenza tra latch e flip-flop
+
+Un latch sensibile al livello può seguire l'ingresso quando il segnale di abilitazione è attivo; un flip-flop edge-triggered campiona al fronte del clock. Non confondere il fronte di salita con quello di discesa.
+
+## Applicazioni
+
+- memorizzazione di un bit;
+- registri composti da più flip-flop;
+- sincronizzazione e pipeline digitali (con le cautele di progetto appropriate).

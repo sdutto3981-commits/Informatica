@@ -1,57 +1,63 @@
----
-date: 2025-10-08
-time: 12:21
----
-# Array
+# Array in C#
 
-L'array ha una dimensione predefinita o data da me oppure chiesta in input.
-#### Scorrimento
-Posso cercare un valore se sappiamo la posizione lo troviamo come nome del vettore più posizione oppure altrimenti scorriamo  l'intero vettore.
-#### Modifica
-Volendo modificare un valore in una posizione se già occupata il valore viene sostituito.
-#### Caricamento vettore
-Posso chiedere in input la lunghezza del vettore e poi usando un ciclo for richiedere ogni valori nella posizione da `i=0`  a `i<n` e aggiungere un valore in posizione i rispetto l vettore `v [i]` 
+Un array contiene un numero determinato di elementi tutti dello stesso tipo. Gli indici partono da `0`; per un array di lunghezza `n`, l'ultimo indice valido è `n - 1`.
 
-La dichiarazione di questi vettori avviene all'interno della RAM dove viene allocata della memoria rispetto a un indirizzo quindi quella parte della memoria viene riservata quindi quando usiamo `new` ci porta a questo indirizzo per salvare i dati del vettore  
+## Dichiarazione e inizializzazione
 
-Volessimo copiare il vet1 sul vet2 dobbiamo usare un ciclo for per fare scorrere il primo e copiare quei valori dall'indice del vettore uno altro:
-```C#
-for(i=0;i<vet1.Lenght;i++){
-	vet1[i] = vet2[i]
-}
+```csharp
+int[] numeri = new int[5];          // cinque interi, inizializzati al valore predefinito
+int[] voti = { 7, 8, 6, 9 };
 ```
 
+La dimensione di un array esistente non cambia. `Length` restituisce il numero di elementi.
 
-#### Codifica
+## Caricamento e visualizzazione
 
-```C#
-//Dichiarazione con lunghezza
-int[] vet = new int[10];
-
-//Dichiarazione senza lungezza
-
-int[] vet;
-int dim;
-
-Console.WriteLine("Dimmi la dimesione de vettore-> ");
-dim = Convet.ToInt32(Console.ReadLine());
-vet = new int[dim];
-
-//Caricamento del vettore
-for(i=0; i<dim; i++){
-	Console.Write("Dimmi l'elemento di indice {0} del vettore", i);
-	vet[i] = Convert.ToInt32(Console.ReadLine());
+```csharp
+int[] v = new int[3];
+for (int i = 0; i < v.Length; i++)
+{
+    Console.Write($"Inserisci v[{i}]: ");
+    if (!int.TryParse(Console.ReadLine(), out v[i]))
+    {
+        Console.WriteLine("Valore non valido.");
+        return;
+    }
 }
 
-//Visualizzazione del vettore
-for(i=0;i<vet.Lenght;i++){
-	Console.WriteLine("v[{0}]->{1}",i,v[i]);
-}
-
-Console.ReadKey();
+for (int i = 0; i < v.Length; i++)
+    Console.WriteLine($"v[{i}] = {v[i]}");
 ```
 
+`TryParse` evita un'eccezione in caso di input non numerico. Per esercizi che richiedono `Convert.ToInt32`, ricordati che l'input non valido può produrre un errore.
 
-## Riferimenti
-1. [[WikiPediaArray]]
-2. [[Array nella RAM]]
+## Lettura e modifica
+
+```csharp
+int x = v[0];
+v[0] = 42;
+```
+
+Assegnare a una posizione già occupata sostituisce il valore esistente.
+
+## Copiare un array
+
+L'assegnazione `int[] b = a;` copia il riferimento all'array, non crea una seconda copia indipendente.
+
+```csharp
+int[] copia = new int[v.Length];
+for (int i = 0; i < v.Length; i++)
+    copia[i] = v[i];
+```
+
+Oppure, quando consentito dal percorso, si può usare `Array.Copy(v, copia, v.Length)`.
+
+## Errori frequenti
+
+- usare `i <= v.Length` al posto di `i < v.Length`;
+- confondere indice e numero di elementi;
+- dimenticare di inizializzare una variabile di indice;
+- credere che l'assegnazione di un array crei automaticamente una copia;
+- usare un array di lunghezza zero senza gestirne il caso.
+
+Per matrici consulta [Matrici](Matrici.md) e per la ricerca [Ricerca e ordinamento](../AlgoritmiFondamentali/Ricerca%20e%20ordinamento.md).

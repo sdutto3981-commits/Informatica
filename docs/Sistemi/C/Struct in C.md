@@ -1,29 +1,46 @@
----
-date: 2026-04-10
-time: 08:54
----
-# Struct in C
+# Strutture (`struct`) in C
 
-## Indice
+Una `struct` consente di raggruppare campi di tipi differenti in un unico oggetto.
 
-1. 
----
-## Struct
+## Dichiarazione e uso
 
 ```c
-struct Persona{
-	char nome[30];
-	int eta;
-	float altezza;
+#include <stdio.h>
+
+struct Persona {
+    char nome[30];
+    int eta;
+    float altezza;
+};
+
+int main(void)
+{
+    struct Persona p = {"Ada", 18, 1.68f};
+    printf("%s: %d anni, %.2f m\n", p.nome, p.eta, p.altezza);
+    return 0;
 }
 ```
 
+Attenzione al punto e virgola dopo la definizione di `struct`. I campi si accedono con l'operatore `.`; se si dispone di un puntatore alla struttura, si usa `->`.
 
-Posso avere anche degli array di strutturre nel seguente modo:
+## Array di strutture
 
 ```c
-struct Persona persone[5]; 
+struct Persona persone[5];
+persone[0].eta = 17;
 ```
 
-## Riferimenti
-1. 
+L'array contiene cinque strutture, indicizzate da `0` a `4`. Prima di utilizzare un campo, assicurati che abbia ricevuto un valore valido. Le stringhe C sono array di `char` terminati da `\0`; la capacità dell'array deve comprendere anche il terminatore.
+
+## `typedef` (opzionale)
+
+```c
+typedef struct {
+    int codice;
+    float prezzo;
+} Prodotto;
+
+Prodotto p;
+```
+
+`typedef` crea un alias di tipo, evitando di scrivere `struct` ad ogni dichiarazione.

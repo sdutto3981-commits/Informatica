@@ -1,29 +1,47 @@
----
-date: 2025-10-31
-time: 08:18
----
-# Introduzione C
+# Introduzione al linguaggio C
 
-```C
+C è un linguaggio compilato. Un programma sorgente viene tradotto in un file eseguibile attraverso le fasi di preelaborazione, compilazione, assemblaggio e collegamento (i dettagli dipendono dalla toolchain).
+
+## Programma minimo
+
+```c
 #include <stdio.h>
 
-int main()
+int main(void)
 {
-	int a, b, s;
-	scanf("%d",&a); //puntatore allo spazio della variabile
-	scanf("%d",&b);
-	s = a+b
-	printf("%d",s) //non serve un puntatore ma solo il suo valore
-	return 0;
+    int a;
+    int b;
+
+    printf("Inserisci due interi: ");
+    if (scanf("%d %d", &a, &b) != 2) {
+        fprintf(stderr, "Input non valido.\n");
+        return 1;
+    }
+
+    printf("Somma: %d\n", a + b);
+    return 0;
 }
 ```
 
-Scritto il codice su nano bisogna compilare il file
+- `#include <stdio.h>` rende disponibili le dichiarazioni di input/output standard.
+- `main` è il punto d'ingresso del programma hosted standard.
+- `scanf` riceve gli indirizzi delle variabili con `&`; occorre verificare quanti valori sono stati letti.
+- `printf` riceve i valori da visualizzare. `%d` è il formato per un `int`.
+- `return 0` segnala normalmente il completamento corretto.
 
- - `gcc nomefile.c -o nomefile`
+## Compilare con GCC
 
-Questo crea un file eseguibile che può essere avviato nel tem
+```bash
+gcc -std=c90 -Wall -Wextra -pedantic programma.c -o programma
+./programma
+```
 
+Il comando usa C90 (ANSI C) per esercitarsi con uno standard classico. Usa le opzioni richieste dal docente. Gli avvisi del compilatore aiutano a individuare problemi: non ignorarli senza averne capito il motivo.
 
-## Riferimenti
-1. 
+## Errori comuni
+
+- dimenticare `;` alla fine di un'istruzione;
+- dimenticare `&` in una chiamata a `scanf` per una variabile scalare;
+- usare specificatori di formato non coerenti con il tipo;
+- non controllare il risultato delle funzioni di input e apertura file;
+- confondere `=` (assegnazione) con `==` (confronto).
