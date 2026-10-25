@@ -1,0 +1,96 @@
+# ========================================
+# MkDocs: sito generato e cache
+# ========================================
+/site/
+/.cache/
+
+# ========================================
+# Python: cache e ambienti virtuali
+# ========================================
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+env/
+ENV/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# ========================================
+# Obsidian: impostazioni personali e cache
+# ========================================
+/.obsidian/workspace.json
+/.obsidian/workspace-mobile.json
+/.obsidian/cache/
+/.obsidian/graph.json
+
+# Cestino di Obsidian
+/.trash/
+
+# ========================================
+# Report temporanei di audit e riparazione
+# ========================================
+/AUDIT_LINKS.md
+/REPAIR_AUDIT.md
+/REPAIR_PLAN.md
+/REPAIR_REPORT.md
+
+# Backup locali di riparazione
+/.repair-backup/
+
+# ========================================
+# Variabili d'ambiente e segreti
+# ========================================
+.env
+.env.*
+!.env.example
+
+# ========================================
+# File temporanei degli editor
+# ========================================
+*.swp
+*.swo
+*~
+*.tmp
+*.bak
+*.orig
+
+# Visual Studio Code: impostazioni personali
+.vscode/
+
+# JetBrains IDE
+.idea/
+
+# ========================================
+# File generati dal sistema operativo
+# ========================================
+.DS_Store
+.DS_Store?
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+Icon?
+
+# ========================================
+# Log e file temporanei
+# ========================================
+*.log
+*.temp
+
+# ========================================
+# Pacchetti e distribuzioni locali
+# ========================================
+dist/
+build/
+*.egg-info/
+
+# ========================================
+# Altri strumenti di sviluppo
+# ========================================
+.npm/
+node_modules/
