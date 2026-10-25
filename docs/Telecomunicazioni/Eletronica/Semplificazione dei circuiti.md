@@ -39,6 +39,7 @@ $$
 **Passaggio 3 calcolare la corrente totale**
 
 Applicare la legge di ohm all'intero circuito:
+
 $$
 I_{tot}=\frac{V}{R_eq}=\frac{12}4=3A
 $$
@@ -47,33 +48,44 @@ Questa corrente attraversa $R_1$ siccome è in serie al resto del circuito
 
 **Passaggio 4 calcolare le tensioni**
 Ai capi di $R_1$:
+
 $$
 V_1=r_1*I_{tot}=2*3=6V
 $$
+
 La tensione sul parallelo è:
+
 $$
 V_{23}=12-6=6V
 $$
+
 Poichè $R_2$ e $R_3$ sono in parallelo:
+
 $$
 V_2=V_3=6V
 $$
 
 **Passaggio 5 calcolare le correnti dei rami**
 Per $R_2$:
+
 $$
 I_2=\frac66=1A
 $$
+
 Per $R_3$:
+
 $$
 I_3=\frac63=2A
 $$
+
 Verifica con legge di kirchoof delle correnti:
+
 $$
 I_{tot}=I_2+I_3=1+2=3A
 $$
 
 **Passaggio 6 calcolare le potenze**
+
 $$
 P_1=R_1*I_1^2=2*3^2=18W \\
 P_2=R_2*I_2^2=6*1^2=6W\\
@@ -81,10 +93,13 @@ P_3=R_3*I_3^2=3*2^2=12W
 $$
 
 La potenza erogata dal generatore è:
+
 $$
 P_G =V*I_{tot}=21*3=36W
 $$
+
 Verifica:
+
 $$
 P_1+P_2+P_3=18+6+12=36W
 $$
