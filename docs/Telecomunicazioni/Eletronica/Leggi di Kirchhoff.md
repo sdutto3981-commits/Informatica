@@ -15,6 +15,7 @@ Bisogna considerare i segni delle tensioni: attraversare un generatore da un ter
 ### Esempio
 
 Una magli aè composta da un generatore da 12V e da due resistori  in serie i quali cadono 5V e 7V scegliendo il verso di percorrenza coerente:
+
 $$
 +12-5-7=0
 $$
