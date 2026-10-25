@@ -5,10 +5,13 @@ La potenza eletrica indica quanta energia viene trasferita o trasformata nell'un
 !!!note Il simpolo è **P** e l'unità di misura è il watt (W)
 
 La formula principale per il calcolo della potenza è:
+
 $$
 \boxed{P=V*I}
 $$
+
 Se partiamo da questa formual de andiamo ad applicare la legge di ohm in caso non si conoscano V o I possiamo andare a sostituirli con le loro formule precedentemente viste:
+
 $$
 \text{Se} \ V=R*I \\
 \text{E noi per calcolare la potenza dobbiamo andare a trovare V la formula diventa} \\
@@ -31,6 +34,7 @@ $$
 ## Generatore e resistori
 
 In un circuito in corrente contunita costituito da un generatore ideale e resistore, la potenza eerogata dal generatore è uguale alla somma delle potenze dissipiate dai resistori:
+
 $$
 \boxed{P_{\text{generata}}=\sum P_{\text{dissipata}}}
 $$
@@ -40,6 +44,7 @@ Questo è un modo per verificare i risultati dei calcoli.
 ### Esempio
 
 Se un generatore eroga 36W e due resistori dissipano rispettivamente 10W e 26W il bilancio torna perchè:
+
 $$
 36=10+26
 $$
