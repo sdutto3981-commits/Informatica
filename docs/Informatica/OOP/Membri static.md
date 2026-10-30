@@ -32,6 +32,24 @@ public class Sessione
 
 Il contatore è condiviso tra le istanze. In applicazioni concorrenti, un aggiornamento condiviso può richiedere sincronizzazione.
 
+Questo compoente static viene condiviso da tutti gli oggetti della classe per far si che esso rimanga distanziato solo una volta devo andare a condizionare il metodo costruttore per far si che venga istanziato solo una volta alla primo costruttore dell oggetto di quella classe:
+
+```csharp
+public class Componente:
+{
+    private int _id;
+    private static Dictionary<int, string>() _comps;
+
+    public Componente(int id)
+    {
+        if (_compos == null):
+            _comps = new Dictionary<int, string>();
+        this._id = id;
+    }
+}
+```
+
+
 ## Quando usare `static`
 
 Usalo quando l'operazione non dipende dallo stato di una singola istanza oppure quando un valore è veramente condiviso. Evita di trasformare ogni dato in statico: stato globale condiviso rende il codice più difficile da testare e comprendere.
