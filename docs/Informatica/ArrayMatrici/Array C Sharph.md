@@ -34,4 +34,4 @@ copia[0] = 99;
 // originale[0] resta 2.
 ```
 
-Per scansioni, minimi/massimi, ricerca e ordinamento consulta [Array e matrici](index.md) e [Algoritmi fondamentali](../AlgoritmiFondamentali/index.md).
+Per scansioni, minimi/massimi, ricerca e ordinamento consulta [Array e matrici](docs/Informatica/ArrayMatrici/index.md) e [Algoritmi fondamentali](../AlgoritmiFondamentali/index.md).

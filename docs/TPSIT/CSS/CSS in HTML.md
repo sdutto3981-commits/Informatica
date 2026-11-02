@@ -15,4 +15,4 @@ body {
 }
 ```
 
-Il percorso nel `href` deve essere corretto; un CSS caricato male può essere verificato nella scheda Network degli strumenti per sviluppatori del browser. Vedi [CSS](index.md) per cascata, selettori e layout.
+Il percorso nel `href` deve essere corretto; un CSS caricato male può essere verificato nella scheda Network degli strumenti per sviluppatori del browser. Vedi [CSS](docs/TPSIT/CSS/index.md) per cascata, selettori e layout.
