@@ -17,6 +17,8 @@ La programmazione orientata agli oggetti (OOP) organizza il codice intorno a **o
 11. [Composizione e relazioni](Composizione%20e%20relazioni.md)
 12. [Metodi di `object` e uguaglianza](Object%20ToString%20Equals.md)
 13. [Esercizio completo: biblioteca](Esercizio%20OOP%20biblioteca.md)
+14. [Modello dei casi d'uso](ModelliDeiCasiDuso.md)
+15. [Event Trace](EventTrace.md)
 
 ## Regole di progettazione
 

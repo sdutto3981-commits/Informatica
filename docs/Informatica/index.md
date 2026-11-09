@@ -8,4 +8,5 @@ Appunti su problem solving, algoritmi, programmazione strutturata in C# e proget
 - [C#](cSharph/index.md)
 - [Programmazione orientata agli oggetti (OOP)](OOP/index.md)
 
+
 Percorso consigliato: analisi del problema → diagramma di flusso → codice e metodi → array/algoritmi → classi e oggetti → interfaccia visuale e file.
